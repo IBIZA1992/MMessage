@@ -14,6 +14,7 @@
 		A8E598CD288F8D6F00018BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E598CC288F8D6F00018BDF /* Assets.xcassets */; };
 		A8E598D0288F8D6F00018BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */; };
 		A8E598D3288F8D6F00018BDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598D2288F8D6F00018BDF /* main.m */; };
+		A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598DA288F8EB500018BDF /* MMScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A8E598CF288F8D6F00018BDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8E598D1288F8D6F00018BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8E598D2288F8D6F00018BDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8E598D9288F8EB500018BDF /* MMScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMScreen.h; sourceTree = "<group>"; };
+		A8E598DA288F8EB500018BDF /* MMScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */,
 				A8E598D1288F8D6F00018BDF /* Info.plist */,
 				A8E598D2288F8D6F00018BDF /* main.m */,
+				A8E598D9288F8EB500018BDF /* MMScreen.h */,
+				A8E598DA288F8EB500018BDF /* MMScreen.m */,
 			);
 			path = MMessage;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
+				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
