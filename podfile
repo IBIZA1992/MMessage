@@ -1,0 +1,8 @@
+target 'MMessage' do 
+	pod 'AFNetworking'
+	pod 'SDWebImage'
+	pod 'MJRefresh'
+	pod 'SDAutoLayout'
+	pod 'FLEX', :configurations => ['Debug']
+	pod 'JMessage'
+end
