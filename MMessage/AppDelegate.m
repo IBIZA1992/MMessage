@@ -6,8 +6,9 @@
 //
 
 #import "AppDelegate.h"
+#import <JMessage/JMessage.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<JMessageDelegate>
 
 @end
 
@@ -15,10 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Required - 启动 JMessage SDK
+//    [JMessage setupJMessage:launchOptions appKey:@"a22033c28155ecb6e5dab352" channel:nil apsForProduction:NO category:nil];
+    [JMessage setupJMessage:launchOptions appKey:@"a22033c28155ecb6e5dab352" channel:nil apsForProduction:NO category:nil messageRoaming:NO];
+    
+    [JMessage addDelegate:self withConversation:nil];
+    
+//    [JMSGUser loginWithUsername:@"IBIZA" password:@"123456" completionHandler:^(id resultObject, NSError *error) {
+//        NSLog(@"");
+//    }];
+
+    
     return YES;
 }
-
 
 #pragma mark - UISceneSession lifecycle
 
@@ -35,6 +45,5 @@
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
-
 
 @end

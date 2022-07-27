@@ -21,6 +21,19 @@
 /* Begin PBXFileReference section */
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
+		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A8AA33C2288FF6BA00F739C8 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A8AA33C4288FF6C100F739C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A8AA33C6288FF6C900F739C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A8AA33C8288FF6D100F739C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A8AA33CA288FF6D700F739C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A8AA33CC288FF6DD00F739C8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A8AA33CE288FF6E300F739C8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A8AA33D0288FF71300F739C8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A8AA33D2288FF71E00F739C8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		A8AA33D4288FF72600F739C8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		A8D3A38928901179001CC821 /* MMessageDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMessageDebug.entitlements; sourceTree = "<group>"; };
+		A8D3A38A2890119B001CC821 /* MMessage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMessage.entitlements; sourceTree = "<group>"; };
 		A8E598BD288F8D6E00018BDF /* MMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E598C0288F8D6E00018BDF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8E598C1288F8D6E00018BDF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,13 +69,23 @@
 				6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */,
 				E5E447D0AC7C3F535AD28135 /* Pods-MMessage.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		63C1987B9C143D74CE754D26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8AA33D4288FF72600F739C8 /* libresolv.tbd */,
+				A8AA33D2288FF71E00F739C8 /* libsqlite3.0.tbd */,
+				A8AA33D0288FF71300F739C8 /* libz.tbd */,
+				A8AA33CE288FF6E300F739C8 /* MobileCoreServices.framework */,
+				A8AA33CC288FF6DD00F739C8 /* AudioToolbox.framework */,
+				A8AA33CA288FF6D700F739C8 /* Security.framework */,
+				A8AA33C8288FF6D100F739C8 /* CFNetwork.framework */,
+				A8AA33C6288FF6C900F739C8 /* SystemConfiguration.framework */,
+				A8AA33C4288FF6C100F739C8 /* CoreGraphics.framework */,
+				A8AA33C2288FF6BA00F739C8 /* CoreAudio.framework */,
+				A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */,
 				4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */,
 			);
 			name = Frameworks;
@@ -89,6 +112,8 @@
 		A8E598BF288F8D6E00018BDF /* MMessage */ = {
 			isa = PBXGroup;
 			children = (
+				A8D3A38A2890119B001CC821 /* MMessage.entitlements */,
+				A8D3A38928901179001CC821 /* MMessageDebug.entitlements */,
 				A8E598C0288F8D6E00018BDF /* AppDelegate.h */,
 				A8E598C1288F8D6E00018BDF /* AppDelegate.m */,
 				A8E598C3288F8D6E00018BDF /* SceneDelegate.h */,
@@ -117,7 +142,7 @@
 				A8E598B9288F8D6E00018BDF /* Sources */,
 				A8E598BA288F8D6E00018BDF /* Frameworks */,
 				A8E598BB288F8D6E00018BDF /* Resources */,
-				FC9D22663D9ADD1C8940AD77 /* [CP] Copy Pods Resources */,
+				3E6B88AE3A67296D4E753947 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,6 +199,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E6B88AE3A67296D4E753947 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EE597AC47660093182536B23 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,23 +236,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC9D22663D9ADD1C8940AD77 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MMessage/Pods-MMessage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -366,8 +391,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MMessage/MMessageDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -393,8 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MMessage/MMessage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
