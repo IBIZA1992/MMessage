@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172028919E9F00F52DE5 /* DJLoginViewController.m */; };
+		358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172328919EAE00F52DE5 /* DJRegisterViewController.m */; };
+		358B172728919ECF00F52DE5 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172628919ECF00F52DE5 /* LoginView.m */; };
+		358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172A28919EFB00F52DE5 /* DJRegisterView.m */; };
 		A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C1288F8D6E00018BDF /* AppDelegate.m */; };
 		A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C4288F8D6E00018BDF /* SceneDelegate.m */; };
 		A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C7288F8D6E00018BDF /* ViewController.m */; };
@@ -19,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		358B171F28919E9F00F52DE5 /* DJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginViewController.h; sourceTree = "<group>"; };
+		358B172028919E9F00F52DE5 /* DJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoginViewController.m; sourceTree = "<group>"; };
+		358B172228919EAE00F52DE5 /* DJRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJRegisterViewController.h; sourceTree = "<group>"; };
+		358B172328919EAE00F52DE5 /* DJRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJRegisterViewController.m; sourceTree = "<group>"; };
+		358B172528919ECF00F52DE5 /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		358B172628919ECF00F52DE5 /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		358B172928919EFB00F52DE5 /* DJRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJRegisterView.h; sourceTree = "<group>"; };
+		358B172A28919EFB00F52DE5 /* DJRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJRegisterView.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -63,6 +75,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358B171B28919E5100F52DE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8E598D9288F8EB500018BDF /* MMScreen.h */,
+				A8E598DA288F8EB500018BDF /* MMScreen.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		358B171C28919E5D00F52DE5 /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				358B171E28919E8A00F52DE5 /* View */,
+				358B171D28919E8400F52DE5 /* Controller */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		358B171D28919E8400F52DE5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				358B171F28919E9F00F52DE5 /* DJLoginViewController.h */,
+				358B172028919E9F00F52DE5 /* DJLoginViewController.m */,
+				358B172228919EAE00F52DE5 /* DJRegisterViewController.h */,
+				358B172328919EAE00F52DE5 /* DJRegisterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		358B171E28919E8A00F52DE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				358B172528919ECF00F52DE5 /* LoginView.h */,
+				358B172628919ECF00F52DE5 /* LoginView.m */,
+				358B172928919EFB00F52DE5 /* DJRegisterView.h */,
+				358B172A28919EFB00F52DE5 /* DJRegisterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A361FF91F0C730D98AA28AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +177,8 @@
 				A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */,
 				A8E598D1288F8D6F00018BDF /* Info.plist */,
 				A8E598D2288F8D6F00018BDF /* main.m */,
-				A8E598D9288F8EB500018BDF /* MMScreen.h */,
-				A8E598DA288F8EB500018BDF /* MMScreen.m */,
+				358B171C28919E5D00F52DE5 /* LoginAndRegister */,
+				358B171B28919E5100F52DE5 /* Model */,
 			);
 			path = MMessage;
 			sourceTree = "<group>";
@@ -245,11 +297,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
+				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
+				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
+				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

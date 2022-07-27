@@ -16,15 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Required - 启动 JMessage SDK
-//    [JMessage setupJMessage:launchOptions appKey:@"a22033c28155ecb6e5dab352" channel:nil apsForProduction:NO category:nil];
+ 
     [JMessage setupJMessage:launchOptions appKey:@"a22033c28155ecb6e5dab352" channel:nil apsForProduction:NO category:nil messageRoaming:NO];
     
     [JMessage addDelegate:self withConversation:nil];
     
-//    [JMSGUser loginWithUsername:@"IBIZA" password:@"123456" completionHandler:^(id resultObject, NSError *error) {
-//        NSLog(@"");
-//    }];
+    [JMSGUser registerWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
+        NSLog(@"");
+        [JMSGUser loginWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
+            NSLog(@"");
+        }];
+    }];
+    
+
 
     
     return YES;
