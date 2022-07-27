@@ -87,8 +87,8 @@
 		358B171C28919E5D00F52DE5 /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
-				358B171E28919E8A00F52DE5 /* View */,
 				358B171D28919E8400F52DE5 /* Controller */,
+				358B171E28919E8A00F52DE5 /* View */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";

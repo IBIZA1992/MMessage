@@ -6,6 +6,7 @@
 //
 
 #import "DJRegisterView.h"
+#import "MMScreen.h"
 
 @implementation DJRegisterView
 
@@ -87,7 +88,7 @@
     
     _btnback = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnback setFrame:CGRectMake(19,60,30,30)];
-    [_btnback setBackgroundImage:[UIImage imageNamed:@"水培返回"] forState:UIControlStateNormal];
+    [_btnback setBackgroundImage:[UIImage imageNamed:@"backR"] forState:UIControlStateNormal];
     [self addSubview:_btnback];
 }
 

@@ -15,11 +15,11 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    
+    /**创建窗口*/
     UIWindowScene *windowscene=(UIWindowScene*)scene;
     self.window=[[UIWindow alloc] initWithWindowScene:windowscene];
     self.window.frame=windowscene.coordinateSpace.bounds;
-    
+    //设置根控制器
     UINavigationController *nav=[[UINavigationController alloc] init];
     DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
     [nav pushViewController:loginVC animated:YES];
