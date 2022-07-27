@@ -16,6 +16,7 @@
 				BDCA54D46A6A35ABB8F43F733AA8732D /* PBXTargetDependency */,
 			);
 			name = JMessage;
+			productName = JMessage;
 		};
 		D504B99928659EA67A1C3A9E981EB8FF /* JCore */ = {
 			isa = PBXAggregateTarget;
@@ -25,6 +26,7 @@
 			dependencies = (
 			);
 			name = JCore;
+			productName = JCore;
 		};
 /* End PBXAggregateTarget section */
 
@@ -666,7 +668,7 @@
 		16A509126841D8E05DF80A0A26B30A23 /* UIColor+SDHexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SDHexString.m"; path = "SDWebImage/Private/UIColor+SDHexString.m"; sourceTree = "<group>"; };
 		16A836E3A6A7F32E0A3EA8FA47CCE567 /* FLEXUIAppShortcuts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXUIAppShortcuts.h; path = Classes/ObjectExplorers/Sections/Shortcuts/FLEXUIAppShortcuts.h; sourceTree = "<group>"; };
 		16B40C2E925A41B23E4FA4FA78CE890A /* SceneKit+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SceneKit+Snapshot.h"; path = "Classes/ViewHierarchy/SnapshotExplorer/Scene/SceneKit+Snapshot.h"; sourceTree = "<group>"; };
-		16F486CA620764CCBD4F319D8A1C3B6B /* FLEXFirebaseTransaction.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = FLEXFirebaseTransaction.mm; path = Classes/Network/FLEXFirebaseTransaction.mm; sourceTree = "<group>"; };
+		16F486CA620764CCBD4F319D8A1C3B6B /* FLEXFirebaseTransaction.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = FLEXFirebaseTransaction.mm; path = Classes/Network/FLEXFirebaseTransaction.mm; sourceTree = "<group>"; };
 		17AD34C64C459D3EB10A3AEC3EB98CE6 /* JCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JCore.debug.xcconfig; sourceTree = "<group>"; };
 		1848DD3506E249514084A2AAA8C0004A /* FLEXMethodCallingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXMethodCallingViewController.m; path = Classes/Editing/FLEXMethodCallingViewController.m; sourceTree = "<group>"; };
 		18C193AC4353916601EE5261DBD2FC4C /* FLEXMethodBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXMethodBase.h; path = Classes/Utility/Runtime/Objc/Reflection/FLEXMethodBase.h; sourceTree = "<group>"; };
@@ -782,7 +784,7 @@
 		4A349CCC49E270C7A3538ADE5021BAB2 /* FLEXMutableListSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXMutableListSection.m; path = Classes/ObjectExplorers/Sections/FLEXMutableListSection.m; sourceTree = "<group>"; };
 		4A385C5734BDFF9C78CB03D55EC5CE5A /* FLEXLiveObjectsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXLiveObjectsController.m; path = Classes/GlobalStateExplorers/FLEXLiveObjectsController.m; sourceTree = "<group>"; };
 		4A58B958E1820097599F5A76F5C365FE /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
-		4AC7180564FE35A293CD0DD977EE56A8 /* FLEX */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FLEX; path = libFLEX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC7180564FE35A293CD0DD977EE56A8 /* libFLEX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFLEX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1B6E5FF34A932F4DD2A77041112030 /* UIImage+ExtendedCacheData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ExtendedCacheData.h"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.h"; sourceTree = "<group>"; };
 		4BA8152081D10CECD4289D4430D123C1 /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
 		4BC8E989452FF3584D8FB5D20D455E12 /* FLEXNetworkSettingsController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXNetworkSettingsController.h; path = Classes/Network/FLEXNetworkSettingsController.h; sourceTree = "<group>"; };
@@ -989,7 +991,7 @@
 		9D186DD5ABA4B82FA51B7564CF1599BE /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		9D3D5B053BD698A91F86230ECA43E94E /* FLEXRuntimeExporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXRuntimeExporter.h; path = Classes/GlobalStateExplorers/RuntimeBrowser/DataSources/FLEXRuntimeExporter.h; sourceTree = "<group>"; };
 		9D6B4F468E34FAA16725CD107D7C621C /* FLEXFieldEditorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXFieldEditorView.m; path = Classes/Editing/FLEXFieldEditorView.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA362F51EDA064D80C3FDB1AC3F645B /* FLEXObjectExplorerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXObjectExplorerViewController.h; path = Classes/ObjectExplorers/FLEXObjectExplorerViewController.h; sourceTree = "<group>"; };
 		9DFC44FA5D4CEF0E0BE1141EAE008D48 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/Core/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		9E3AFA1AC1999A7E59BD81A935019207 /* SDWebImageDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDefine.m; path = SDWebImage/Core/SDWebImageDefine.m; sourceTree = "<group>"; };
@@ -1002,7 +1004,7 @@
 		9FC77053903E8C93376D0ACEFAED58AD /* NSButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSButton+WebCache.h"; path = "SDWebImage/Core/NSButton+WebCache.h"; sourceTree = "<group>"; };
 		A020DD8C9EBEF569F191E696FF791E38 /* NSTimer+FLEX.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+FLEX.m"; path = "Classes/Utility/Categories/NSTimer+FLEX.m"; sourceTree = "<group>"; };
 		A03CD49E5A0489969EFFA548466D5EBE /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
-		A041D1F577D7FD1F80A842DA89F76DF9 /* flex_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; name = flex_fishhook.c; path = Classes/Utility/Runtime/flex_fishhook.c; sourceTree = "<group>"; };
+		A041D1F577D7FD1F80A842DA89F76DF9 /* flex_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = flex_fishhook.c; path = Classes/Utility/Runtime/flex_fishhook.c; sourceTree = "<group>"; };
 		A2026D8F9645666E4A26B30671A9D6F0 /* FLEXMirror.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXMirror.h; path = Classes/Utility/Runtime/Objc/Reflection/FLEXMirror.h; sourceTree = "<group>"; };
 		A2563A39319F8F3A9A31B9E12550DA35 /* FLEXKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXKeyboardToolbar.m; path = Classes/GlobalStateExplorers/RuntimeBrowser/FLEXKeyboardToolbar.m; sourceTree = "<group>"; };
 		A2607DB268DC29A195046826073CE9C5 /* FLEXRuntimeBrowserToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXRuntimeBrowserToolbar.m; path = Classes/GlobalStateExplorers/RuntimeBrowser/FLEXRuntimeBrowserToolbar.m; sourceTree = "<group>"; };
@@ -1034,7 +1036,7 @@
 		AF8C798D87427F01088A87EAA688CC00 /* SDImageAssetManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageAssetManager.h; path = SDWebImage/Private/SDImageAssetManager.h; sourceTree = "<group>"; };
 		AFBE055CD9D32F2B8463C73FBDC35332 /* FLEXManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXManager.h; path = Classes/Manager/FLEXManager.h; sourceTree = "<group>"; };
 		AFDA5989523A0BAA12F138BD599C21BE /* FLEXMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXMacros.h; path = Classes/Utility/FLEXMacros.h; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = SDWebImage; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12AEB2DCE9A742FA81DB22BF048E326 /* FLEX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLEX.debug.xcconfig; sourceTree = "<group>"; };
 		B256589B6D2B1B09302E70BFA9198C0E /* OSCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OSCache.h; path = Classes/Network/OSCache/OSCache.h; sourceTree = "<group>"; };
 		B2A8BDC4700D56278FEC666899003EB8 /* FLEXFieldEditorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXFieldEditorViewController.h; path = Classes/Editing/FLEXFieldEditorViewController.h; sourceTree = "<group>"; };
@@ -1044,7 +1046,7 @@
 		B3F6FC32F8C612D565E95668E343FD34 /* FLEXTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXTableViewController.m; path = Classes/Core/Controllers/FLEXTableViewController.m; sourceTree = "<group>"; };
 		B42A9DBC98C3488AA7DDC1403029080E /* FLEXViewShortcuts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXViewShortcuts.m; path = Classes/ObjectExplorers/Sections/Shortcuts/FLEXViewShortcuts.m; sourceTree = "<group>"; };
 		B540F9788CF70CB3C71FAD62036CE2EF /* SDAssociatedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAssociatedObject.h; path = SDWebImage/Private/SDAssociatedObject.h; sourceTree = "<group>"; };
-		B54F123CEFDCA60C9F3471FC5E63B0B0 /* FLEXObjcInternal.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = FLEXObjcInternal.mm; path = Classes/Utility/Runtime/Objc/FLEXObjcInternal.mm; sourceTree = "<group>"; };
+		B54F123CEFDCA60C9F3471FC5E63B0B0 /* FLEXObjcInternal.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = FLEXObjcInternal.mm; path = Classes/Utility/Runtime/Objc/FLEXObjcInternal.mm; sourceTree = "<group>"; };
 		B5734744378CD5CB112EFF4D163A1A18 /* SDImageAWebPCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAWebPCoder.m; path = SDWebImage/Core/SDImageAWebPCoder.m; sourceTree = "<group>"; };
 		B5891E1F4A5BC74098204103216F8E02 /* FLEXClassShortcuts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXClassShortcuts.h; path = Classes/ObjectExplorers/Sections/Shortcuts/FLEXClassShortcuts.h; sourceTree = "<group>"; };
 		B5CD022799EBC46A4BB3A002A4CF581D /* FLEXRealmDatabaseManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXRealmDatabaseManager.m; path = Classes/GlobalStateExplorers/DatabaseBrowser/FLEXRealmDatabaseManager.m; sourceTree = "<group>"; };
@@ -1134,7 +1136,7 @@
 		E0F5286B92CE0465D89507FF47DCED54 /* FLEXClassBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXClassBuilder.h; path = Classes/Utility/Runtime/Objc/Reflection/FLEXClassBuilder.h; sourceTree = "<group>"; };
 		E35C19A7F806EE88339E5FA3F3F31710 /* FLEXExplorerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXExplorerViewController.m; path = Classes/ExplorerInterface/FLEXExplorerViewController.m; sourceTree = "<group>"; };
 		E401A24D86C889861523B8FFD07B3964 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
-		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = MJRefresh; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49D6D248DD1CEE584E6776B9164A1B2 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A25DB081DEB41A61D698F400901360 /* FLEXRuntimeKeyPathTokenizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXRuntimeKeyPathTokenizer.m; path = Classes/GlobalStateExplorers/RuntimeBrowser/FLEXRuntimeKeyPathTokenizer.m; sourceTree = "<group>"; };
 		E4EDBE76B9B33E9B54D91B824E26E59D /* FLEXPropertyAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXPropertyAttributes.m; path = Classes/Utility/Runtime/Objc/Reflection/FLEXPropertyAttributes.m; sourceTree = "<group>"; };
 		E59E86C5C52205FFD8B877BA0B92D3A5 /* FLEX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEX.h; path = Classes/FLEX.h; sourceTree = "<group>"; };
@@ -1283,7 +1285,6 @@
 				86156F687D6BBCD801759EE032BCD568 /* Resources */,
 				8BEF6F690281862705A899513129F2F4 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -1305,17 +1306,16 @@
 				6EB1E4A1345299A5029F1AD12B86F3C4 /* Frameworks */,
 				BC83CFFD45F2CD39EEC726EC0413ABC6 /* Support Files */,
 			);
-			name = JMessage;
 			path = JMessage;
 			sourceTree = "<group>";
 		};
 		39A458DCDB565AA3D9313A5AC04A4F3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AC7180564FE35A293CD0DD977EE56A8 /* FLEX */,
-				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
+				4AC7180564FE35A293CD0DD977EE56A8 /* libFLEX.a */,
+				E49D6D248DD1CEE584E6776B9164A1B2 /* libMJRefresh.a */,
 				F9FEC72B17E3BE4EC7DD90ABEC0006BB /* Pods-MMessage */,
-				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */,
+				B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1731,7 +1731,6 @@
 				F6BA729D36D0752D623E820BDB725EE0 /* UIView+FLEX_Layout.m */,
 				4E8C04CB64C3E229DD82968D96233244 /* Support Files */,
 			);
-			name = FLEX;
 			path = FLEX;
 			sourceTree = "<group>";
 		};
@@ -1890,7 +1889,6 @@
 				AB832526779438FA3231CADBB33B0DA0 /* Core */,
 				DFEE388A624B78E62D00880479EFA056 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1911,7 +1909,6 @@
 				8E6B9BEEAE79D33201440AD58386F2C6 /* Frameworks */,
 				D3CEF15051D531A5D140CE652C4D0B01 /* Support Files */,
 			);
-			name = JCore;
 			path = JCore;
 			sourceTree = "<group>";
 		};
@@ -2296,7 +2293,7 @@
 			);
 			name = SDWebImage;
 			productName = SDWebImage;
-			productReference = B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */;
+			productReference = B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		3AEC09E383B46D12E00628362EB86D67 /* FLEX */ = {
@@ -2313,7 +2310,7 @@
 			);
 			name = FLEX;
 			productName = FLEX;
-			productReference = 4AC7180564FE35A293CD0DD977EE56A8 /* FLEX */;
+			productReference = 4AC7180564FE35A293CD0DD977EE56A8 /* libFLEX.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		6868056D761E163D10FDAF8CF1C4D9B8 /* MJRefresh */ = {
@@ -2330,7 +2327,7 @@
 			);
 			name = MJRefresh;
 			productName = MJRefresh;
-			productReference = E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */;
+			productReference = E49D6D248DD1CEE584E6776B9164A1B2 /* libMJRefresh.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B904025D665A53204001A55E96E25102 /* Pods-MMessage */ = {
@@ -2362,7 +2359,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -2796,7 +2793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2876,7 +2873,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FLEX/FLEX-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -2898,7 +2895,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -2918,7 +2915,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2936,7 +2933,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -2958,7 +2955,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -3000,7 +2997,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3019,7 +3016,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FLEX/FLEX-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -3064,7 +3061,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -3085,7 +3082,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

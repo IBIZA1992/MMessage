@@ -26,14 +26,34 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)regist{
+    
+    UIAlertController *alert1=[UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜您注册成功" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//        Singleton *single=[[Singleton alloc] init];
+//        single.account=self.registview.account.text;
+//        single.password=self.registview.password.text;
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [alert1 addAction:tishi];
+    [self presentViewController:alert1 animated:YES completion:nil];
+    
+    
 }
-*/
+
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=YES;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden=NO;
+}
 
 @end

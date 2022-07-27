@@ -7,9 +7,11 @@
 
 #import "DJLoginViewController.h"
 #import "LoginView.h"
+#import "DJRegisterViewController.h"
 
 @interface DJLoginViewController ()
 @property(nonatomic, strong)LoginView *loginview;
+@property(nonatomic, strong)DJRegisterViewController *registerVC;
 @end
 
 @implementation DJLoginViewController
@@ -22,19 +24,11 @@
     [self.view addSubview:_loginview];
     [_loginview.btnlogin addTarget:self action:@selector(login)forControlEvents:UIControlEventTouchUpInside];
     [_loginview.btnregister addTarget:self action:@selector(registers)forControlEvents:UIControlEventTouchUpInside];
-
-
-
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)registers{
+    [self.navigationController pushViewController:_registerVC animated:YES];
+    
 }
-*/
 
 @end
