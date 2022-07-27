@@ -7,6 +7,7 @@
 
 #import "DJRegisterViewController.h"
 #import "DJRegisterView.h"
+#import "JMessage/JMessage.h"
 
 @interface DJRegisterViewController ()
 @property(nonatomic, strong) DJRegisterView *registerview;
@@ -28,16 +29,35 @@
 
 - (void)regist{
     
-    UIAlertController *alert1=[UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜您注册成功" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-//        Singleton *single=[[Singleton alloc] init];
-//        single.account=self.registview.account.text;
-//        single.password=self.registview.password.text;
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+//    UIAlertController *alert1=[UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜您注册成功" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+////        Singleton *single=[[Singleton alloc] init];
+////        single.account=self.registview.account.text;
+////        single.password=self.registview.password.text;
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }];
+//
+//    [alert1 addAction:tishi];
+//    [self presentViewController:alert1 animated:YES completion:nil];
     
-    [alert1 addAction:tishi];
-    [self presentViewController:alert1 animated:YES completion:nil];
+    
+    [JMSGUser registerWithUsername:self.registerview.account.text password:self.registerview.password.text completionHandler:^(id resultObject, NSError *error) {
+        if(error==nil){
+            UIAlertController *alert1=[UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜您注册成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alert1 addAction:tishi];
+            [self presentViewController:alert1 animated:YES completion:nil];
+        }
+        if(error){
+            UIAlertController *alert1=[UIAlertController alertControllerWithTitle:@"提示" message:@"该账号已被注册" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            }];
+            [alert1 addAction:tishi];
+            [self presentViewController:alert1 animated:YES completion:nil];
+        }
+    }];
     
     
 }

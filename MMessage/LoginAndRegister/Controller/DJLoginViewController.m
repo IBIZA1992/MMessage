@@ -27,8 +27,9 @@
 }
 
 - (void)registers{
+    _registerVC = [[DJRegisterViewController alloc] init];
     [self.navigationController pushViewController:_registerVC animated:YES];
-    
 }
+
 
 @end

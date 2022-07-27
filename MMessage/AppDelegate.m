@@ -21,12 +21,12 @@
     
     [JMessage addDelegate:self withConversation:nil];
     
-    [JMSGUser registerWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"");
-        [JMSGUser loginWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
-            NSLog(@"");
-        }];
-    }];
+//    [JMSGUser registerWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
+//        NSLog(@"");
+//        [JMSGUser loginWithUsername:@"11111" password:@"11111" completionHandler:^(id resultObject, NSError *error) {
+//            NSLog(@"");
+//        }];
+//    }];
     
 
 
