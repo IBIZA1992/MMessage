@@ -6,9 +6,10 @@
 //
 
 #import "DJLoginViewController.h"
+#import "LoginView.h"
 
 @interface DJLoginViewController ()
-
+@property(nonatomic, strong)LoginView *loginview;
 @end
 
 @implementation DJLoginViewController
@@ -16,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor greenColor];
+    _loginview=[[LoginView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [_loginview LoadLoaginView];
+    [self.view addSubview:_loginview];
+    [_loginview.btnlogin addTarget:self action:@selector(login)forControlEvents:UIControlEventTouchUpInside];
+    [_loginview.btnregister addTarget:self action:@selector(registers)forControlEvents:UIControlEventTouchUpInside];
 
 
 

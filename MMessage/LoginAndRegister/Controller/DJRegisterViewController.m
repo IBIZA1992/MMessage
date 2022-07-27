@@ -6,16 +6,24 @@
 //
 
 #import "DJRegisterViewController.h"
+#import "DJRegisterView.h"
 
 @interface DJRegisterViewController ()
-
+@property(nonatomic, strong) DJRegisterView *registerview;
 @end
 
 @implementation DJRegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _registerview=[[DJRegisterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [_registerview Loadregister];
+    [self.view addSubview:_registerview];
+    [_registerview.btnregist addTarget:self action:@selector(regist)forControlEvents:UIControlEventTouchUpInside];
+    [_registerview.btnback addTarget:self action:@selector(back)forControlEvents:UIControlEventTouchUpInside];
+
+    
 }
 
 /*
