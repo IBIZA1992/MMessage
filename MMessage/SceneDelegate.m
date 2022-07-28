@@ -9,6 +9,8 @@
 #import "MMTabBarController.h"
 
 @interface SceneDelegate ()
+@property(nonatomic, strong)UINavigationController *HomeNavVC;
+@property(nonatomic, strong)UINavigationController *LoginNavVC;
 
 @end
 
@@ -20,20 +22,44 @@
     UIWindowScene *windowscene=(UIWindowScene*)scene;
     self.window=[[UIWindow alloc] initWithWindowScene:windowscene];
     self.window.frame=windowscene.coordinateSpace.bounds;
-    //设置根控制器
-//    UINavigationController *nav=[[UINavigationController alloc] init];
-//    DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
-//    [nav pushViewController:loginVC animated:YES];
-//    _window.rootViewController=nav;
-//    [self.window makeKeyAndVisible];
     
-    // 设置根控制器（tabbar）[测试用]
+    //登陆注册窗口
+    DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
+    _LoginNavVC=[[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+    //主页窗口
     MMTabBarController *tabBarController = [[MMTabBarController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-    self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
+    _HomeNavVC = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    
+    BOOL LoginYesOrNo = YES;
+
+    if(!LoginYesOrNo){
+        self.window.rootViewController =_LoginNavVC;
+        [self.window makeKeyAndVisible];
+    };
+
+    if(LoginYesOrNo){
+        self.window.rootViewController =_HomeNavVC;
+        [self.window makeKeyAndVisible];
+    }
+   // self.window.rootViewController =_LoginNavVC;
+   
+    NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(login) name:@"login" object:nil];
+ 
+    
+ 
+    
     
 }
+
+- (void)login{
+    [self.window.rootViewController removeFromParentViewController];
+    self.window.rootViewController =_HomeNavVC;
+    [self.window makeKeyAndVisible];
+}
+
+
 
 
 - (void)sceneDidDisconnect:(UIScene *)scene {

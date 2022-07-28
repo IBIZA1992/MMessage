@@ -65,6 +65,9 @@
              ********************/
             [JMSGUser myInfo];
             NSLog(@"");
+            NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+            [center postNotificationName:@"login" object:nil];
+
         }
     }];
 }
