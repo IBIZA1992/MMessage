@@ -11,9 +11,11 @@
 		358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172328919EAE00F52DE5 /* DJRegisterViewController.m */; };
 		358B172728919ECF00F52DE5 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172628919ECF00F52DE5 /* LoginView.m */; };
 		358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172A28919EFB00F52DE5 /* DJRegisterView.m */; };
+		358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B174C2892970100F52DE5 /* DJAddressViewController.m */; };
+		358B17502892973000F52DE5 /* DJAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B174F2892973000F52DE5 /* DJAddressView.m */; };
+		358B17532892974000F52DE5 /* DJAddressNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17522892974000F52DE5 /* DJAddressNavigationView.m */; };
 		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
 		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
-		A8C572502892265900FAA17A /* MMAddressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724F2892265900FAA17A /* MMAddressListViewController.m */; };
 		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
 		A8C572562892267500FAA17A /* MMMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572552892267500FAA17A /* MMMineViewController.m */; };
 		A8C572592892298D00FAA17A /* MMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572582892298D00FAA17A /* MMColor.m */; };
@@ -37,6 +39,12 @@
 		358B172628919ECF00F52DE5 /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		358B172928919EFB00F52DE5 /* DJRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJRegisterView.h; sourceTree = "<group>"; };
 		358B172A28919EFB00F52DE5 /* DJRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJRegisterView.m; sourceTree = "<group>"; };
+		358B174B2892970100F52DE5 /* DJAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddressViewController.h; sourceTree = "<group>"; };
+		358B174C2892970100F52DE5 /* DJAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddressViewController.m; sourceTree = "<group>"; };
+		358B174E2892973000F52DE5 /* DJAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddressView.h; sourceTree = "<group>"; };
+		358B174F2892973000F52DE5 /* DJAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddressView.m; sourceTree = "<group>"; };
+		358B17512892974000F52DE5 /* DJAddressNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddressNavigationView.h; sourceTree = "<group>"; };
+		358B17522892974000F52DE5 /* DJAddressNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddressNavigationView.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
@@ -54,8 +62,6 @@
 		A8AA33D4288FF72600F739C8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A8C5724B2892264500FAA17A /* MMWeChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMWeChatViewController.h; sourceTree = "<group>"; };
 		A8C5724C2892264500FAA17A /* MMWeChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWeChatViewController.m; sourceTree = "<group>"; };
-		A8C5724E2892265900FAA17A /* MMAddressListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAddressListViewController.h; sourceTree = "<group>"; };
-		A8C5724F2892265900FAA17A /* MMAddressListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAddressListViewController.m; sourceTree = "<group>"; };
 		A8C572512892266500FAA17A /* MMDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDiscoverViewController.h; sourceTree = "<group>"; };
 		A8C572522892266500FAA17A /* MMDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDiscoverViewController.m; sourceTree = "<group>"; };
 		A8C572542892267500FAA17A /* MMMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineViewController.h; sourceTree = "<group>"; };
@@ -135,6 +141,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		358B17462892969200F52DE5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				358B174B2892970100F52DE5 /* DJAddressViewController.h */,
+				358B174C2892970100F52DE5 /* DJAddressViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		358B17472892969F00F52DE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				358B174E2892973000F52DE5 /* DJAddressView.h */,
+				358B174F2892973000F52DE5 /* DJAddressView.m */,
+				358B17512892974000F52DE5 /* DJAddressNavigationView.h */,
+				358B17522892974000F52DE5 /* DJAddressNavigationView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A361FF91F0C730D98AA28AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +231,8 @@
 		A8C57249289225E700FAA17A /* AddressList */ = {
 			isa = PBXGroup;
 			children = (
-				A8C5724E2892265900FAA17A /* MMAddressListViewController.h */,
-				A8C5724F2892265900FAA17A /* MMAddressListViewController.m */,
+				358B17462892969200F52DE5 /* Controller */,
+				358B17472892969F00F52DE5 /* View */,
 			);
 			path = AddressList;
 			sourceTree = "<group>";
@@ -241,7 +267,6 @@
 		A8E598BF288F8D6E00018BDF /* MMessage */ = {
 			isa = PBXGroup;
 			children = (
-				A85193452892234900D3BE13 /* Main */,
 				A8D3A38A2890119B001CC821 /* MMessage.entitlements */,
 				A8D3A38928901179001CC821 /* MMessageDebug.entitlements */,
 				A8E598C0288F8D6E00018BDF /* AppDelegate.h */,
@@ -255,6 +280,7 @@
 				A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */,
 				A8E598D1288F8D6F00018BDF /* Info.plist */,
 				A8E598D2288F8D6F00018BDF /* main.m */,
+				A85193452892234900D3BE13 /* Main */,
 				358B171C28919E5D00F52DE5 /* LoginAndRegister */,
 				358B171B28919E5100F52DE5 /* Model */,
 			);
@@ -379,9 +405,11 @@
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
 				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
-				A8C572502892265900FAA17A /* MMAddressListViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
+				358B17532892974000F52DE5 /* DJAddressNavigationView.m in Sources */,
+				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
+				358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
@@ -532,6 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MMessage/MMessageDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -549,6 +578,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.TopView.MMessage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -561,6 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MMessage/MMessage.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -578,6 +609,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.TopView.MMessage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

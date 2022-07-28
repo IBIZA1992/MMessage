@@ -8,7 +8,7 @@
 #import "MMColor.h"
 #import "MMTabBarController.h"
 #import "MMWeChatViewController.h"
-#import "MMAddressListViewController.h"
+#import "DJAddressViewController.h"
 #import "MMDiscoverViewController.h"
 #import "MMMineViewController.h"
 
@@ -31,7 +31,7 @@
         
         // 设置四个页面
         MMWeChatViewController *weChatViewController = [[MMWeChatViewController alloc] init];
-        MMAddressListViewController *addressListViewController = [[MMAddressListViewController alloc] init];
+        DJAddressViewController *addressListViewController = [[DJAddressViewController alloc] init];
         MMDiscoverViewController *discoverViewController = [[MMDiscoverViewController alloc] init];
         MMMineViewController *mineViewController = [[MMMineViewController alloc] init];
         [self setViewControllers:@[weChatViewController, addressListViewController, discoverViewController, mineViewController]];
