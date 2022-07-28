@@ -11,6 +11,12 @@
 		358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172328919EAE00F52DE5 /* DJRegisterViewController.m */; };
 		358B172728919ECF00F52DE5 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172628919ECF00F52DE5 /* LoginView.m */; };
 		358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172A28919EFB00F52DE5 /* DJRegisterView.m */; };
+		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
+		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
+		A8C572502892265900FAA17A /* MMAddressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724F2892265900FAA17A /* MMAddressListViewController.m */; };
+		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
+		A8C572562892267500FAA17A /* MMMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572552892267500FAA17A /* MMMineViewController.m */; };
+		A8C572592892298D00FAA17A /* MMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572582892298D00FAA17A /* MMColor.m */; };
 		A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C1288F8D6E00018BDF /* AppDelegate.m */; };
 		A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C4288F8D6E00018BDF /* SceneDelegate.m */; };
 		A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598C7288F8D6E00018BDF /* ViewController.m */; };
@@ -33,6 +39,8 @@
 		358B172A28919EFB00F52DE5 /* DJRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJRegisterView.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
+		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
+		A851934B289223AC00D3BE13 /* MMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
 		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A8AA33C2288FF6BA00F739C8 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		A8AA33C4288FF6C100F739C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,6 +52,16 @@
 		A8AA33D0288FF71300F739C8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A8AA33D2288FF71E00F739C8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A8AA33D4288FF72600F739C8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		A8C5724B2892264500FAA17A /* MMWeChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMWeChatViewController.h; sourceTree = "<group>"; };
+		A8C5724C2892264500FAA17A /* MMWeChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWeChatViewController.m; sourceTree = "<group>"; };
+		A8C5724E2892265900FAA17A /* MMAddressListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAddressListViewController.h; sourceTree = "<group>"; };
+		A8C5724F2892265900FAA17A /* MMAddressListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAddressListViewController.m; sourceTree = "<group>"; };
+		A8C572512892266500FAA17A /* MMDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMDiscoverViewController.h; sourceTree = "<group>"; };
+		A8C572522892266500FAA17A /* MMDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMDiscoverViewController.m; sourceTree = "<group>"; };
+		A8C572542892267500FAA17A /* MMMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineViewController.h; sourceTree = "<group>"; };
+		A8C572552892267500FAA17A /* MMMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineViewController.m; sourceTree = "<group>"; };
+		A8C572572892298D00FAA17A /* MMColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMColor.h; sourceTree = "<group>"; };
+		A8C572582892298D00FAA17A /* MMColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMColor.m; sourceTree = "<group>"; };
 		A8D3A38928901179001CC821 /* MMessageDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMessageDebug.entitlements; sourceTree = "<group>"; };
 		A8D3A38A2890119B001CC821 /* MMessage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMessage.entitlements; sourceTree = "<group>"; };
 		A8E598BD288F8D6E00018BDF /* MMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +98,8 @@
 			children = (
 				A8E598D9288F8EB500018BDF /* MMScreen.h */,
 				A8E598DA288F8EB500018BDF /* MMScreen.m */,
+				A8C572572892298D00FAA17A /* MMColor.h */,
+				A8C572582892298D00FAA17A /* MMColor.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +163,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A85193452892234900D3BE13 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A8C5724A2892260F00FAA17A /* WeChat */,
+				A8C57249289225E700FAA17A /* AddressList */,
+				A8C57248289225D000FAA17A /* Discover */,
+				A8C57247289225B500FAA17A /* Mine */,
+				A85193462892235D00D3BE13 /* tabBar */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A85193462892235D00D3BE13 /* tabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A851934A289223AC00D3BE13 /* MMTabBarController.h */,
+				A851934B289223AC00D3BE13 /* MMTabBarController.m */,
+			);
+			path = tabBar;
+			sourceTree = "<group>";
+		};
+		A8C57247289225B500FAA17A /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				A8C572542892267500FAA17A /* MMMineViewController.h */,
+				A8C572552892267500FAA17A /* MMMineViewController.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		A8C57248289225D000FAA17A /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A8C572512892266500FAA17A /* MMDiscoverViewController.h */,
+				A8C572522892266500FAA17A /* MMDiscoverViewController.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		A8C57249289225E700FAA17A /* AddressList */ = {
+			isa = PBXGroup;
+			children = (
+				A8C5724E2892265900FAA17A /* MMAddressListViewController.h */,
+				A8C5724F2892265900FAA17A /* MMAddressListViewController.m */,
+			);
+			path = AddressList;
+			sourceTree = "<group>";
+		};
+		A8C5724A2892260F00FAA17A /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				A8C5724B2892264500FAA17A /* MMWeChatViewController.h */,
+				A8C5724C2892264500FAA17A /* MMWeChatViewController.m */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
 		A8E598B4288F8D6E00018BDF = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +241,7 @@
 		A8E598BF288F8D6E00018BDF /* MMessage */ = {
 			isa = PBXGroup;
 			children = (
+				A85193452892234900D3BE13 /* Main */,
 				A8D3A38A2890119B001CC821 /* MMessage.entitlements */,
 				A8D3A38928901179001CC821 /* MMessageDebug.entitlements */,
 				A8E598C0288F8D6E00018BDF /* AppDelegate.h */,
@@ -298,13 +376,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
+				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
+				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
+				A8C572502892265900FAA17A /* MMAddressListViewController.m in Sources */,
+				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
+				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
 				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
+				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
