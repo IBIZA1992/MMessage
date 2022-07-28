@@ -42,12 +42,11 @@
         self.window.rootViewController =_HomeNavVC;
         [self.window makeKeyAndVisible];
     }
-   // self.window.rootViewController =_LoginNavVC;
    
     NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(login) name:@"login" object:nil];
  
-    
+    [notiCenter addObserver:self selector:@selector(outlogin) name:@"outlogin" object:nil];
  
     
     
@@ -59,6 +58,11 @@
     [self.window makeKeyAndVisible];
 }
 
+- (void)outlogin{
+    [self.window.rootViewController removeFromParentViewController];
+    self.window.rootViewController =_LoginNavVC;
+    [self.window makeKeyAndVisible];
+}
 
 
 

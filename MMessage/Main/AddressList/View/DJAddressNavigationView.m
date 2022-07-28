@@ -22,11 +22,14 @@
     [self addSubview:_title];
 
     _btnAddFriend = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_btnAddFriend setFrame:CGRectMake(SCREEN_WIDTH-40, STATUS_NAVIGATION_BAR_HEIGHT-40, 20, 20)];
+    [_btnAddFriend setFrame:CGRectMake(SCREEN_WIDTH-40, STATUS_NAVIGATION_BAR_HEIGHT-32, 20, 20)];
     [_btnAddFriend setBackgroundImage:[UIImage imageNamed:@"addfriend"] forState:UIControlStateNormal];
     [self addSubview:_btnAddFriend];
-    
-    
+//
+//    _btnsearch = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [_btnsearch setFrame:CGRectMake(10, STATUS_NAVIGATION_BAR_HEIGHT+10, SCREEN_WIDTH-20, 36)];
+//    [_btnsearch setBackgroundImage:[UIImage imageNamed:@"截屏2022-07-28 21.42.12"] forState:UIControlStateNormal];
+//    [self addSubview:_btnsearch];
     
 }
 

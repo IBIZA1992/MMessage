@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)UILabel *title;
 @property(nonatomic, strong)UIButton *btnAddFriend;
 
+
 - (void)LoadNavigationView;
 
 @end

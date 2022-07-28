@@ -14,6 +14,9 @@
 		358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B174C2892970100F52DE5 /* DJAddressViewController.m */; };
 		358B17502892973000F52DE5 /* DJAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B174F2892973000F52DE5 /* DJAddressView.m */; };
 		358B17532892974000F52DE5 /* DJAddressNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17522892974000F52DE5 /* DJAddressNavigationView.m */; };
+		358B17562892BFAF00F52DE5 /* DJBasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17552892BFAF00F52DE5 /* DJBasicTableViewCell.m */; };
+		358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17582892CE0200F52DE5 /* DJAddFriendViewController.m */; };
+		358B175C2892CE6400F52DE5 /* DJSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B175B2892CE6300F52DE5 /* DJSearchViewController.m */; };
 		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
 		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
 		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
@@ -45,6 +48,12 @@
 		358B174F2892973000F52DE5 /* DJAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddressView.m; sourceTree = "<group>"; };
 		358B17512892974000F52DE5 /* DJAddressNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddressNavigationView.h; sourceTree = "<group>"; };
 		358B17522892974000F52DE5 /* DJAddressNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddressNavigationView.m; sourceTree = "<group>"; };
+		358B17542892BFAF00F52DE5 /* DJBasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJBasicTableViewCell.h; sourceTree = "<group>"; };
+		358B17552892BFAF00F52DE5 /* DJBasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJBasicTableViewCell.m; sourceTree = "<group>"; };
+		358B17572892CE0200F52DE5 /* DJAddFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddFriendViewController.h; sourceTree = "<group>"; };
+		358B17582892CE0200F52DE5 /* DJAddFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddFriendViewController.m; sourceTree = "<group>"; };
+		358B175A2892CE6300F52DE5 /* DJSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSearchViewController.h; sourceTree = "<group>"; };
+		358B175B2892CE6300F52DE5 /* DJSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSearchViewController.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
@@ -146,6 +155,10 @@
 			children = (
 				358B174B2892970100F52DE5 /* DJAddressViewController.h */,
 				358B174C2892970100F52DE5 /* DJAddressViewController.m */,
+				358B17572892CE0200F52DE5 /* DJAddFriendViewController.h */,
+				358B17582892CE0200F52DE5 /* DJAddFriendViewController.m */,
+				358B175A2892CE6300F52DE5 /* DJSearchViewController.h */,
+				358B175B2892CE6300F52DE5 /* DJSearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,6 +170,8 @@
 				358B174F2892973000F52DE5 /* DJAddressView.m */,
 				358B17512892974000F52DE5 /* DJAddressNavigationView.h */,
 				358B17522892974000F52DE5 /* DJAddressNavigationView.m */,
+				358B17542892BFAF00F52DE5 /* DJBasicTableViewCell.h */,
+				358B17552892BFAF00F52DE5 /* DJBasicTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,13 +424,16 @@
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
 				358B17532892974000F52DE5 /* DJAddressNavigationView.m in Sources */,
 				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
+				358B17562892BFAF00F52DE5 /* DJBasicTableViewCell.m in Sources */,
 				358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */,
+				358B175C2892CE6400F52DE5 /* DJSearchViewController.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
 				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
+				358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */,
 				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
 			);

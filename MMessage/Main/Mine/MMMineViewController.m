@@ -113,7 +113,8 @@
 
 /// 点击退出按钮
 - (void)_clikeLogoutButton {
-    NSLog(@"");
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:@"outlogin" object:nil];
 }
 
 /// 点击头像的背景控件，进入信息底层页
