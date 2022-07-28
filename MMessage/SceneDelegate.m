@@ -6,6 +6,7 @@
 //
 
 #import "SceneDelegate.h"
+#import "MMTabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -20,11 +21,18 @@
     self.window=[[UIWindow alloc] initWithWindowScene:windowscene];
     self.window.frame=windowscene.coordinateSpace.bounds;
     //设置根控制器
-    UINavigationController *nav=[[UINavigationController alloc] init];
-    DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
-    [nav pushViewController:loginVC animated:YES];
-    _window.rootViewController=nav;
+//    UINavigationController *nav=[[UINavigationController alloc] init];
+//    DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
+//    [nav pushViewController:loginVC animated:YES];
+//    _window.rootViewController=nav;
+//    [self.window makeKeyAndVisible];
+    
+    // 设置根控制器（tabbar）[测试用]
+    MMTabBarController *tabBarController = [[MMTabBarController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
 }
 
 
