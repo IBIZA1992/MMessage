@@ -60,19 +60,21 @@
     
     _account=[[UITextField alloc] initWithFrame:CGRectMake(99, 328, 200, 30)];
     _account.backgroundColor=[UIColor whiteColor];
-    _account.placeholder=@"邮箱｜手机号";
+    _account.placeholder=@"账号";
     _account.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_account];
     
     _password=[[UITextField alloc] initWithFrame:CGRectMake(99, 393, 200, 30)];
     _password.backgroundColor=[UIColor whiteColor];
     _password.placeholder=@"密码";
+    _password.secureTextEntry = YES;
     _password.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_password];
     
     _sure=[[UITextField alloc] initWithFrame:CGRectMake(99, 456, 200, 30)];
     _sure.backgroundColor=[UIColor whiteColor];
     _sure.placeholder=@"确认密码";
+    _sure.secureTextEntry = YES;
     _sure.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_sure];
     

@@ -54,13 +54,14 @@
     
     _textaccount=[[UITextField alloc] initWithFrame:CGRectMake(118, 376, 200, 30)];
     _textaccount.backgroundColor=[UIColor whiteColor];
-    _textaccount.placeholder=@"邮箱｜手机号";
+    _textaccount.placeholder=@"账号";
     _textaccount.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_textaccount];
     
     _textpassword=[[UITextField alloc] initWithFrame:CGRectMake(118, 428, 212, 30)];
     _textpassword.backgroundColor=[UIColor whiteColor];
     _textpassword.placeholder=@"请输入密码";
+    _textpassword.secureTextEntry = YES;
     _textpassword.textAlignment=NSTextAlignmentLeft;
     [self addSubview:_textpassword];
     

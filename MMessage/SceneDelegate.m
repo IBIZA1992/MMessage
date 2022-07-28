@@ -31,7 +31,7 @@
     MMTabBarController *tabBarController = [[MMTabBarController alloc] init];
     _HomeNavVC = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     
-    BOOL LoginYesOrNo = YES;
+    BOOL LoginYesOrNo = NO;
 
     if(!LoginYesOrNo){
         self.window.rootViewController =_LoginNavVC;
