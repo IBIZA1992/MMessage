@@ -32,6 +32,8 @@
 		A8E598D0288F8D6F00018BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */; };
 		A8E598D3288F8D6F00018BDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598D2288F8D6F00018BDF /* main.m */; };
 		A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598DA288F8EB500018BDF /* MMScreen.m */; };
+		A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F616FD28937F260089A484 /* MMMineChangeViewController.m */; };
+		A8F61704289408DB0089A484 /* MMInfoEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F61703289408DB0089A484 /* MMInfoEnum.m */; };
 		FB88D52F520DDCF0FF02A21B /* libPods-MMessage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,10 @@
 		A8E598D2288F8D6F00018BDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8E598D9288F8EB500018BDF /* MMScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMScreen.h; sourceTree = "<group>"; };
 		A8E598DA288F8EB500018BDF /* MMScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMScreen.m; sourceTree = "<group>"; };
+		A8F616FC28937F260089A484 /* MMMineChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineChangeViewController.h; sourceTree = "<group>"; };
+		A8F616FD28937F260089A484 /* MMMineChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineChangeViewController.m; sourceTree = "<group>"; };
+		A8F61702289408DB0089A484 /* MMInfoEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMInfoEnum.h; sourceTree = "<group>"; };
+		A8F61703289408DB0089A484 /* MMInfoEnum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMInfoEnum.m; sourceTree = "<group>"; };
 		E5E447D0AC7C3F535AD28135 /* Pods-MMessage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.release.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +270,10 @@
 			children = (
 				A8C572542892267500FAA17A /* MMMineViewController.h */,
 				A8C572552892267500FAA17A /* MMMineViewController.m */,
+				A8F616FC28937F260089A484 /* MMMineChangeViewController.h */,
+				A8F616FD28937F260089A484 /* MMMineChangeViewController.m */,
+				A8F61702289408DB0089A484 /* MMInfoEnum.h */,
+				A8F61703289408DB0089A484 /* MMInfoEnum.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -453,7 +463,9 @@
 			files = (
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
+				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
 				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
+				A8F61704289408DB0089A484 /* MMInfoEnum.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,

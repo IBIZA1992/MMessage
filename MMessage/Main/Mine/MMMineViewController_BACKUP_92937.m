@@ -8,8 +8,12 @@
 #import "MMScreen.h"
 #import "MMColor.h"
 #import "MMMineViewController.h"
+<<<<<<< HEAD
+#import "JMessage/JMSGUser.h"
+=======
 #import "MMMineChangeViewController.h"
 #import "JMessage/JMessage.h"
+>>>>>>> 64e73595d9f0f9aad0ae1aa6d976e3c68f6141b3
 
 @interface MMMineViewController ()
 @property (nonatomic, strong ,readwrite) UIView *imageBackgroundView;

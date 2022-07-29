@@ -131,9 +131,6 @@
 - (void)_clikeLogoutButton {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:@"outlogin" object:nil];
-    [JMSGUser logout:^(id resultObject, NSError *error) {
-        NSLog(@"");
-    }];
 }
 
 /// 点击头像的背景控件，进入信息底层页
