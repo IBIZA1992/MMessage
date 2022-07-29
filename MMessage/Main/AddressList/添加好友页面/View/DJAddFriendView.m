@@ -1,21 +1,21 @@
 //
-//  DJAddressView.m
+//  DJAddFriendView.m
 //  MMessage
 //
-//  Created by 邓杰 on 2022/7/28.
+//  Created by 邓杰 on 2022/7/29.
 //
 
-#import "DJAddressView.h"
+#import "DJAddFriendView.h"
 
-@implementation DJAddressView
+@implementation DJAddFriendView
 
-- (void)LoadAddressView{
+- (void)LoadAddFriendView{
     
     _navView = [[DJToolNavigationBar alloc] init];
     _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, STATUS_NAVIGATION_BAR_HEIGHT);
     [_navView LoadNavigationView];
-    [_navView.btnright setBackgroundImage:[UIImage imageNamed:@"addfriend"] forState:UIControlStateNormal];
-    _navView.title.text = @"通讯录";
+    [_navView.btnleft setBackgroundImage:[UIImage imageNamed:@"backR"] forState:UIControlStateNormal];
+    _navView.title.text = @"添加朋友｜群组";
     [self addSubview:_navView];
     
 
@@ -24,9 +24,13 @@
     [_btnsearch setBackgroundImage:[UIImage imageNamed:@"截屏2022-07-28 21.42.12"] forState:UIControlStateNormal];
     [self addSubview:_btnsearch];
     
-    _BasicTableView = [[UITableView alloc] init];
-    [_BasicTableView setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
-    [self addSubview:_BasicTableView];
+    _tableView = [[UITableView alloc] init];
+    [_tableView setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
+    [self addSubview:_tableView];
+    
+    
+    
+    
     
     
     
@@ -36,10 +40,5 @@
     
     
 }
-
-
-
-
-
 
 @end

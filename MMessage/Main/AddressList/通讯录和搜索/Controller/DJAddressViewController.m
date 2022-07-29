@@ -9,7 +9,6 @@
 #import "DJAddressView.h"
 #import "DJAddFriendViewController.h"
 #import "DJSearchViewController.h"
-#import "DJAddressNavigationView.h"
 #import "JMessage/JMessage.h"
 #import "DJBasicTableViewCell.h"
 
@@ -51,7 +50,7 @@
     /**搜索*/
     [_addressView.btnsearch addTarget:self action:@selector(search)  forControlEvents:UIControlEventTouchUpInside];
     /**添加好友*/
-    [_addressView.navView.btnAddFriend addTarget:self action:@selector(addfriend)  forControlEvents:UIControlEventTouchUpInside];
+    [_addressView.navView.btnright addTarget:self action:@selector(addfriend)  forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

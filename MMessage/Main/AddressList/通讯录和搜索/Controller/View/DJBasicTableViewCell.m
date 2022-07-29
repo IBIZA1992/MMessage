@@ -40,7 +40,6 @@
         NSData  *decodedImageData = [[NSData alloc] initWithBase64Encoding:item.imageStr];
         UIImage *decodedImage = [UIImage imageWithData:decodedImageData];
         _profile_image_url.image = decodedImage;
-        NSLog(@"");
     }
     else
         _profile_image_url.image = [UIImage imageNamed:@"head"];
