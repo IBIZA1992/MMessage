@@ -7,22 +7,20 @@
 
 #import <UIKit/UIKit.h>
 #import "MMScreen.h"
+#import "DJListItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DJBasicTableViewCell : UITableViewCell
 
-@property(nonatomic)CGFloat BasicTableViewCellHeight;
-
-//搜索栏
-@property(nonatomic, strong)UIButton *btnsearch;
+@property(nonatomic,strong,readwrite)UIImageView *profile_image_url;//用户头像
+@property(nonatomic,strong,readwrite)UILabel *user_name;//用户昵称
 
 
 
 
 
-
-- (void)LoadBasicTableViewCell:(NSIndexPath *)indexPath;
+- (void)LoadBasicTableViewCellWithItem:(DJListItem *)item;
 
 @end
 

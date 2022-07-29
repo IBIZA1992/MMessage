@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2011 ~ 2015 Shenzhen HXHG. All rights reserved.
  */
-
+ 
 #import <Foundation/Foundation.h>
 #import <JMessage/JMSGConstants.h>
 #import <JMessage/JMSGUser.h>

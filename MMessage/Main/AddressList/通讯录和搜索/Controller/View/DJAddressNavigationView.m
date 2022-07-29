@@ -17,7 +17,7 @@
     _title.frame = CGRectMake(SCREEN_WIDTH/2-30, STATUS_NAVIGATION_BAR_HEIGHT-35, 60, 20);
     _title.text = @"通讯录";
     _title.textColor = [UIColor blackColor];
-    _title.font = [UIFont systemFontOfSize:15]; // 设置字体大小并为粗体
+    _title.font = [UIFont systemFontOfSize:18]; // 设置字体大小并为粗体
     _title.textAlignment = NSTextAlignmentCenter; // 设置字体的显示位置居中
     [self addSubview:_title];
 
@@ -25,11 +25,6 @@
     [_btnAddFriend setFrame:CGRectMake(SCREEN_WIDTH-40, STATUS_NAVIGATION_BAR_HEIGHT-32, 20, 20)];
     [_btnAddFriend setBackgroundImage:[UIImage imageNamed:@"addfriend"] forState:UIControlStateNormal];
     [self addSubview:_btnAddFriend];
-//
-//    _btnsearch = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [_btnsearch setFrame:CGRectMake(10, STATUS_NAVIGATION_BAR_HEIGHT+10, SCREEN_WIDTH-20, 36)];
-//    [_btnsearch setBackgroundImage:[UIImage imageNamed:@"截屏2022-07-28 21.42.12"] forState:UIControlStateNormal];
-//    [self addSubview:_btnsearch];
     
 }
 
