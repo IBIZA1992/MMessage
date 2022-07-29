@@ -5,6 +5,7 @@
 //  Created by JiangNan on 2022/7/26.
 //
 
+#import "MMColor.h"
 #import "SceneDelegate.h"
 #import "MMTabBarController.h"
 
@@ -30,6 +31,10 @@
     //主页窗口
     MMTabBarController *tabBarController = [[MMTabBarController alloc] init];
     _HomeNavVC = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    _HomeNavVC.navigationBar.tintColor = [UIColor blackColor];
+    UINavigationBarAppearance *barAppearance = [UINavigationBarAppearance new];
+    barAppearance.backgroundColor = WECHAT_BACKGROUND_GREY;
+    [[UINavigationBar appearance] setStandardAppearance:barAppearance];
     
     BOOL LoginYesOrNo = YES;
 
