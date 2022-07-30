@@ -10,8 +10,14 @@
 #import "DJListItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class DJListItem;
+
+///定义一个block
+typedef void(^FriendDataListBlock)(NSArray<DJListItem *> *dataArray);//返回好友信息数组
 
 @interface DJUserData : NSObject
+
+- (void)LoadFriendData:(FriendDataListBlock)finishBlock;
 
 
 

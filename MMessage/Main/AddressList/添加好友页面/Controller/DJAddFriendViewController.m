@@ -24,15 +24,15 @@
     [_addView LoadAddFriendView];
     [self.view addSubview:_addView];
     
-//    /**代理*/
-//    _addView.tableView.delegate = self;
-//    _addView.tableView.dataSource = self;
-//    _addView.tableView.tableHeaderView = _addView.btnsearch;
+    /**代理*/
+    _addView.tableView.delegate = self;
+    _addView.tableView.dataSource = self;
+    _addView.tableView.tableHeaderView = _addView.btnsearch;
     
     /**搜索*/
     [_addView.btnsearch addTarget:self action:@selector(search)  forControlEvents:UIControlEventTouchUpInside];
     /**添加好友*/
-    [_addView.navView.btnright addTarget:self action:@selector(back)  forControlEvents:UIControlEventTouchUpInside];
+    [_addView.navView.btnleft addTarget:self action:@selector(back)  forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -41,7 +41,7 @@
 }
 
 - (void)back{
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -57,6 +57,44 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
+
+
+//设置行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
+
+//设置宽度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    if(indexPath.row==0){
+        cell.textLabel.text=@"雷达添加朋友";
+        cell.detailTextLabel.text=@"面对面加好友";
+        cell.imageView.image=[UIImage imageNamed:@"group"];
+    }
+    if(indexPath.row==1){
+        cell.textLabel.text=@"手机联系人";
+        cell.detailTextLabel.text=@"添加通讯录中的朋友";
+        cell.imageView.image=[UIImage imageNamed:@"group"];
+    }
+    if(indexPath.row==2){
+        cell.textLabel.text=@"扫一扫";
+        cell.detailTextLabel.text=@"扫描二维码名片";
+        cell.imageView.image=[UIImage imageNamed:@"group"];
+    }
+    
+    return cell;
+    
+    
+}
+
+
+
 
 
 

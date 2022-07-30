@@ -21,8 +21,12 @@
     
     [JMessage addDelegate:self withConversation:nil];
     
+    
     return YES;
 }
+
+
+
 
 #pragma mark - UISceneSession lifecycle
 

@@ -11,12 +11,18 @@
 #import "DJSearchViewController.h"
 #import "JMessage/JMessage.h"
 #import "DJBasicTableViewCell.h"
+#import "DJUserData.h"
+#import "JMessage/JMessage.h"
 
-@interface DJAddressViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
+@interface DJAddressViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate,JMessageDelegate>
 @property(nonatomic, strong)DJAddressView *addressView;
 @property(nonatomic, strong)DJAddFriendViewController *addfriendVC;
 @property(nonatomic, strong)DJSearchViewController *searchVC;
 @property(nonatomic, strong)DJBasicTableViewCell *cell;
+@property(nonatomic, strong)DJUserData *FriendListData;
+@property(nonatomic, strong)NSMutableArray *FriendArray;
+@property(nonatomic, strong)JMSGFriendNotificationEvent *FriendEvent;
+
 
 @end
 
@@ -46,16 +52,24 @@
     _addressView.BasicTableView.delegate = self;
     _addressView.BasicTableView.dataSource = self;
     _addressView.BasicTableView.tableHeaderView = _addressView.btnsearch;
+    [JMessage addDelegate:self withConversation:nil];
+    _FriendEvent = [[JMSGFriendNotificationEvent alloc] init];
+
     
     /**搜索*/
     [_addressView.btnsearch addTarget:self action:@selector(search)  forControlEvents:UIControlEventTouchUpInside];
     /**添加好友*/
     [_addressView.navView.btnright addTarget:self action:@selector(addfriend)  forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    //加载数据
+    [self SetFriendListData];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -67,13 +81,41 @@
 - (void)addfriend{
     _addfriendVC = [[DJAddFriendViewController alloc] init];
     [self.navigationController pushViewController:_addfriendVC animated:YES];
+        
 }
+
+
+/// 加载好友列表数据
+- (void)SetFriendListData{
+    __weak typeof(self) weakSelf = self;
+    _FriendListData = [[DJUserData alloc] init];
+    [self.FriendListData LoadFriendData:^(NSArray<DJListItem *> * _Nonnull dataArray) {
+        __strong typeof(weakSelf) strongSelf = weakSelf; //防止Block循环引用
+        strongSelf.self.FriendArray = (NSMutableArray *)dataArray;
+        NSLog(@"");
+        [strongSelf.addressView.BasicTableView reloadData];
+        
+    }];
+    
+}
+
+
+//监听好友事件
+- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event{
+    [_FriendEvent getReason];
+    [_FriendEvent getFromUser];
+    [_FriendEvent getFromUsername];
+    NSLog(@"");
+}
+
+
+
 
 - (void)search{
 //    _searchVC = [[DJSearchViewController alloc] init];
 //    [self.navigationController pushViewController:_searchVC animated:YES];
     
-    JMSGUser *user = [JMSGUser myInfo];
+    __unused JMSGUser *user = [JMSGUser myInfo];
 
     [JMSGFriendManager sendInvitationRequestWithUsername:@"11111" appKey:@"a22033c28155ecb6e5dab352" reason:@"123" completionHandler:^(id resultObject, NSError *error) {
         NSLog(@"");
@@ -86,8 +128,6 @@
     [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
         NSLog(@"");
     }];
-
-
 }
 
 
@@ -104,7 +144,7 @@
         return 2;
     }
     else
-        return 5;
+        return _FriendArray.count;
 }
 
 //设置组头
@@ -153,11 +193,20 @@
             return _cell;
         }
     }
-    if(indexPath.section != 0){
+    if(indexPath.section == 2){
         DJListItem *item = [[DJListItem alloc] init];
+        item = _FriendArray[indexPath.row];
+        NSLog(@"");
         [_cell LoadBasicTableViewCellWithItem:item];
         return _cell;
     
+    }
+    
+    
+    else{
+        DJListItem *item = [[DJListItem alloc] init];
+        [_cell LoadBasicTableViewCellWithItem:item];
+        return _cell;
     }
     
     
