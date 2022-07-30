@@ -8,12 +8,14 @@
 #import "MMScreen.h"
 #import "MMColor.h"
 #import "MMMineChangeViewController.h"
-#import "JMessage/JMessage.h""
+#import "JMessage/JMessage.h"
+#import "MMMineTableViewInfo.h"
 
 @interface MMMineChangeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) UIView *navigationView;
 @property (nonatomic, strong, readwrite) JMSGUser *user;
+@property (nonatomic, strong, readwrite) NSArray<MMMineTableViewInfoItem *> *infoArray;
 @end
 
 @implementation MMMineChangeViewController
@@ -31,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.infoArray = [[MMMineTableViewInfo alloc] init];
     
     self.user = [JMSGUser myInfo];
     [self.view addSubview:({
@@ -56,7 +60,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return self.infoArray[indexPath.row].height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,7 +72,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.infoArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
