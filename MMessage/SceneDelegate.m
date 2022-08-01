@@ -55,7 +55,8 @@
  
     [notiCenter addObserver:self selector:@selector(outlogin) name:@"outlogin" object:nil];
  
-    _single.addrequestArray = @[].mutableCopy;
+    _single = [DJSingleton sharedManager];
+    _single.addrequestArray = [[NSMutableArray alloc] initWithCapacity:10];
     
 }
 

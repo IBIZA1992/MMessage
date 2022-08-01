@@ -54,8 +54,10 @@
     NSString *str3 = [event getFromUsername];
     _single = [DJSingleton sharedManager];
     //[_single.addrequestArray addObject:user];
+    _list = [[DJListItem alloc] init];
     [_list LoadUserDataModel:user];
-    [_single.addrequestArray insertObject:_list atIndex:0];
+   // [_single.addrequestArray insertObject:_list atIndex:0];
+    [_single.addrequestArray addObject:_list];
    // _single.addrequestArray = _array.mutableCopy;
 
     NSLog(@"");
