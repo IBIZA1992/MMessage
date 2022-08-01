@@ -28,6 +28,10 @@
         self.tabBarItem.title = @"我";
         self.tabBarItem.image = [UIImage imageNamed:@"people"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"people.fill"];
+        
+        UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
+        appearance.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.standardAppearance = appearance;
     }
     return self;
 }
@@ -123,7 +127,26 @@
     if (user.avatar == nil) {
         NSLog(@"");
     }
+//    UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
+//    appearance.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.standardAppearance = appearance;
+
 }
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+
+
+}
+
+
 
 #pragma mark - private method
 
@@ -141,5 +164,8 @@
     MMMineChangeViewController *changeViewController = [[MMMineChangeViewController alloc] init];
     [self.navigationController pushViewController:changeViewController animated:YES];
 }
+
+
+
 
 @end

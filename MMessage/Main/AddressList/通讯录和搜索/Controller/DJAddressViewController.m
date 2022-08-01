@@ -36,6 +36,9 @@
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"addressbook.fill"];
         
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
+    
+    
+        
     }
     return self;
 }
@@ -62,19 +65,39 @@
     [_addressView.navView.btnright addTarget:self action:@selector(addfriend)  forControlEvents:UIControlEventTouchUpInside];
     
     
+    
+    
+    
+    
+    
 }
+
+
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
     //加载数据
     [self SetFriendListData];
-    
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
+    UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
+    appearance.backgroundColor = WECHAT_TABBAR_BACKGROUND_GREY;
+    self.navigationController.navigationBar.standardAppearance = appearance;
+    
+
 }
 
 
@@ -112,22 +135,22 @@
 
 
 - (void)search{
-//    _searchVC = [[DJSearchViewController alloc] init];
-//    [self.navigationController pushViewController:_searchVC animated:YES];
+    _searchVC = [[DJSearchViewController alloc] init];
+    [self.navigationController pushViewController:_searchVC animated:YES];
     
-    __unused JMSGUser *user = [JMSGUser myInfo];
-
-    [JMSGFriendManager sendInvitationRequestWithUsername:@"11111" appKey:@"a22033c28155ecb6e5dab352" reason:@"123" completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"");
-    }];
-    
-    [JMSGFriendManager acceptInvitationWithUsername:@"12138" appKey:nil completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"");
-    }];
-    
-    [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-        NSLog(@"");
-    }];
+//    __unused JMSGUser *user = [JMSGUser myInfo];
+//
+//    [JMSGFriendManager sendInvitationRequestWithUsername:@"11111" appKey:@"a22033c28155ecb6e5dab352" reason:@"123" completionHandler:^(id resultObject, NSError *error) {
+//        NSLog(@"");
+//    }];
+//    
+//    [JMSGFriendManager acceptInvitationWithUsername:@"12138" appKey:nil completionHandler:^(id resultObject, NSError *error) {
+//        NSLog(@"");
+//    }];
+//    
+//    [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
+//        NSLog(@"");
+//    }];
 }
 
 

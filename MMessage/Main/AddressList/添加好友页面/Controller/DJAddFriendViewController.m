@@ -19,6 +19,8 @@
     [super viewDidLoad];
 
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     _addView = [[DJAddFriendView alloc] init];
     _addView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     [_addView LoadAddFriendView];
@@ -33,6 +35,16 @@
     [_addView.btnsearch addTarget:self action:@selector(search)  forControlEvents:UIControlEventTouchUpInside];
     /**添加好友*/
     [_addView.navView.btnleft addTarget:self action:@selector(back)  forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationController.navigationBar.barTintColor = WECHAT_TABBAR_BACKGROUND_GREY;
+
+    
+    UISegmentedControl *segControl = [[UISegmentedControl alloc] initWithItems:@[@"好友",@"群组"]];
+    segControl.tintColor = [UIColor colorWithRed:0.07 green:0.72 blue:0.96 alpha:1];
+    [segControl setSelectedSegmentIndex:0];
+    self.navigationItem.titleView = segControl;
+    
+    
     
 }
 
@@ -50,12 +62,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    //self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    //self.navigationController.navigationBarHidden = NO;
+  
 }
 
 

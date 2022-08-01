@@ -11,12 +11,12 @@
 
 - (void)LoadAddFriendView{
     
-    _navView = [[DJToolNavigationBar alloc] init];
-    _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, STATUS_NAVIGATION_BAR_HEIGHT);
-    [_navView LoadNavigationView];
-    [_navView.btnleft setBackgroundImage:[UIImage imageNamed:@"backR"] forState:UIControlStateNormal];
-    _navView.title.text = @"添加朋友｜群组";
-    [self addSubview:_navView];
+//    _navView = [[DJToolNavigationBar alloc] init];
+//    _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, STATUS_NAVIGATION_BAR_HEIGHT);
+//    [_navView LoadNavigationView];
+//    [_navView.btnleft setBackgroundImage:[UIImage imageNamed:@"backR"] forState:UIControlStateNormal];
+//    _navView.title.text = @"添加朋友｜群组";
+//    [self addSubview:_navView];
     
 
     _btnsearch = [UIButton buttonWithType:UIButtonTypeCustom];
