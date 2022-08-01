@@ -13,6 +13,11 @@
 #import "DJBasicTableViewCell.h"
 #import "DJUserData.h"
 #import "JMessage/JMessage.h"
+#import "DJNewFriendViewController.h"
+#import "DJSingleton.h"
+#import "DJUserDataViewController.h"
+
+
 
 @interface DJAddressViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate,JMessageDelegate>
 @property(nonatomic, strong)DJAddressView *addressView;
@@ -22,6 +27,9 @@
 @property(nonatomic, strong)DJUserData *FriendListData;
 @property(nonatomic, strong)NSMutableArray *FriendArray;
 @property(nonatomic, strong)JMSGFriendNotificationEvent *FriendEvent;
+@property(nonatomic, strong)DJNewFriendViewController *newfriendVC;
+@property(nonatomic, strong)DJSingleton *single;
+@property(nonatomic, strong)DJUserDataViewController *userdataVC;
 
 
 @end
@@ -56,7 +64,7 @@
     _addressView.BasicTableView.dataSource = self;
     _addressView.BasicTableView.tableHeaderView = _addressView.btnsearch;
     [JMessage addDelegate:self withConversation:nil];
-    _FriendEvent = [[JMSGFriendNotificationEvent alloc] init];
+
 
     
     /**搜索*/
@@ -104,6 +112,8 @@
 - (void)addfriend{
     _addfriendVC = [[DJAddFriendViewController alloc] init];
     [self.navigationController pushViewController:_addfriendVC animated:YES];
+    [JMSGFriendManager sendInvitationRequestWithUsername:@"11111" appKey:nil reason:@"请求原因" completionHandler:^(id resultObject, NSError *error) {
+    }];
         
 }
 
@@ -115,7 +125,6 @@
     [self.FriendListData LoadFriendData:^(NSArray<DJListItem *> * _Nonnull dataArray) {
         __strong typeof(weakSelf) strongSelf = weakSelf; //防止Block循环引用
         strongSelf.self.FriendArray = (NSMutableArray *)dataArray;
-        NSLog(@"");
         [strongSelf.addressView.BasicTableView reloadData];
         
     }];
@@ -123,13 +132,14 @@
 }
 
 
-//监听好友事件
-- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event{
-    [_FriendEvent getReason];
-    [_FriendEvent getFromUser];
-    [_FriendEvent getFromUsername];
-    NSLog(@"");
-}
+////监听好友事件
+//- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event{
+//    NSString *str1 = [event getReason];
+//    JMSGUser *user = [event getFromUser];
+//    NSString *str3 = [event getFromUsername];
+//
+//    NSLog(@"");
+//}
 
 
 
@@ -187,6 +197,8 @@
     return 60;
 }
 
+
+//tabelview内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"Cell";
@@ -224,19 +236,28 @@
         return _cell;
     
     }
-    
-    
     else{
         DJListItem *item = [[DJListItem alloc] init];
         [_cell LoadBasicTableViewCellWithItem:item];
         return _cell;
     }
-    
-    
-    
     return nil;
-    
-    
+}
+
+//点击进入tableview
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 0){
+        if(indexPath.row == 0){
+            _newfriendVC = [[DJNewFriendViewController alloc] init];
+            [self.navigationController pushViewController:_newfriendVC animated:YES];
+        }
+    }
+    if(indexPath.section == 2){
+        _single = [DJSingleton sharedManager];
+        _single.userdata = _FriendArray[indexPath.row];
+        _userdataVC = [[DJUserDataViewController alloc] init];
+        [self.navigationController pushViewController:_userdataVC animated:YES];
+    }    
 }
 
 

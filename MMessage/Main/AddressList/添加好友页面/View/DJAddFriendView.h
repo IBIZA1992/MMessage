@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)DJToolNavigationBar *navView;
 @property(nonatomic, strong)UIButton *btnsearch;
 @property(nonatomic, strong)UITableView *tableView;
+@property(nonatomic, strong)UITextField *searchtext;
 
 - (void)LoadAddFriendView;
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5302897D908000B79A6 /* DJNewFriendViewController.m */; };
+		3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5352897D9BE000B79A6 /* DJNewFriendView.m */; };
+		3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5382897DC73000B79A6 /* DJSingleton.m */; };
+		3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F53C2897DE02000B79A6 /* DJUserDataViewController.m */; };
+		3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5412897DF28000B79A6 /* DJUserdataView.m */; };
 		358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172028919E9F00F52DE5 /* DJLoginViewController.m */; };
 		358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172328919EAE00F52DE5 /* DJRegisterViewController.m */; };
 		358B172728919ECF00F52DE5 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172628919ECF00F52DE5 /* LoginView.m */; };
@@ -41,6 +46,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3580F52F2897D908000B79A6 /* DJNewFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendViewController.h; sourceTree = "<group>"; };
+		3580F5302897D908000B79A6 /* DJNewFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJNewFriendViewController.m; sourceTree = "<group>"; };
+		3580F5342897D9BE000B79A6 /* DJNewFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendView.h; sourceTree = "<group>"; };
+		3580F5352897D9BE000B79A6 /* DJNewFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJNewFriendView.m; sourceTree = "<group>"; };
+		3580F5372897DC73000B79A6 /* DJSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSingleton.h; sourceTree = "<group>"; };
+		3580F5382897DC73000B79A6 /* DJSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSingleton.m; sourceTree = "<group>"; };
+		3580F53B2897DE02000B79A6 /* DJUserDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJUserDataViewController.h; sourceTree = "<group>"; };
+		3580F53C2897DE02000B79A6 /* DJUserDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJUserDataViewController.m; sourceTree = "<group>"; };
+		3580F5402897DF28000B79A6 /* DJUserdataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJUserdataView.h; sourceTree = "<group>"; };
+		3580F5412897DF28000B79A6 /* DJUserdataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJUserdataView.m; sourceTree = "<group>"; };
 		358B171F28919E9F00F52DE5 /* DJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginViewController.h; sourceTree = "<group>"; };
 		358B172028919E9F00F52DE5 /* DJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoginViewController.m; sourceTree = "<group>"; };
 		358B172228919EAE00F52DE5 /* DJRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJRegisterViewController.h; sourceTree = "<group>"; };
@@ -129,6 +144,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3580F52E2897D8DF000B79A6 /* 新的朋友 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F5322897D921000B79A6 /* Controller */,
+				3580F5332897D92E000B79A6 /* View */,
+			);
+			path = "新的朋友";
+			sourceTree = "<group>";
+		};
+		3580F5322897D921000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3580F52F2897D908000B79A6 /* DJNewFriendViewController.h */,
+				3580F5302897D908000B79A6 /* DJNewFriendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F5332897D92E000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3580F5342897D9BE000B79A6 /* DJNewFriendView.h */,
+				3580F5352897D9BE000B79A6 /* DJNewFriendView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3580F53A2897DDD8000B79A6 /* 用户详情信息 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F53E2897DF05000B79A6 /* Controller */,
+				3580F53F2897DF0B000B79A6 /* View */,
+			);
+			path = "用户详情信息";
+			sourceTree = "<group>";
+		};
+		3580F53E2897DF05000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3580F53B2897DE02000B79A6 /* DJUserDataViewController.h */,
+				3580F53C2897DE02000B79A6 /* DJUserDataViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F53F2897DF0B000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3580F5402897DF28000B79A6 /* DJUserdataView.h */,
+				3580F5412897DF28000B79A6 /* DJUserdataView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		358B171B28919E5100F52DE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +211,8 @@
 				358B17622893DD2900F52DE5 /* DJListItem.m */,
 				358B176E2894110800F52DE5 /* DJToolNavigationBar.h */,
 				358B176F2894110800F52DE5 /* DJToolNavigationBar.m */,
+				3580F5372897DC73000B79A6 /* DJSingleton.h */,
+				3580F5382897DC73000B79A6 /* DJSingleton.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				358B176428940CB200F52DE5 /* 通讯录和搜索 */,
+				3580F53A2897DDD8000B79A6 /* 用户详情信息 */,
+				3580F52E2897D8DF000B79A6 /* 新的朋友 */,
 				358B176528940CC000F52DE5 /* 添加好友页面 */,
 			);
 			path = AddressList;
@@ -509,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */,
+				3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */,
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
 				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
@@ -517,12 +591,15 @@
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,
+				3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
 				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
+				3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */,
 				358B17562892BFAF00F52DE5 /* DJBasicTableViewCell.m in Sources */,
 				358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */,
 				358B17632893DD2900F52DE5 /* DJListItem.m in Sources */,
 				358B175C2892CE6400F52DE5 /* DJSearchViewController.m in Sources */,
+				3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */,
@@ -535,6 +612,7 @@
 				358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */,
 				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
+				3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +758,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -711,7 +789,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

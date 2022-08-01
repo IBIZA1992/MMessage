@@ -28,7 +28,12 @@
     [_tableView setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
     [self addSubview:_tableView];
     
-    
+    _searchtext=[[UITextField alloc] initWithFrame:CGRectMake(20, 5, 200, 20)];
+    _searchtext.backgroundColor=[UIColor whiteColor];
+    _searchtext.placeholder=@"搜索";
+    _searchtext.secureTextEntry = YES;
+    _searchtext.textAlignment=NSTextAlignmentLeft;
+    //[self addSubview:_searchtext];
     
     
     

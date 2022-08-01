@@ -8,10 +8,12 @@
 #import "MMColor.h"
 #import "SceneDelegate.h"
 #import "MMTabBarController.h"
+#import "DJSingleton.h"
 
 @interface SceneDelegate ()
 @property(nonatomic, strong)UINavigationController *HomeNavVC;
 @property(nonatomic, strong)UINavigationController *LoginNavVC;
+@property(nonatomic, strong)DJSingleton *single;
 
 @end
 
@@ -36,7 +38,7 @@
     barAppearance.backgroundColor = WECHAT_BACKGROUND_GREY;
     [[UINavigationBar appearance] setStandardAppearance:barAppearance];
     
-    BOOL LoginYesOrNo = YES;
+    BOOL LoginYesOrNo = NO;
 
     if(!LoginYesOrNo){
         self.window.rootViewController =_LoginNavVC;
@@ -53,7 +55,7 @@
  
     [notiCenter addObserver:self selector:@selector(outlogin) name:@"outlogin" object:nil];
  
-    
+    _single.addrequestArray = @[].mutableCopy;
     
 }
 

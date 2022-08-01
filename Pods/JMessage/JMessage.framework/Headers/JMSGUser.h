@@ -168,7 +168,7 @@ JMSG_ASSUME_NONNULL_BEGIN
  */
 + (void)userInfoArrayWithUsernameArray:(NSArray JMSG_GENERIC(__kindof NSString *)*)usernameArray
                      completionHandler:(JMSGCompletionHandler)handler;
-
+ 
 /*!
  * @abstract 批量获取跨应用的用户信息
  */
