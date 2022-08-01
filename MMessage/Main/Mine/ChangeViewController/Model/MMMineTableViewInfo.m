@@ -30,33 +30,28 @@
         [mutableArray addObject:item1];
         
         MMMineTableViewInfoItem *item2 = [[MMMineTableViewInfoItem alloc] init];;
-        item2.infoType = MMInfoTypeUsername;
-        item2.text = @"用户名";
+        item2.infoType = MMInfoTypeBirthday;
+        item2.text = @"生日";
         [mutableArray addObject:item2];
         
         MMMineTableViewInfoItem *item3 = [[MMMineTableViewInfoItem alloc] init];;
-        item3.infoType = MMInfoTypeBirthday;
-        item3.text = @"生日";
+        item3.infoType = MMInfoTypeGender;
+        item3.text = @"性别";
         [mutableArray addObject:item3];
         
         MMMineTableViewInfoItem *item4 = [[MMMineTableViewInfoItem alloc] init];;
-        item4.infoType = MMInfoTypeGender;
-        item4.text = @"性别";
+        item4.infoType = MMInfoTypeAddress;
+        item4.text = @"地址";
         [mutableArray addObject:item4];
         
         MMMineTableViewInfoItem *item5 = [[MMMineTableViewInfoItem alloc] init];;
-        item5.infoType = MMInfoTypeAddress;
-        item5.text = @"地址";
+        item5.infoType = MMInfoTypeSignature;
+        item5.text = @"签名";
         [mutableArray addObject:item5];
-        
-        MMMineTableViewInfoItem *item6 = [[MMMineTableViewInfoItem alloc] init];;
-        item6.infoType = MMInfoTypeSignature;
-        item6.text = @"签名";
-        [mutableArray addObject:item6];
         
         // 布局高度
         mutableArray[0].height = UI(100);
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i < mutableArray.count; i++) {
             mutableArray[i].height = UI(100) * 0.618;
         }
         

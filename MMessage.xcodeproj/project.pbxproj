@@ -27,6 +27,7 @@
 		358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17732894137700F52DE5 /* DJAddFriendView.m */; };
 		A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */; };
 		A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */; };
+		A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E62897CF7000D9F179 /* MMMineTextView.m */; };
 		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
 		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
 		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
@@ -88,6 +89,8 @@
 		A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineTableViewCell.m; sourceTree = "<group>"; };
 		A842B1E22897719100D9F179 /* MMChangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMChangeDetailViewController.h; sourceTree = "<group>"; };
 		A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMChangeDetailViewController.m; sourceTree = "<group>"; };
+		A842B1E52897CF7000D9F179 /* MMMineTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineTextView.h; sourceTree = "<group>"; };
+		A842B1E62897CF7000D9F179 /* MMMineTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineTextView.m; sourceTree = "<group>"; };
 		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		A851934B289223AC00D3BE13 /* MMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
 		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -354,6 +357,8 @@
 				A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */,
 				A842B1E22897719100D9F179 /* MMChangeDetailViewController.h */,
 				A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */,
+				A842B1E52897CF7000D9F179 /* MMMineTextView.h */,
+				A842B1E62897CF7000D9F179 /* MMMineTextView.m */,
 			);
 			path = ChangeViewController;
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */,
+				A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */,
 				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
 				358B175F2893B86900F52DE5 /* DJUserData.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
