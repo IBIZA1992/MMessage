@@ -20,6 +20,8 @@
 		358B17632893DD2900F52DE5 /* DJListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17622893DD2900F52DE5 /* DJListItem.m */; };
 		358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B176F2894110800F52DE5 /* DJToolNavigationBar.m */; };
 		358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17732894137700F52DE5 /* DJAddFriendView.m */; };
+		A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */; };
+		A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */; };
 		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
 		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
 		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
@@ -67,6 +69,10 @@
 		358B17732894137700F52DE5 /* DJAddFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddFriendView.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
+		A842B1DC289764A600D9F179 /* MMMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineTableViewCell.h; sourceTree = "<group>"; };
+		A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineTableViewCell.m; sourceTree = "<group>"; };
+		A842B1E22897719100D9F179 /* MMChangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMChangeDetailViewController.h; sourceTree = "<group>"; };
+		A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMChangeDetailViewController.m; sourceTree = "<group>"; };
 		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		A851934B289223AC00D3BE13 /* MMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
 		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -258,6 +264,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A842B1DF2897654200D9F179 /* FirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8C572542892267500FAA17A /* MMMineViewController.h */,
+				A8C572552892267500FAA17A /* MMMineViewController.m */,
+			);
+			path = FirstViewController;
+			sourceTree = "<group>";
+		};
+		A842B1E02897658200D9F179 /* ChangeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A842B1E1289765AD00D9F179 /* Model */,
+				A8F616FC28937F260089A484 /* MMMineChangeViewController.h */,
+				A8F616FD28937F260089A484 /* MMMineChangeViewController.m */,
+				A842B1DC289764A600D9F179 /* MMMineTableViewCell.h */,
+				A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */,
+				A842B1E22897719100D9F179 /* MMChangeDetailViewController.h */,
+				A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */,
+			);
+			path = ChangeViewController;
+			sourceTree = "<group>";
+		};
+		A842B1E1289765AD00D9F179 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8F617052894C9150089A484 /* MMMineTableViewInfo.h */,
+				A8F617062894C9150089A484 /* MMMineTableViewInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A85193452892234900D3BE13 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,12 +320,8 @@
 		A8C57247289225B500FAA17A /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				A8C572542892267500FAA17A /* MMMineViewController.h */,
-				A8C572552892267500FAA17A /* MMMineViewController.m */,
-				A8F616FC28937F260089A484 /* MMMineChangeViewController.h */,
-				A8F616FD28937F260089A484 /* MMMineChangeViewController.m */,
-				A8F617052894C9150089A484 /* MMMineTableViewInfo.h */,
-				A8F617062894C9150089A484 /* MMMineTableViewInfo.m */,
+				A842B1E02897658200D9F179 /* ChangeViewController */,
+				A842B1DF2897654200D9F179 /* FirstViewController */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -474,10 +508,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */,
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
 				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
 				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
+				A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,

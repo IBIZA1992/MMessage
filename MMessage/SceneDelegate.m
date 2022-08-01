@@ -36,7 +36,7 @@
     barAppearance.backgroundColor = WECHAT_BACKGROUND_GREY;
     [[UINavigationBar appearance] setStandardAppearance:barAppearance];
     
-    BOOL LoginYesOrNo = NO;
+    BOOL LoginYesOrNo = YES;
 
     if(!LoginYesOrNo){
         self.window.rootViewController =_LoginNavVC;

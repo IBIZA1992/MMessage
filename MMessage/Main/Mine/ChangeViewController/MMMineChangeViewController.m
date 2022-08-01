@@ -10,6 +10,8 @@
 #import "MMMineChangeViewController.h"
 #import "JMessage/JMessage.h"
 #import "MMMineTableViewInfo.h"
+#import "MMMineTableViewCell.h"
+#import "MMChangeDetailViewController.h"
 
 @interface MMMineChangeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
@@ -41,7 +43,7 @@
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
                                                                    STATUS_NAVIGATION_BAR_HEIGHT,
                                                                    SCREEN_WIDTH,
-                                                                   SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT - SAFEDISTANCE_TABBAR_HEIGHT)];
+                                                                   SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.backgroundColor = WECHAT_BACKGROUND_GREY;
@@ -64,9 +66,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *viewController = [[UIViewController alloc] init];
-    viewController.view.backgroundColor = WECHAT_BACKGROUND_GREY;
-    [self.navigationController pushViewController:viewController animated:YES];
+    MMChangeDetailViewController *changeDetailViewController = [[MMChangeDetailViewController alloc] initWithInfoItem:self.infoArray[indexPath.row]];
+    [self.navigationController pushViewController:changeDetailViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -98,7 +99,17 @@
 //                    }
 //        }];
 //    }
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+//    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    // 使用名称作唯一标志，加载一次即可
+#warning 由于复用回收机制，所以加载图片和之前不一样，一定要注意，这个在写完cell后再写
+    MMMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    if (!cell) {
+        cell = [[MMMineTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"id"];
+        [cell layoutWithInfoItem:self.infoArray[indexPath.row]];
+    } else {
+        [cell reLayoutWithInfoItem:self.infoArray[indexPath.row]];
+    }
+    
     return cell;
 }
 

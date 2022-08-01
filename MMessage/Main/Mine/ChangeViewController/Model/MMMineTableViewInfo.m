@@ -55,9 +55,9 @@
         [mutableArray addObject:item6];
         
         // 布局高度
-        mutableArray[0].height = 120;
+        mutableArray[0].height = UI(100);
         for (int i = 1; i <= 6; i++) {
-            mutableArray[i].height = 60;
+            mutableArray[i].height = UI(100) * 0.618;
         }
         
         self = mutableArray.copy;
