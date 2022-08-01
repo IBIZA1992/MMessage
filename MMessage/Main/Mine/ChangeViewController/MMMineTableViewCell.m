@@ -40,9 +40,6 @@
         case MMInfoTypeNickname:
             self.detailTextLabel.text = self.user.nickname;
             break;
-        case MMInfoTypeUsername:
-            self.detailTextLabel.text = self.user.username;
-            break;
         case MMInfoTypeBirthday:
             NSLog(@"");
             break;
@@ -53,7 +50,8 @@
             NSLog(@"");
             break;
         case MMInfoTypeSignature:
-           
+            self.detailTextLabel.text = self.user.signature;
+            self.detailTextLabel.numberOfLines = 2;
             break;
     }
 }

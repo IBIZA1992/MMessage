@@ -110,6 +110,7 @@
     })];
 }
 
+#warning 在退出重进时，昵称加载错误，总是前一个数据
 /// 在即将出现时加载，用于加载真实数据
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
