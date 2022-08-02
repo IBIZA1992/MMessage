@@ -7,6 +7,9 @@ PODS:
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
+  - SVProgressHUD (2.2.6):
+    - SVProgressHUD/Core (= 2.2.6)
+  - SVProgressHUD/Core (2.2.6)
 
 DEPENDENCIES:
   - FLEX
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - JMessage
   - MJRefresh
   - SDWebImage
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
 SPEC REPOS:
   trunk:
@@ -23,13 +27,23 @@ SPEC REPOS:
     - MJRefresh
     - SDWebImage
 
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: de1d4dba816a19454329031156b8788692bcfa2c
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
 SPEC CHECKSUMS:
   FLEX: bdc9ac7d4a239e3d04c298c01221203257d63a80
   JCore: 4c9febdfdb1a5675ab361bc1f06c0905391d7b23
   JMessage: e1f8f78bafa4f03153cb925838a229a46e4b42ae
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 2afd3100b1aa41258209fbc7ffbf9a9ed43f5896
+PODFILE CHECKSUM: 337ccf81448497ca3dbda34afba0dc872a241a05
 
 COCOAPODS: 1.11.2

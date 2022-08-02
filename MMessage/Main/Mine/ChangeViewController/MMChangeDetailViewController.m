@@ -10,6 +10,7 @@
 #import "MMChangeDetailViewController.h"
 #import "JMessage/JMessage.h"
 #import "MMMineTextView.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface MMChangeDetailViewController ()<UITextViewDelegate>
 
@@ -101,11 +102,17 @@
             break;
             
         case MMInfoTypeNickname:
+        {
             self.userInfo.nickname = self.mineTextView.textView.text;
             [JMSGUser updateMyInfoWithUserInfo:self.userInfo completionHandler:^(id resultObject, NSError *error) {
-                    NSLog(@"");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
             }];
             break;
+        }
+            
             
         case MMInfoTypeBirthday:
             NSLog(@"");
@@ -118,13 +125,20 @@
             break;
             
         case MMInfoTypeSignature:
+        {
             self.userInfo.signature = self.mineTextView.textView.text;
             [JMSGUser updateMyInfoWithUserInfo:self.userInfo completionHandler:^(id resultObject, NSError *error) {
-                    NSLog(@"");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
             }];
             break;
-            
+        }
     }
+    
+    // 显示弹窗
+    [SVProgressHUD showWithStatus:@"加载中"];
 }
 
 /// 修改头像

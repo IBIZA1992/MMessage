@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 #import <JMessage/JMessage.h>
+#import "MMScreen.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface AppDelegate ()<JMessageDelegate>
 
@@ -21,6 +23,12 @@
     
     [JMessage addDelegate:self withConversation:nil];
     
+    // 初始化弹窗
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setMinimumSize:CGSizeMake(SCREEN_WIDTH * 2 / 5, SCREEN_WIDTH * 2 / 5)];
+    [SVProgressHUD setFont:[UIFont systemFontOfSize:UI(17)]];
+    [SVProgressHUD setRingRadius:UI(21)];
+    [SVProgressHUD setRingThickness:UI(4)];
     
     return YES;
 }
