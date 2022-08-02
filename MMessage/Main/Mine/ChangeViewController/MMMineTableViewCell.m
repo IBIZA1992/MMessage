@@ -41,13 +41,19 @@
             self.detailTextLabel.text = self.user.nickname;
             break;
         case MMInfoTypeBirthday:
-            NSLog(@"");
+            self.detailTextLabel.text = self.user.birthday;
             break;
         case MMInfoTypeGender:
-            NSLog(@"");
+            if (self.user.gender == kJMSGUserGenderMale) {
+                self.detailTextLabel.text = @"男";
+            } else if (self.user.gender == kJMSGUserGenderFemale) {
+                self.detailTextLabel.text = @"女";
+            } else {
+                self.detailTextLabel.text = @"";
+            }
             break;
         case MMInfoTypeAddress:
-            NSLog(@"");
+            self.detailTextLabel.text = self.user.address;
             break;
         case MMInfoTypeSignature:
             self.detailTextLabel.text = self.user.signature;

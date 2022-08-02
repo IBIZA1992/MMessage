@@ -1,4 +1,16 @@
 PODS:
+  - BRPickerView (2.8.0):
+    - BRPickerView/AddressPickerView (= 2.8.0)
+    - BRPickerView/Base (= 2.8.0)
+    - BRPickerView/DatePickerView (= 2.8.0)
+    - BRPickerView/StringPickerView (= 2.8.0)
+  - BRPickerView/AddressPickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.8.0)
+  - BRPickerView/DatePickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.8.0):
+    - BRPickerView/Base
   - FLEX (4.7.0)
   - JCore (3.2.5)
   - JMessage (3.9.1):
@@ -12,15 +24,17 @@ PODS:
   - SVProgressHUD/Core (2.2.6)
 
 DEPENDENCIES:
+  - BRPickerView
   - FLEX
   - JCore
   - JMessage
   - MJRefresh
   - SDWebImage
-  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+  - SVProgressHUD (from `https://github.com/IBIZA1992/SVProgressHUD.git`)
 
 SPEC REPOS:
   trunk:
+    - BRPickerView
     - FLEX
     - JCore
     - JMessage
@@ -29,14 +43,15 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   SVProgressHUD:
-    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+    :git: https://github.com/IBIZA1992/SVProgressHUD.git
 
 CHECKOUT OPTIONS:
   SVProgressHUD:
-    :commit: de1d4dba816a19454329031156b8788692bcfa2c
-    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+    :commit: 7547d251a72a6a26f6f5c2dd8adf74ca5c32a50e
+    :git: https://github.com/IBIZA1992/SVProgressHUD.git
 
 SPEC CHECKSUMS:
+  BRPickerView: a0ff460bf092bc069db5a54153395b1f7e8f5300
   FLEX: bdc9ac7d4a239e3d04c298c01221203257d63a80
   JCore: 4c9febdfdb1a5675ab361bc1f06c0905391d7b23
   JMessage: e1f8f78bafa4f03153cb925838a229a46e4b42ae
@@ -44,6 +59,6 @@ SPEC CHECKSUMS:
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 337ccf81448497ca3dbda34afba0dc872a241a05
+PODFILE CHECKSUM: 95fb3f0085b432cdefe454f63da6c4b9f29f94d2
 
 COCOAPODS: 1.11.2

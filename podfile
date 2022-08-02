@@ -4,5 +4,6 @@ target 'MMessage' do
 	pod 'SDWebImage'
 	pod 'MJRefresh'
 	pod 'FLEX', :configurations => ['Debug']
-	pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+	pod 'SVProgressHUD', :git => 'https://github.com/IBIZA1992/SVProgressHUD.git'
+	pod 'BRPickerView'
 end

@@ -41,6 +41,7 @@
 		A8E598D0288F8D6F00018BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8E598CE288F8D6F00018BDF /* LaunchScreen.storyboard */; };
 		A8E598D3288F8D6F00018BDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598D2288F8D6F00018BDF /* main.m */; };
 		A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E598DA288F8EB500018BDF /* MMScreen.m */; };
+		A8E889F72899470700AD3988 /* MMTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E889F62899470700AD3988 /* MMTimeFormatter.m */; };
 		A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F616FD28937F260089A484 /* MMMineChangeViewController.m */; };
 		A8F617072894C9150089A484 /* MMMineTableViewInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F617062894C9150089A484 /* MMMineTableViewInfo.m */; };
 		FB88D52F520DDCF0FF02A21B /* libPods-MMessage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */; };
@@ -128,6 +129,8 @@
 		A8E598D2288F8D6F00018BDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8E598D9288F8EB500018BDF /* MMScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMScreen.h; sourceTree = "<group>"; };
 		A8E598DA288F8EB500018BDF /* MMScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMScreen.m; sourceTree = "<group>"; };
+		A8E889F52899470700AD3988 /* MMTimeFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTimeFormatter.h; sourceTree = "<group>"; };
+		A8E889F62899470700AD3988 /* MMTimeFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTimeFormatter.m; sourceTree = "<group>"; };
 		A8F616FC28937F260089A484 /* MMMineChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineChangeViewController.h; sourceTree = "<group>"; };
 		A8F616FD28937F260089A484 /* MMMineChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineChangeViewController.m; sourceTree = "<group>"; };
 		A8F617052894C9150089A484 /* MMMineTableViewInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineTableViewInfo.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				358B176F2894110800F52DE5 /* DJToolNavigationBar.m */,
 				3580F5372897DC73000B79A6 /* DJSingleton.h */,
 				3580F5382897DC73000B79A6 /* DJSingleton.m */,
+				A8E889F52899470700AD3988 /* MMTimeFormatter.h */,
+				A8E889F62899470700AD3988 /* MMTimeFormatter.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
 				3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */,
+				A8E889F72899470700AD3988 /* MMTimeFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
