@@ -35,7 +35,9 @@
     _searchtext.textAlignment=NSTextAlignmentLeft;
     //[self addSubview:_searchtext];
     
-    
+//    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 5, 350, 40)];
+//    _searchbar.showsScopeBar=YES;
+//    _searchbar.showsCancelButton = YES;
     
     
     
