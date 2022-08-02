@@ -12,6 +12,13 @@
 		3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5382897DC73000B79A6 /* DJSingleton.m */; };
 		3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F53C2897DE02000B79A6 /* DJUserDataViewController.m */; };
 		3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5412897DF28000B79A6 /* DJUserdataView.m */; };
+		3580F54C2899050C000B79A6 /* DJSearchAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F54B2899050C000B79A6 /* DJSearchAddFriendViewController.m */; };
+		3580F54F28990521000B79A6 /* DJSearchAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F54E28990521000B79A6 /* DJSearchAddFriendView.m */; };
+		3580F554289924E7000B79A6 /* DJSetMoreUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F553289924E7000B79A6 /* DJSetMoreUserView.m */; };
+		3580F557289924FA000B79A6 /* DJSetUserDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F556289924FA000B79A6 /* DJSetUserDataViewController.m */; };
+		3580F55D2899337D000B79A6 /* DJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F55C2899337D000B79A6 /* DJChatViewController.m */; };
+		3580F5622899355C000B79A6 /* DJChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5612899355C000B79A6 /* DJChatView.m */; };
+		3580F5652899380A000B79A6 /* DJChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5642899380A000B79A6 /* DJChatTableViewCell.m */; };
 		358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172028919E9F00F52DE5 /* DJLoginViewController.m */; };
 		358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172328919EAE00F52DE5 /* DJRegisterViewController.m */; };
 		358B172728919ECF00F52DE5 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B172628919ECF00F52DE5 /* LoginView.m */; };
@@ -58,6 +65,20 @@
 		3580F53C2897DE02000B79A6 /* DJUserDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJUserDataViewController.m; sourceTree = "<group>"; };
 		3580F5402897DF28000B79A6 /* DJUserdataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJUserdataView.h; sourceTree = "<group>"; };
 		3580F5412897DF28000B79A6 /* DJUserdataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJUserdataView.m; sourceTree = "<group>"; };
+		3580F54A2899050C000B79A6 /* DJSearchAddFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSearchAddFriendViewController.h; sourceTree = "<group>"; };
+		3580F54B2899050C000B79A6 /* DJSearchAddFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSearchAddFriendViewController.m; sourceTree = "<group>"; };
+		3580F54D28990521000B79A6 /* DJSearchAddFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSearchAddFriendView.h; sourceTree = "<group>"; };
+		3580F54E28990521000B79A6 /* DJSearchAddFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSearchAddFriendView.m; sourceTree = "<group>"; };
+		3580F552289924E7000B79A6 /* DJSetMoreUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSetMoreUserView.h; sourceTree = "<group>"; };
+		3580F553289924E7000B79A6 /* DJSetMoreUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSetMoreUserView.m; sourceTree = "<group>"; };
+		3580F555289924FA000B79A6 /* DJSetUserDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJSetUserDataViewController.h; sourceTree = "<group>"; };
+		3580F556289924FA000B79A6 /* DJSetUserDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJSetUserDataViewController.m; sourceTree = "<group>"; };
+		3580F55B2899337D000B79A6 /* DJChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJChatViewController.h; sourceTree = "<group>"; };
+		3580F55C2899337D000B79A6 /* DJChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJChatViewController.m; sourceTree = "<group>"; };
+		3580F5602899355C000B79A6 /* DJChatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJChatView.h; sourceTree = "<group>"; };
+		3580F5612899355C000B79A6 /* DJChatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJChatView.m; sourceTree = "<group>"; };
+		3580F5632899380A000B79A6 /* DJChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJChatTableViewCell.h; sourceTree = "<group>"; };
+		3580F5642899380A000B79A6 /* DJChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJChatTableViewCell.m; sourceTree = "<group>"; };
 		358B171F28919E9F00F52DE5 /* DJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginViewController.h; sourceTree = "<group>"; };
 		358B172028919E9F00F52DE5 /* DJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoginViewController.m; sourceTree = "<group>"; };
 		358B172228919EAE00F52DE5 /* DJRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJRegisterViewController.h; sourceTree = "<group>"; };
@@ -180,6 +201,7 @@
 		3580F53A2897DDD8000B79A6 /* 用户详情信息 */ = {
 			isa = PBXGroup;
 			children = (
+				3580F550289924C1000B79A6 /* 更多设置 */,
 				3580F53E2897DF05000B79A6 /* Controller */,
 				3580F53F2897DF0B000B79A6 /* View */,
 			);
@@ -200,6 +222,123 @@
 			children = (
 				3580F5402897DF28000B79A6 /* DJUserdataView.h */,
 				3580F5412897DF28000B79A6 /* DJUserdataView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3580F5432899047A000B79A6 /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F547289904CF000B79A6 /* 搜索添加好友 */,
+				3580F546289904B2000B79A6 /* 搜索好友列表 */,
+			);
+			path = "搜索";
+			sourceTree = "<group>";
+		};
+		3580F54428990494000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				358B175A2892CE6300F52DE5 /* DJSearchViewController.h */,
+				358B175B2892CE6300F52DE5 /* DJSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F545289904A0000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3580F546289904B2000B79A6 /* 搜索好友列表 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F54428990494000B79A6 /* Controller */,
+				3580F545289904A0000B79A6 /* View */,
+			);
+			path = "搜索好友列表";
+			sourceTree = "<group>";
+		};
+		3580F547289904CF000B79A6 /* 搜索添加好友 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F548289904D5000B79A6 /* Controller */,
+				3580F549289904DC000B79A6 /* View */,
+			);
+			path = "搜索添加好友";
+			sourceTree = "<group>";
+		};
+		3580F548289904D5000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3580F54A2899050C000B79A6 /* DJSearchAddFriendViewController.h */,
+				3580F54B2899050C000B79A6 /* DJSearchAddFriendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F549289904DC000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3580F54D28990521000B79A6 /* DJSearchAddFriendView.h */,
+				3580F54E28990521000B79A6 /* DJSearchAddFriendView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3580F550289924C1000B79A6 /* 更多设置 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F558289924FD000B79A6 /* Controller */,
+				3580F55928992505000B79A6 /* View */,
+			);
+			path = "更多设置";
+			sourceTree = "<group>";
+		};
+		3580F558289924FD000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3580F555289924FA000B79A6 /* DJSetUserDataViewController.h */,
+				3580F556289924FA000B79A6 /* DJSetUserDataViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F55928992505000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3580F552289924E7000B79A6 /* DJSetMoreUserView.h */,
+				3580F553289924E7000B79A6 /* DJSetMoreUserView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3580F55A2899333B000B79A6 /* 单聊会话 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F55E28993532000B79A6 /* Controller */,
+				3580F55F2899353F000B79A6 /* View */,
+			);
+			path = "单聊会话";
+			sourceTree = "<group>";
+		};
+		3580F55E28993532000B79A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3580F55B2899337D000B79A6 /* DJChatViewController.h */,
+				3580F55C2899337D000B79A6 /* DJChatViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3580F55F2899353F000B79A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3580F5602899355C000B79A6 /* DJChatView.h */,
+				3580F5612899355C000B79A6 /* DJChatView.m */,
+				3580F5632899380A000B79A6 /* DJChatTableViewCell.h */,
+				3580F5642899380A000B79A6 /* DJChatTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,13 +416,13 @@
 			path = Controller/View;
 			sourceTree = "<group>";
 		};
-		358B176428940CB200F52DE5 /* 通讯录和搜索 */ = {
+		358B176428940CB200F52DE5 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
 				358B176628940CCF00F52DE5 /* Controller */,
 				358B17472892969F00F52DE5 /* View */,
 			);
-			path = "通讯录和搜索";
+			path = "通讯录";
 			sourceTree = "<group>";
 		};
 		358B176528940CC000F52DE5 /* 添加好友页面 */ = {
@@ -300,8 +439,6 @@
 			children = (
 				358B174B2892970100F52DE5 /* DJAddressViewController.h */,
 				358B174C2892970100F52DE5 /* DJAddressViewController.m */,
-				358B175A2892CE6300F52DE5 /* DJSearchViewController.h */,
-				358B175B2892CE6300F52DE5 /* DJSearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -419,7 +556,8 @@
 		A8C57249289225E700FAA17A /* AddressList */ = {
 			isa = PBXGroup;
 			children = (
-				358B176428940CB200F52DE5 /* 通讯录和搜索 */,
+				3580F5432899047A000B79A6 /* 搜索 */,
+				358B176428940CB200F52DE5 /* 通讯录 */,
 				3580F53A2897DDD8000B79A6 /* 用户详情信息 */,
 				3580F52E2897D8DF000B79A6 /* 新的朋友 */,
 				358B176528940CC000F52DE5 /* 添加好友页面 */,
@@ -430,6 +568,7 @@
 		A8C5724A2892260F00FAA17A /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
+				3580F55A2899333B000B79A6 /* 单聊会话 */,
 				A8C5724B2892264500FAA17A /* MMWeChatViewController.h */,
 				A8C5724C2892264500FAA17A /* MMWeChatViewController.m */,
 			);
@@ -593,6 +732,7 @@
 			files = (
 				A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */,
 				3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */,
+				3580F54C2899050C000B79A6 /* DJSearchAddFriendViewController.m in Sources */,
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
 				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
@@ -600,20 +740,26 @@
 				A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
+				3580F55D2899337D000B79A6 /* DJChatViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,
 				3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
+				3580F5622899355C000B79A6 /* DJChatView.m in Sources */,
+				3580F54F28990521000B79A6 /* DJSearchAddFriendView.m in Sources */,
 				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
 				3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */,
 				358B17562892BFAF00F52DE5 /* DJBasicTableViewCell.m in Sources */,
+				3580F554289924E7000B79A6 /* DJSetMoreUserView.m in Sources */,
 				358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */,
 				358B17632893DD2900F52DE5 /* DJListItem.m in Sources */,
 				358B175C2892CE6400F52DE5 /* DJSearchViewController.m in Sources */,
 				3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
+				3580F5652899380A000B79A6 /* DJChatTableViewCell.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */,
 				A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */,
+				3580F557289924FA000B79A6 /* DJSetUserDataViewController.m in Sources */,
 				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
 				358B175F2893B86900F52DE5 /* DJUserData.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
@@ -801,7 +947,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

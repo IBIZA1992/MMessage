@@ -11,12 +11,15 @@
 #import "JMessage/JMessage.h"
 #import "DJSingleton.h"
 #import "DJListItem.h"
+#import "DJSearchAddFriendViewController.h"
+
 
 @interface DJAddFriendViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 @property(nonatomic, strong)DJAddFriendView *addView;
 @property(nonatomic, strong)DJUserDataViewController *userdataVC;
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJListItem *item;
+@property(nonatomic, strong)DJSearchAddFriendViewController *searchAddView;
 
 @end
 
@@ -36,8 +39,9 @@
     /**代理*/
     _addView.tableView.delegate = self;
     _addView.tableView.dataSource = self;
-   // _addView.tableView.tableHeaderView = _addView.btnsearch;
-    _addView.tableView.tableHeaderView = _addView.searchtext;
+    _addView.tableView.tableHeaderView = _addView.btnsearch;
+   // _addView.tableView.tableHeaderView = _addView.searchtext;
+//    _addView.tableView.tableHeaderView = _addView.searchbar;
 
     
     /**搜索*/
@@ -58,7 +62,8 @@
 }
 
 - (void)search{
-    
+    _searchAddView = [[DJSearchAddFriendViewController alloc] init];
+    [self.navigationController pushViewController:_searchAddView animated:YES];
 }
 
 - (void)back{
@@ -71,19 +76,17 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    //self.navigationController.navigationBarHidden = NO;
   
 }
 
 
 //设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 3;
 }
 
 //设置宽度
@@ -109,45 +112,11 @@
         cell.detailTextLabel.text=@"扫描二维码名片";
         cell.imageView.image=[UIImage imageNamed:@"group"];
     }
-    if(indexPath.row==3){
-        cell.textLabel.text=@"搜索";
-    }
+
     return cell;
 
 }
 
-//点击进入tableview
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == 3){
-        
-        _single = [DJSingleton sharedManager];
-        
-        //NSArray *array = _addView.searchtext.text;
-        NSArray *array=[[NSArray alloc] initWithObjects:_addView.searchtext.text,nil];
-
-
-        
-        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-            self->_item = [[DJListItem alloc] init];
-            NSLog(@"");
-            [self->_item LoadUserDataModel:resultObject[0]];
-            self->_single.userdata = self->_item;
-            
-            
-            NSLog(@"");
-            self->_userdataVC = [[DJUserDataViewController alloc] init];
-            [self.navigationController pushViewController:self->_userdataVC animated:YES];
-        }];
-        
-        
- 
-        
-        
-    }
-    
-    
-    
-}
 
 
 

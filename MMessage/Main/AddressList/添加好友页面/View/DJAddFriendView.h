@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)UIButton *btnsearch;
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)UITextField *searchtext;
+@property(nonatomic, strong)UISearchBar *searchbar;
 
 - (void)LoadAddFriendView;
 
