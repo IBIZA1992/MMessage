@@ -7,17 +7,18 @@
 
 #import <UIKit/UIKit.h>
 #import "DJListItem.h"
+#import "JMessage/JMessage.h"
+#import "SDWebImage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DJChatTableViewCell : UITableViewCell
 
 @property(nonatomic, strong)UIImageView *profile_image_url;//对方头像
-@property(nonatomic, strong)UIImageView *My_profile_image_url;//我的头像
 @property(nonatomic, strong)UILabel *text;
 
 
-- (void)LoadChatTableViewCell:(DJListItem *)item;
+- (void)LoadChatTableViewCell:(JMSGMessage *)message;
 
 @end
 
