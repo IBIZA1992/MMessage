@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DJListItem.h"
+#import "JMessage/JMessage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong)DJListItem *userdata;
 @property(nonatomic, strong)NSMutableArray *addrequestArray;
+@property(nonatomic, strong)JMSGUser *user;
+@property(nonatomic, strong)NSMutableArray *messageArray;
 
 
 + (DJSingleton *)sharedManager;

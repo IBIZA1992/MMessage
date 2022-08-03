@@ -173,8 +173,30 @@
             }];
         }
         if(indexPath.row == 0){
-            _chatVC = [[DJChatViewController alloc] init];
-            [self.navigationController pushViewController:_chatVC animated:YES];
+            
+            
+            _single = [DJSingleton sharedManager];
+            [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
+                NSLog(@"");
+                NSString *str = @"dfhgaga";
+
+                JMSGTextContent  *content = [[JMSGTextContent alloc] initWithText:str];
+                JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
+                [JMSGMessage sendMessage:message];
+                NSLog(@"");
+            }];
+            /**获取列表的所有消息*/
+            [[JMSGConversation singleConversationWithUsername:_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
+                NSLog(@"");
+                self->_single.messageArray = @[].mutableCopy;
+                self->_single.messageArray = (NSMutableArray *)resultObject;
+                NSLog(@"");
+                
+                self->_chatVC = [[DJChatViewController alloc] init];
+                [self.navigationController pushViewController:self->_chatVC animated:YES];
+            }];
+            
+      
         }
     }
     

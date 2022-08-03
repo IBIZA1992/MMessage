@@ -30,7 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong)NSString *imageStr;
 
-///好友信息
+
+//聊天内容模型化
+@property(nonatomic, strong)NSString *text;
+//@property(nonatomic, strong)
+
 
 
 

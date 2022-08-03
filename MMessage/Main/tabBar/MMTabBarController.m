@@ -11,6 +11,8 @@
 #import "DJAddressViewController.h"
 #import "MMDiscoverViewController.h"
 #import "MMMineViewController.h"
+#import "DJSingleton.h"
+
 
 @interface MMTabBarController ()
 
