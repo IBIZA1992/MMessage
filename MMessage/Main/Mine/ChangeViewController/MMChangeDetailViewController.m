@@ -27,6 +27,10 @@
 @property (nonatomic, strong, readwrite) UILabel *pickButtonLeftLabel;
 @property (nonatomic, strong, readwrite) UILabel *pickButtonRightLabel;
 
+// 跟修改头像有关
+@property (nonatomic, strong, readwrite) UIImageView *headImageView;
+@property (nonatomic, strong, readwrite) UIButton *pickPictureButton;
+
 @end
 
 @implementation MMChangeDetailViewController
@@ -69,7 +73,7 @@
     // 不同情况下的选择
     switch (self.infoItem.infoType) {
         case MMInfoTypeHeadPicture:
-            NSLog(@"");
+            [self _changeHeadPicture];
             break;
         case MMInfoTypeNickname:
             [self _changeNickName];
@@ -177,12 +181,7 @@
     [SVProgressHUD showWithStatus:@"加载中"];
 }
 
-/// 修改头像
-- (void)_changeHeadPicture {
-    
-}
-
-#pragma 修改文本相关
+#pragma mark 修改文本相关
 
 /// 修改昵称
 - (void)_changeNickName {
@@ -206,7 +205,7 @@
     })];
 }
 
-#pragma 修改选择器相关
+#pragma mark 修改选择器相关
 
 - (void)_changeAboutPick {
     [self.view addSubview:({
@@ -246,6 +245,7 @@
             {
                 
                 self.pickButtonRightLabel.text = self.user.birthday;
+                break;
             }
                 
             case MMInfoTypeGender:
@@ -263,6 +263,7 @@
             case MMInfoTypeAddress:
             {
                 self.pickButtonRightLabel.text = self.user.address;
+                break;
             }
             
             default:
@@ -308,6 +309,7 @@
             // 性别
             BRStringPickerView *stringPickerView = [[BRStringPickerView alloc]init];
             stringPickerView.pickerMode = BRStringPickerComponentSingle;
+            stringPickerView.isAutoSelect = YES;
             stringPickerView.title = @"请选择性别";
             if ([originString isEqualToString:@"女"]) {
                 stringPickerView.selectIndex = 1;
@@ -350,6 +352,41 @@
         default:
             break;
     }
+}
+
+#pragma mark 修改头像
+
+- (void)_changeHeadPicture {
+    [self.view addSubview:({
+        self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
+        self.headImageView.center = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+        self.headImageView.image = [UIImage imageNamed:@"head"];
+        self.headImageView;
+    })];
+    
+    [self.view addSubview:({
+        self.pickPictureButton = [[UIButton alloc] initWithFrame:CGRectMake(0,
+                                                                           self.headImageView.frame.size.width + self.headImageView.frame.origin.y + UI(20),
+                                                                           SCREEN_WIDTH,
+                                                                           UI(60))];
+        [self.pickPictureButton addSubview:({
+            UILabel *buttonLabel = [[UILabel alloc] init];
+            buttonLabel.text = @"从相册中选取图片";
+            buttonLabel.font = [UIFont systemFontOfSize:18];
+            buttonLabel.alpha = 0.7;
+            [buttonLabel sizeToFit];
+            buttonLabel.center = CGPointMake(self.pickPictureButton.frame.size.width / 2, self.pickPictureButton.frame.size.height / 2);
+            buttonLabel;
+        })];
+        
+        [self.pickPictureButton addTarget:self action:@selector(_clickPickPictureButton) forControlEvents:UIControlEventTouchUpInside];
+        self.pickPictureButton.backgroundColor = [UIColor whiteColor];
+        self.pickPictureButton;
+    })];
+}
+
+- (void)_clickPickPictureButton {
+    
 }
 
 #pragma mark - UITextViewDelegate

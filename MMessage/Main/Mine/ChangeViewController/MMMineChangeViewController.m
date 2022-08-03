@@ -104,7 +104,7 @@
 //    }
 //    UITableViewCell *cell = [[UITableViewCell alloc] init];
     // 使用名称作唯一标志，加载一次即可
-#warning 由于复用回收机制，所以加载图片和之前不一样，一定要注意，这个在写完cell后再写
+
     MMMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if (!cell) {
         cell = [[MMMineTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"id"];

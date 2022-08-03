@@ -25,6 +25,7 @@
     
     // 初始化弹窗
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];  // 设置弹窗背景不响应用户点击
     [SVProgressHUD setMinimumSize:CGSizeMake(SCREEN_WIDTH * 2 / 5, SCREEN_WIDTH * 2 / 5)];
     [SVProgressHUD setFont:[UIFont systemFontOfSize:UI(17)]];
     [SVProgressHUD setRingRadius:UI(21)];

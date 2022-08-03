@@ -5,6 +5,7 @@
 //  Created by JiangNan on 2022/8/1.
 //
 
+#import "MMScreen.h"
 #import "MMMineTableViewCell.h"
 #import "JMessage/JMessage.h"
 
@@ -12,6 +13,7 @@
 
 @property (nonatomic, strong, readwrite) JMSGUser *user;
 @property (nonatomic, strong, readwrite) MMMineTableViewInfoItem* infoItem;
+@property (nonatomic, strong, readwrite) UIImageView *headImageView;
 
 @end
 
@@ -35,8 +37,26 @@
     
     switch (self.infoItem.infoType) {
         case MMInfoTypeHeadPicture:
-            NSLog(@"");
+            [self.contentView addSubview:({
+                
+                self.detailTextLabel.text = @"";
+                
+                NSLog(@"");
+                
+                self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - UI(39) - UI(75),
+                                                                                   0,
+                                                                                   UI(75),
+                                                                                   UI(75))];
+                self.headImageView.center = CGPointMake(self.headImageView.center.x,
+                                                        self.infoItem.height / 2);
+                self.headImageView.image = [UIImage imageNamed:@"head"];
+                self.headImageView.layer.cornerRadius = UI(8);
+                self.headImageView.layer.masksToBounds = YES;
+                self.headImageView;
+            })];
             break;
+
+            
         case MMInfoTypeNickname:
             self.detailTextLabel.text = self.user.nickname;
             break;
@@ -64,6 +84,10 @@
 
 - (void)reLayoutWithInfoItem:(MMMineTableViewInfoItem *)infoItem {
     self.detailTextLabel.text = @"";
+    if (self.headImageView != nil) {
+        [self.headImageView removeFromSuperview];
+        self.headImageView = nil;
+    }
     [self layoutWithInfoItem:infoItem];
 }
 
