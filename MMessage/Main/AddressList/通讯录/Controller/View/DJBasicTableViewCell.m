@@ -36,14 +36,17 @@
 
 - (void)SetData:(DJListItem *)item{
     /**头像*/
-    if(item.imageStr){
-        NSData  *decodedImageData = [[NSData alloc] initWithBase64Encoding:item.imageStr];
-        UIImage *decodedImage = [UIImage imageWithData:decodedImageData];
-        _profile_image_url.image = decodedImage;
+    if(item.avater){
+        NSArray *array=[[NSArray alloc] initWithObjects:item.username,nil];
+        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+            JMSGUser *user = resultObject[0];
+            [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                self->_profile_image_url.image = [UIImage imageWithData:data];
+            }];
+        }];
     }
     else
         _profile_image_url.image = [UIImage imageNamed:@"head"];
-    NSLog(@"");
     /**昵称*/
     if(item.username){
         _user_name.text = item.username;

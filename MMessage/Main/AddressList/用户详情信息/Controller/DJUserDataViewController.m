@@ -54,6 +54,8 @@
     [contentView addSubview:button];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:contentView];
     self.navigationItem.rightBarButtonItem = barButtonItem;
+    
+    
 }
 
 - (void)setmore{

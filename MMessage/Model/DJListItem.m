@@ -26,6 +26,8 @@
     _noteText = user.noteText;
     _appKey = user.appKey;
     
+    //_avatarData = user.thumbAvatarLocalPath;
+    
     
     
 }

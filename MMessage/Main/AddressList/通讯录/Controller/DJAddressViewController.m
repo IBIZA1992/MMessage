@@ -85,6 +85,7 @@
     [super viewWillAppear:animated];
     //加载数据
     [self SetFriendListData];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -122,41 +123,17 @@
         __strong typeof(weakSelf) strongSelf = weakSelf; //防止Block循环引用
         strongSelf.self.FriendArray = (NSMutableArray *)dataArray;
         [strongSelf.addressView.BasicTableView reloadData];
-        
+        NSLog(@"");
     }];
     
 }
-
-
-////监听好友事件
-//- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event{
-//    NSString *str1 = [event getReason];
-//    JMSGUser *user = [event getFromUser];
-//    NSString *str3 = [event getFromUsername];
-//
-//    NSLog(@"");
-//}
-
 
 
 
 - (void)search{
     _searchVC = [[DJSearchViewController alloc] init];
     [self.navigationController pushViewController:_searchVC animated:YES];
-    
-//    __unused JMSGUser *user = [JMSGUser myInfo];
-//
-//    [JMSGFriendManager sendInvitationRequestWithUsername:@"11111" appKey:@"a22033c28155ecb6e5dab352" reason:@"123" completionHandler:^(id resultObject, NSError *error) {
-//        NSLog(@"");
-//    }];
-//    
-//    [JMSGFriendManager acceptInvitationWithUsername:@"12138" appKey:nil completionHandler:^(id resultObject, NSError *error) {
-//        NSLog(@"");
-//    }];
-//    
-//    [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-//        NSLog(@"");
-//    }];
+
 }
 
 
