@@ -36,6 +36,7 @@
 
 
 - (void)SetData:(JMSGMessage *)message{
+    _single = [DJSingleton sharedManager];
     
     /**头像数据*/
   //  [_profile_image_url sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""]];
@@ -47,15 +48,37 @@
         JMSGTextContent *textcontent = (JMSGTextContent *)content;
         _text.text = textcontent.text;
     }
-    
-    
-    NSLog(@"");
+    NSString *str = message.fromName;
+    NSLog(@"%@",str);
+
+     NSLog(@"");
     
 }
 
 - (void)SetFrame:(JMSGMessage *)message{
-    [_profile_image_url setFrame:CGRectMake(10, 10, 50, 50)];
-    [_text setFrame:CGRectMake(80, 20, 200, 50)];
+    if(message.fromName != nil){
+        [_profile_image_url setFrame:CGRectMake(10, 10, 50, 50)];
+        _text.textAlignment = NSTextAlignmentLeft; // 设置字体的显示位置居左
+        _text.numberOfLines = 0;
+        _text.font=[UIFont systemFontOfSize:11.0];
+        _text.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize size = [_text sizeThatFits:CGSizeMake(300, MAXFLOAT)];//根据文字的长度返回一个最佳宽度和高度
+        [_text setFrame:CGRectMake(70, 20, 300, size.height)];
+    }
+    
+    if(message.fromName == nil){
+        [_profile_image_url setFrame:CGRectMake(SCREEN_WIDTH-60, 10, 50, 50)];
+        _text.textAlignment = NSTextAlignmentRight; // 设置字体的显示位置居右
+        _text.numberOfLines = 0;
+        _text.font=[UIFont systemFontOfSize:11.0];
+        _text.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize size = [_text sizeThatFits:CGSizeMake(300, MAXFLOAT)];//根据文字的长度返回一个最佳宽度和高度
+        [_text setFrame:CGRectMake(20, 20, 300, size.height)];
+    }
+    
+    
+    
+    
 }
 
 

@@ -9,11 +9,17 @@
 
 @implementation DJChatView
 
+
 - (void)LoadChatView{
     
     _tableview = [[UITableView alloc] init];
     [_tableview setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self addSubview:_tableview];
+    
+    
+    
+    
+    
       
 }
 

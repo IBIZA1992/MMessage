@@ -9,10 +9,14 @@
 #import "DJListItem.h"
 #import "JMessage/JMessage.h"
 #import "SDWebImage.h"
+#import "DJSingleton.h"
+#import "MMScreen.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DJChatTableViewCell : UITableViewCell
+@property(nonatomic, strong)DJSingleton *single;
 
 @property(nonatomic, strong)UIImageView *profile_image_url;//对方头像
 @property(nonatomic, strong)UILabel *text;
