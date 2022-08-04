@@ -38,11 +38,54 @@
 - (void)SetData:(JMSGMessage *)message{
     _single = [DJSingleton sharedManager];
     
+//    /**头像*/
+//    if(.avater){
+//        NSArray *array=[[NSArray alloc] initWithObjects:item.username,nil];
+//        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+//            JMSGUser *user = resultObject[0];
+//            [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+//                self->_profile_image_url.image = [UIImage imageWithData:data];
+//            }];
+//        }];
+//    }
+//    else
+//        _profile_image_url.image = [UIImage imageNamed:@"head"];
     /**头像数据*/
   //  [_profile_image_url sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""]];
-    _profile_image_url.image = [UIImage imageNamed:@"head"];
-    /**内容*/
     
+    if(message.fromName == nil){
+        JMSGUser *user = [JMSGUser myInfo];
+        if(user.avatar){
+            NSArray *array=[[NSArray alloc] initWithObjects:user.username,nil];
+            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+                JMSGUser *user = resultObject[0];
+                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                self->_profile_image_url.image = [UIImage imageWithData:data];
+                }];
+            }];
+            
+        }
+        else
+            _profile_image_url.image = [UIImage imageNamed:@"head"];
+    }
+    else{
+        if(_single.userdata.avater){
+            NSArray *array=[[NSArray alloc] initWithObjects:_single.userdata.username,nil];
+            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+                JMSGUser *user = resultObject[0];
+                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                self->_profile_image_url.image = [UIImage imageWithData:data];
+                }];
+            }];
+        }
+        else
+            _profile_image_url.image = [UIImage imageNamed:@"head"];
+    }
+    
+    
+    
+    
+    /**内容*/
     JMSGAbstractContent *content = message.content;
     if(message.contentType== kJMSGContentTypeText){
         JMSGTextContent *textcontent = (JMSGTextContent *)content;

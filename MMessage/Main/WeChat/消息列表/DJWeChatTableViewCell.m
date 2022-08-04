@@ -45,10 +45,13 @@
     NSArray *array=[[NSArray alloc] initWithObjects:username,nil];
     [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
         //头像
-        self->_profile_image_url.image = [UIImage imageNamed:@"head"];
+        JMSGUser *user = resultObject[0];
+        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+        self->_profile_image_url.image = [UIImage imageWithData:data];
+        }];
+    
+        
         //昵称
-        JMSGUser *user = [[JMSGUser alloc] init];
-        user = resultObject[0];
         self->_name.text = user.username;
         //内容
         [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {

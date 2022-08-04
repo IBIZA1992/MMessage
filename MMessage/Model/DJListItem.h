@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSString *noteName; //备注名
 @property(nonatomic, strong)NSString *noteText; //备注信息
 @property(nonatomic, strong)NSString *appKey; //app密钥
+@property(nonatomic, strong)NSData *avatarData;
 
 @property(nonatomic, strong)NSString *imageStr;
 

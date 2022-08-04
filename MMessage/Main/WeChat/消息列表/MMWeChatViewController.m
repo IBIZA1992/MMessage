@@ -52,6 +52,13 @@
    
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableview.separatorColor = [UIColor clearColor];
+}
+
+
 - (void)reloadchat{
     [_tableview reloadData];
 }
