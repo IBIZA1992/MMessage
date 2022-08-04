@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF2289B9F7100AC0856 /* TextFieldView.m */; };
 		3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5302897D908000B79A6 /* DJNewFriendViewController.m */; };
 		3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5352897D9BE000B79A6 /* DJNewFriendView.m */; };
 		3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5382897DC73000B79A6 /* DJSingleton.m */; };
@@ -54,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3536EDF1289B9F7100AC0856 /* TextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldView.h; sourceTree = "<group>"; };
+		3536EDF2289B9F7100AC0856 /* TextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldView.m; sourceTree = "<group>"; };
 		3580F52F2897D908000B79A6 /* DJNewFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendViewController.h; sourceTree = "<group>"; };
 		3580F5302897D908000B79A6 /* DJNewFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJNewFriendViewController.m; sourceTree = "<group>"; };
 		3580F5342897D9BE000B79A6 /* DJNewFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendView.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 				3580F5612899355C000B79A6 /* DJChatView.m */,
 				3580F5632899380A000B79A6 /* DJChatTableViewCell.h */,
 				3580F5642899380A000B79A6 /* DJChatTableViewCell.m */,
+				3536EDF1289B9F7100AC0856 /* TextFieldView.h */,
+				3536EDF2289B9F7100AC0856 /* TextFieldView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				358B175F2893B86900F52DE5 /* DJUserData.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
 				A8F617072894C9150089A484 /* MMMineTableViewInfo.m in Sources */,
+				3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */,
 				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
 				358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */,
