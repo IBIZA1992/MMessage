@@ -48,10 +48,7 @@
         JMSGTextContent *textcontent = (JMSGTextContent *)content;
         _text.text = textcontent.text;
     }
-    NSString *str = message.fromName;
-    NSLog(@"%@",str);
 
-     NSLog(@"");
     
 }
 

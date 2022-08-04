@@ -169,34 +169,27 @@
             _list = [[DJListItem alloc] init];
             _list = _single.userdata;
             [JMSGFriendManager sendInvitationRequestWithUsername:_single.userdata.username appKey:nil reason:@"添加好友" completionHandler:^(id resultObject, NSError *error) {
-                NSLog(@"");
+                if(error == nil){
+                    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"好友申请已经发送" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *tishi=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                        
+                    }];
+                    [alert addAction:tishi];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
             }];
         }
+        
         if(indexPath.row == 0){
-            
-            
             _single = [DJSingleton sharedManager];
-            [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
-                NSLog(@"");
-                NSString *str = @"dfhgaga";
-
-                JMSGTextContent  *content = [[JMSGTextContent alloc] initWithText:str];
-                JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
-                [JMSGMessage sendMessage:message];
-                NSLog(@"");
-            }];
             /**获取列表的所有消息*/
             [[JMSGConversation singleConversationWithUsername:_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
                 NSLog(@"");
                 self->_single.messageArray = @[].mutableCopy;
                 self->_single.messageArray = (NSMutableArray *)resultObject;
-                NSLog(@"");
-                
                 self->_chatVC = [[DJChatViewController alloc] init];
                 [self.navigationController pushViewController:self->_chatVC animated:YES];
             }];
-            
-      
         }
     }
     

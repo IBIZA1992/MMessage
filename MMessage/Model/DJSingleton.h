@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)DJListItem *userdata;
 @property(nonatomic, strong)NSMutableArray *addrequestArray;
 @property(nonatomic, strong)JMSGUser *user;
-@property(nonatomic, strong)NSMutableArray *messageArray;
+@property(nonatomic, strong)NSMutableArray *messageArray;//消息内容
+@property(nonatomic, strong)NSMutableArray *messagelistArray;//消息列表
 
 
 + (DJSingleton *)sharedManager;
