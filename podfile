@@ -6,4 +6,5 @@ target 'MMessage' do
 	pod 'FLEX', :configurations => ['Debug']
 	pod 'SVProgressHUD', :git => 'https://github.com/IBIZA1992/SVProgressHUD.git'
 	pod 'BRPickerView'
+	pod 'TZImagePickerController'
 end

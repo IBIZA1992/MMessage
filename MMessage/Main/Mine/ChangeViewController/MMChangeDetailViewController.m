@@ -13,8 +13,10 @@
 #import "SVProgressHUD/SVProgressHUD.h"
 #import <BRPickerView/BRPickerView.h>
 #import "MMTimeFormatter.h"
+#import "TZImagePickerController/TZImagePickerController.h"
+#import "SDWebImage/SDWebImage.h"
 
-@interface MMChangeDetailViewController ()<UITextViewDelegate>
+@interface MMChangeDetailViewController ()<UITextViewDelegate, TZImagePickerControllerDelegate>
 
 @property (nonatomic, strong, readwrite) MMMineTableViewInfoItem *infoItem;
 @property (nonatomic, strong, readwrite) UIButton *finishButton;
@@ -107,8 +109,16 @@
     switch (self.infoItem.infoType) {
             
         case MMInfoTypeHeadPicture:
-            NSLog(@"");
+        {
+            NSData *headImageData = UIImageJPEGRepresentation(self.headImageView.image, 1.0f);
+            [JMSGUser updateMyAvatarWithData:headImageData avatarFormat:@"jpeg" completionHandler:^(id resultObject, NSError *error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }];
             break;
+        }
             
         case MMInfoTypeNickname:
         {
@@ -360,7 +370,17 @@
     [self.view addSubview:({
         self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
         self.headImageView.center = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-        self.headImageView.image = [UIImage imageNamed:@"head"];
+        if (self.user.avatar != nil) {
+            [self.user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                if (data != nil) {
+                    self->_headImageView.image = [UIImage imageWithData:data];
+                } else {
+                    self->_headImageView.image = [UIImage imageNamed:@"head"];
+                }
+            }];
+        } else {
+            self->_headImageView.image = [UIImage imageNamed:@"head"];
+        }
         self.headImageView;
     })];
     
@@ -378,6 +398,7 @@
             buttonLabel.center = CGPointMake(self.pickPictureButton.frame.size.width / 2, self.pickPictureButton.frame.size.height / 2);
             buttonLabel;
         })];
+
         
         [self.pickPictureButton addTarget:self action:@selector(_clickPickPictureButton) forControlEvents:UIControlEventTouchUpInside];
         self.pickPictureButton.backgroundColor = [UIColor whiteColor];
@@ -386,7 +407,33 @@
 }
 
 - (void)_clickPickPictureButton {
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
+    imagePickerVc.allowPickingVideo = NO;
+    imagePickerVc.allowPickingImage = YES;
+    imagePickerVc.allowPickingOriginalPhoto = YES;
     
+    // 设置竖屏下的裁剪尺寸
+    NSInteger left = 30;
+    NSInteger widthHeight = SCREEN_WIDTH - 2 * left;
+    NSInteger top = (SCREEN_HEIGHT - widthHeight) / 2;
+    if ([TZCommonTools tz_isLandscape]) {
+        top = 30;
+        widthHeight = SCREEN_HEIGHT - 2 * left;
+        left = (SCREEN_WIDTH - widthHeight) / 2;
+    }
+    imagePickerVc.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
+    imagePickerVc.scaleAspectFillCrop = YES;
+    
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        [SVProgressHUD show];
+        self->_headImageView.image = photos[0];
+        [SVProgressHUD dismiss];
+    }];
+    
+    imagePickerVc.allowCrop = YES;
+    imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
+
 }
 
 #pragma mark - UITextViewDelegate

@@ -3,3 +3,4 @@ ${PODS_ROOT}/BRPickerView/BRPickerView/AddressPickerView/BRAddressPickerView.bun
 ${PODS_ROOT}/BRPickerView/BRPickerView/Base/BRPickerView.bundle
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
 ${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle

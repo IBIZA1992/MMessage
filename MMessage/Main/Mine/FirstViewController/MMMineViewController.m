@@ -125,9 +125,18 @@
         self.nickNameLabel.text = user.nickname;
         [self.nickNameLabel sizeToFit];
     }
-    if (user.avatar == nil) {
-        NSLog(@"");
+    if (user.avatar != nil) {
+        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+            if (data != nil) {
+                self->_headImageView.image = [UIImage imageWithData:data];
+            } else {
+                self->_headImageView.image = [UIImage imageNamed:@"head"];
+            }
+        }];
+    } else {
+        self->_headImageView.image = [UIImage imageNamed:@"head"];
     }
+    
 //    UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
 //    appearance.backgroundColor = [UIColor whiteColor];
 //    self.navigationController.navigationBar.standardAppearance = appearance;

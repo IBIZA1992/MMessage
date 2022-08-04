@@ -22,6 +22,11 @@ PODS:
   - SVProgressHUD (2.2.6):
     - SVProgressHUD/Core (= 2.2.6)
   - SVProgressHUD/Core (2.2.6)
+  - TZImagePickerController (3.8.3):
+    - TZImagePickerController/Basic (= 3.8.3)
+    - TZImagePickerController/Location (= 3.8.3)
+  - TZImagePickerController/Basic (3.8.3)
+  - TZImagePickerController/Location (3.8.3)
 
 DEPENDENCIES:
   - BRPickerView
@@ -31,6 +36,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - SVProgressHUD (from `https://github.com/IBIZA1992/SVProgressHUD.git`)
+  - TZImagePickerController
 
 SPEC REPOS:
   trunk:
@@ -40,6 +46,7 @@ SPEC REPOS:
     - JMessage
     - MJRefresh
     - SDWebImage
+    - TZImagePickerController
 
 EXTERNAL SOURCES:
   SVProgressHUD:
@@ -58,7 +65,8 @@ SPEC CHECKSUMS:
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
+  TZImagePickerController: e9909edbadf7381140efc5b5c9f5bdbfd630f7d4
 
-PODFILE CHECKSUM: 95fb3f0085b432cdefe454f63da6c4b9f29f94d2
+PODFILE CHECKSUM: d480dbb76c111cac8fa28d5dfce209966c3d0b05
 
 COCOAPODS: 1.11.2

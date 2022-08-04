@@ -49,7 +49,18 @@
                                                                                    UI(75))];
                 self.headImageView.center = CGPointMake(self.headImageView.center.x,
                                                         self.infoItem.height / 2);
-                self.headImageView.image = [UIImage imageNamed:@"head"];
+                if (self.user.avatar != nil) {
+                    [self.user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                        if (data != nil) {
+                            self->_headImageView.image = [UIImage imageWithData:data];
+                        } else {
+                            self->_headImageView.image = [UIImage imageNamed:@"head"];
+                        }
+                    }];
+                } else {
+                    self->_headImageView.image = [UIImage imageNamed:@"head"];
+                }
+                
                 self.headImageView.layer.cornerRadius = UI(8);
                 self.headImageView.layer.masksToBounds = YES;
                 self.headImageView;
