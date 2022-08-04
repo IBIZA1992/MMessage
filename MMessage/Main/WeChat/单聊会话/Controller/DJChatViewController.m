@@ -77,7 +77,7 @@
     [_tableview setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_NAVIGATION_BAR_HEIGHT - height-55)];
     [_textview setFrame:CGRectMake(0, SCREEN_HEIGHT-55-height, SCREEN_WIDTH, 55)];
     [self.view layoutIfNeeded];
-    [_tableview reloadData];ag
+    [_tableview reloadData];
     NSLog(@"");
     [_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
