@@ -78,7 +78,6 @@
     [_textview setFrame:CGRectMake(0, SCREEN_HEIGHT-55-height, SCREEN_WIDTH, 55)];
     [self.view layoutIfNeeded];
     [_tableview reloadData];
-    NSLog(@"");
     [_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
@@ -87,7 +86,6 @@
     [_textview setFrame:CGRectMake(0, SCREEN_HEIGHT-55, SCREEN_WIDTH, 55)];
     [_tableview setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-55-STATUS_NAVIGATION_BAR_HEIGHT)];
     [self.view layoutIfNeeded];
-    NSLog(@"");
     [_tableview reloadData];
     [_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
