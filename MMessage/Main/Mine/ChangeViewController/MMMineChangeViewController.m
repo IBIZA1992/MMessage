@@ -18,6 +18,8 @@
 @property (nonatomic, strong, readwrite) UIView *navigationView;
 @property (nonatomic, strong, readwrite) JMSGUser *user;
 @property (nonatomic, strong, readwrite) NSArray<MMMineTableViewInfoItem *> *infoArray;
+@property (nonatomic, strong, readwrite) NSTimer *timer;
+
 @end
 
 @implementation MMMineChangeViewController
@@ -51,14 +53,12 @@
         self.tableView;
     })];
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
-
 
 
 

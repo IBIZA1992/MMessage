@@ -55,32 +55,71 @@
     
     if(message.fromName == nil){
         JMSGUser *user = [JMSGUser myInfo];
-        if(user.avatar){
-            NSArray *array=[[NSArray alloc] initWithObjects:user.username,nil];
-            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-                JMSGUser *user = resultObject[0];
-                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-                self->_profile_image_url.image = [UIImage imageWithData:data];
-                }];
-            }];
-            
+        if(_single.imagePath1 != nil){
+            UIImage *image = [UIImage imageWithContentsOfFile:_single.imagePath1];
+            _profile_image_url.image = image;
         }
-        else
-            _profile_image_url.image = [UIImage imageNamed:@"head"];
+        if(_single.imagePath1 == nil){
+            if(user.avatar){
+                NSArray *array=[[NSArray alloc] initWithObjects:user.username,nil];
+                [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+                    JMSGUser *user = resultObject[0];
+                    [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                        self->_profile_image_url.image = [UIImage imageWithData:data];
+                        NSString *path_document = NSHomeDirectory();
+                        self->_single.imagePath1 = [path_document stringByAppendingString:@"/Documents/pic1.png"];
+                        [UIImagePNGRepresentation(self->_profile_image_url.image) writeToFile:self->_single.imagePath1 atomically:YES];
+                        NSLog(@"");
+                    }];
+                }];
+            }
+            else{
+                _profile_image_url.image = [UIImage imageNamed:@"head"];
+            }
+        }
     }
     else{
-        if(_single.userdata.avater){
-            NSArray *array=[[NSArray alloc] initWithObjects:_single.userdata.username,nil];
-            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-                JMSGUser *user = resultObject[0];
-                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-                self->_profile_image_url.image = [UIImage imageWithData:data];
-                }];
-            }];
+        if(_single.imagePath2 != nil){
+            UIImage *image = [UIImage imageWithContentsOfFile:_single.imagePath2];
+            _profile_image_url.image = image;
         }
-        else
-            _profile_image_url.image = [UIImage imageNamed:@"head"];
+        if(_single.imagePath2 == nil){
+            if(_single.userdata.avater){
+                NSArray *array=[[NSArray alloc] initWithObjects:_single.userdata.username,nil];
+                [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+                    JMSGUser *user = resultObject[0];
+                    [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                        self->_profile_image_url.image = [UIImage imageWithData:data];
+                        NSString *path_document = NSHomeDirectory();
+                        self->_single.imagePath2 = [path_document stringByAppendingString:@"/Documents/pic2.png"];
+                        [UIImagePNGRepresentation(self->_profile_image_url.image) writeToFile:self->_single.imagePath2 atomically:YES];
+                    }];
+                }];
+            }
+            else{
+                _profile_image_url.image = [UIImage imageNamed:@"head"];
+            }
+        }
     }
+    
+//    else{
+//        if(_single.userdata.avater){
+//            NSArray *array=[[NSArray alloc] initWithObjects:_single.userdata.username,nil];
+//            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+//                JMSGUser *user = resultObject[0];
+//                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+//                self->_profile_image_url.image = [UIImage imageWithData:data];
+//                }];
+//            }];
+//        }
+//        else
+//            _profile_image_url.image = [UIImage imageNamed:@"head"];
+//    }
+    
+    
+    
+    
+    
     
     
     

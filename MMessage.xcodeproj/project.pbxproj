@@ -33,6 +33,9 @@
 		358B17632893DD2900F52DE5 /* DJListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17622893DD2900F52DE5 /* DJListItem.m */; };
 		358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B176F2894110800F52DE5 /* DJToolNavigationBar.m */; };
 		358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17732894137700F52DE5 /* DJAddFriendView.m */; };
+		35E15A04289D125E00E10C24 /* FriendLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E15A03289D125E00E10C24 /* FriendLimitViewController.m */; };
+		35E15A07289D126800E10C24 /* RemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E15A06289D126800E10C24 /* RemarkViewController.m */; };
+		35E15A0B289D139400E10C24 /* MoremessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E15A0A289D139400E10C24 /* MoremessageViewController.m */; };
 		A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */; };
 		A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */; };
 		A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E62897CF7000D9F179 /* MMMineTextView.m */; };
@@ -108,6 +111,12 @@
 		358B176F2894110800F52DE5 /* DJToolNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJToolNavigationBar.m; sourceTree = "<group>"; };
 		358B17722894137700F52DE5 /* DJAddFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddFriendView.h; sourceTree = "<group>"; };
 		358B17732894137700F52DE5 /* DJAddFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddFriendView.m; sourceTree = "<group>"; };
+		35E15A02289D125E00E10C24 /* FriendLimitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendLimitViewController.h; sourceTree = "<group>"; };
+		35E15A03289D125E00E10C24 /* FriendLimitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendLimitViewController.m; sourceTree = "<group>"; };
+		35E15A05289D126800E10C24 /* RemarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemarkViewController.h; sourceTree = "<group>"; };
+		35E15A06289D126800E10C24 /* RemarkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemarkViewController.m; sourceTree = "<group>"; };
+		35E15A09289D139400E10C24 /* MoremessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoremessageViewController.h; sourceTree = "<group>"; };
+		35E15A0A289D139400E10C24 /* MoremessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoremessageViewController.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD44150960C908EFFA6B96C /* Pods-MMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMessage.debug.xcconfig"; path = "Target Support Files/Pods-MMessage/Pods-MMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		A842B1DC289764A600D9F179 /* MMMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMineTableViewCell.h; sourceTree = "<group>"; };
@@ -215,9 +224,11 @@
 		3580F53A2897DDD8000B79A6 /* 用户详情信息 */ = {
 			isa = PBXGroup;
 			children = (
+				35E15A08289D137200E10C24 /* 更多信息 */,
+				35E15A01289D121C00E10C24 /* 朋友权限 */,
+				35E15A00289D120E00E10C24 /* 备注与标签 */,
+				35E159FF289D120600E10C24 /* 主页 */,
 				3580F550289924C1000B79A6 /* 更多设置 */,
-				3580F53E2897DF05000B79A6 /* Controller */,
-				3580F53F2897DF0B000B79A6 /* View */,
 			);
 			path = "用户详情信息";
 			sourceTree = "<group>";
@@ -464,6 +475,42 @@
 				358B17732894137700F52DE5 /* DJAddFriendView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		35E159FF289D120600E10C24 /* 主页 */ = {
+			isa = PBXGroup;
+			children = (
+				3580F53E2897DF05000B79A6 /* Controller */,
+				3580F53F2897DF0B000B79A6 /* View */,
+			);
+			path = "主页";
+			sourceTree = "<group>";
+		};
+		35E15A00289D120E00E10C24 /* 备注与标签 */ = {
+			isa = PBXGroup;
+			children = (
+				35E15A05289D126800E10C24 /* RemarkViewController.h */,
+				35E15A06289D126800E10C24 /* RemarkViewController.m */,
+			);
+			path = "备注与标签";
+			sourceTree = "<group>";
+		};
+		35E15A01289D121C00E10C24 /* 朋友权限 */ = {
+			isa = PBXGroup;
+			children = (
+				35E15A02289D125E00E10C24 /* FriendLimitViewController.h */,
+				35E15A03289D125E00E10C24 /* FriendLimitViewController.m */,
+			);
+			path = "朋友权限";
+			sourceTree = "<group>";
+		};
+		35E15A08289D137200E10C24 /* 更多信息 */ = {
+			isa = PBXGroup;
+			children = (
+				35E15A09289D139400E10C24 /* MoremessageViewController.h */,
+				35E15A0A289D139400E10C24 /* MoremessageViewController.m */,
+			);
+			path = "更多信息";
 			sourceTree = "<group>";
 		};
 		3A361FF91F0C730D98AA28AB /* Pods */ = {
@@ -769,6 +816,7 @@
 				3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				3580F5652899380A000B79A6 /* DJChatTableViewCell.m in Sources */,
+				35E15A0B289D139400E10C24 /* MoremessageViewController.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */,
 				A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */,
@@ -778,8 +826,10 @@
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
 				A8F617072894C9150089A484 /* MMMineTableViewInfo.m in Sources */,
 				3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */,
+				35E15A04289D125E00E10C24 /* FriendLimitViewController.m in Sources */,
 				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
+				35E15A07289D126800E10C24 /* RemarkViewController.m in Sources */,
 				358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */,
 				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,

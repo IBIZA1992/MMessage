@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSMutableArray *messageArray;//消息内容
 @property(nonatomic, strong)NSMutableArray *messagelistArray;//消息列表
 
+@property(nonatomic, strong)NSString *imagePath1;
+@property(nonatomic, strong)NSString *imagePath2;
+
+
 
 + (DJSingleton *)sharedManager;
 

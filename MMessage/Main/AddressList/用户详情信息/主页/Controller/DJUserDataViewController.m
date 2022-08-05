@@ -15,6 +15,9 @@
 #import "MMScreen.h"
 #import "DJSetUserDataViewController.h"
 #import "DJChatViewController.h"
+#import "RemarkViewController.h"
+#import "FriendLimitViewController.h"
+#import "MoremessageViewController.h"
 
 
 @interface DJUserDataViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -23,6 +26,9 @@
 @property(nonatomic, strong)DJListItem *list;
 @property(nonatomic, strong)DJSetUserDataViewController *setuserdataVC;
 @property(nonatomic, strong)DJChatViewController *chatVC;
+@property(nonatomic, strong)FriendLimitViewController *friendlimitVC;
+@property(nonatomic, strong)RemarkViewController *remarkVC;
+@property(nonatomic, strong)MoremessageViewController *moreVC;
 
 @end
 
@@ -66,10 +72,23 @@
 
 //设置组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 3;
 }
 
-
+//设置组头
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        return @"";
+    }
+    if(section == 1){
+        return @"";
+    }
+    if(section == 2){
+        return @"";
+    }
+    else
+        return nil;
+}
 
 //设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -195,6 +214,45 @@
         }
     }
     
+    
+    if(indexPath.section == 0){
+        if(indexPath.row == 1){
+            
+            _remarkVC = [[RemarkViewController alloc] init];
+            [self.navigationController pushViewController:_remarkVC animated:YES];
+            
+            /**
+             
+             备注与标签
+             
+             */
+       
+        }
+        if(indexPath.row == 2){
+            
+            _friendlimitVC = [[FriendLimitViewController alloc] init];
+            [self.navigationController pushViewController:_friendlimitVC animated:YES];
+            
+            /**
+             朋友权限
+             */
+            
+        }
+    }
+
+    if(indexPath.section == 1){
+        if(indexPath.row == 1){
+            
+            /**
+             更多信息
+             */
+            _moreVC = [[MoremessageViewController alloc] init];
+            [self.navigationController pushViewController:_moreVC animated:YES];
+            
+            
+            
+        }
+    }
     
     
     
