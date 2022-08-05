@@ -10,6 +10,7 @@
 #import "MMMineViewController.h"
 #import "MMMineChangeViewController.h"
 #import "JMessage/JMessage.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface MMMineViewController ()
 @property (nonatomic, strong ,readwrite) UIView *imageBackgroundView;
@@ -41,6 +42,8 @@
     
     self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
     
+    JMSGUser *user = [JMSGUser myInfo];
+    
     // 设置图片的栏目
     [self.view addSubview:({
         self.imageBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, STATUSBARHEIGHT + SCREEN_HEIGHT / 4)];
@@ -55,6 +58,18 @@
         self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, UI(75), UI(75))];
         self.headImageView.center = CGPointMake(SCREEN_WIDTH / 5, STATUSBARHEIGHT + SCREEN_HEIGHT / 8);
         self.headImageView.image = [UIImage imageNamed:@"head"];
+        if (user.avatar != nil) {
+            [[JMSGUser myInfo] thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                if (data != nil) {
+                    self->_headImageView.image = [UIImage imageWithData:data];
+                } else {
+                    self->_headImageView.image = [UIImage imageNamed:@"head"];
+                }
+            }];
+        } else {
+            self.headImageView.image = [UIImage imageNamed:@"head"];
+        }
+        
         self.headImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.headImageView.layer.cornerRadius = UI(8);
         self.headImageView.layer.masksToBounds = YES;
@@ -63,7 +78,11 @@
     
     [self.imageBackgroundView addSubview:({
         self.nickNameLabel = [[UILabel alloc] init];
-        self.nickNameLabel.text = @"未设置昵称";
+        if (user.nickname != nil) {
+            self->_nickNameLabel.text = user.nickname;
+        } else {
+            self.nickNameLabel.text = @"未设置昵称";
+        }
         self.nickNameLabel.font = [UIFont boldSystemFontOfSize:UI(24)];
         [self.nickNameLabel sizeToFit];
         [self.nickNameLabel setFrame:CGRectMake(self.headImageView.frame.size.width + self.headImageView.frame.origin.x + UI(20),
@@ -75,7 +94,7 @@
     
     [self.imageBackgroundView addSubview:({
         self.userNameLabel = [[UILabel alloc] init];
-        self.userNameLabel.text = @"用户名：Mega";
+        self.userNameLabel.text = [NSString stringWithFormat:@"用户名：%@", user.username];;
         self.userNameLabel.font = [UIFont boldSystemFontOfSize:UI(16)];
         self.userNameLabel.alpha = 0.5;
         [self.userNameLabel sizeToFit];
@@ -114,33 +133,34 @@
     })];
 }
 
-#warning 在退出重进时，昵称加载错误，总是前一个数据(要协调解决) --- 返回值出来user都是nil
 /// 在即将出现时加载，用于加载真实数据
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     JMSGUser *user = [JMSGUser myInfo];
-    self.userNameLabel.text = [NSString stringWithFormat:@"用户名：%@", user.username];
-    [self.userNameLabel sizeToFit];
-    if (user.nickname != nil) {
-        self.nickNameLabel.text = user.nickname;
-        [self.nickNameLabel sizeToFit];
-    }
-    if (user.avatar != nil) {
-        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-            if (data != nil) {
-                self->_headImageView.image = [UIImage imageWithData:data];
-            } else {
-                self->_headImageView.image = [UIImage imageNamed:@"head"];
-            }
-        }];
-    } else {
-        self->_headImageView.image = [UIImage imageNamed:@"head"];
+    if (![[NSString stringWithFormat:@"用户名：%@", user.username] isEqualToString:self.userNameLabel.text]) {
+        [SVProgressHUD showWithStatus:@"加载中"];
     }
     
-//    UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
-//    appearance.backgroundColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.standardAppearance = appearance;
+    [super viewWillAppear:animated];
 
+    [[JMSGUser myInfo] thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+        if (data != nil) {
+            self->_headImageView.image = [UIImage imageWithData:data];
+            
+        } else {
+            self->_headImageView.image = [UIImage imageNamed:@"head"];
+        }
+        JMSGUser *user = [JMSGUser myInfo];
+        self->_userNameLabel.text = [NSString stringWithFormat:@"用户名：%@", user.username];
+        [self->_userNameLabel sizeToFit];
+        if (user.nickname != nil) {
+            self->_nickNameLabel.text = user.nickname;
+            [self->_nickNameLabel sizeToFit];
+        } else {
+            self->_nickNameLabel.text = @"未设置昵称";
+            [self->_nickNameLabel sizeToFit];
+        }
+        [SVProgressHUD dismiss];
+    }];
 }
 
 
