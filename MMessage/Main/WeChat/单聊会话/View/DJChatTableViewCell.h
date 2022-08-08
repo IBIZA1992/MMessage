@@ -17,10 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DJChatTableViewCell : UITableViewCell
 @property(nonatomic, strong)DJSingleton *single;
-
-@property(nonatomic, strong)UIImageView *profile_image_url;//对方头像
+@property(nonatomic, strong)UIImageView *background;
+@property(nonatomic, strong)UIImageView *profile_image_url;//头像
 @property(nonatomic, strong)UILabel *text;
 
+@property(nonatomic )CGFloat cellheight;
 
 - (void)LoadChatTableViewCell:(JMSGMessage *)message;
 

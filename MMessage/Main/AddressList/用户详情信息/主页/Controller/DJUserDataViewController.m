@@ -78,13 +78,13 @@
 //设置组头
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if(section == 0){
-        return @"";
+        return @"第一组";
     }
     if(section == 1){
-        return @"";
+        return @"第二组";
     }
     if(section == 2){
-        return @"";
+        return @"第三组";
     }
     else
         return nil;
@@ -124,6 +124,10 @@
     UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     
     if(indexPath.section == 0){
+        if(indexPath.row == 0){
+            cell.textLabel.text = @"用户头像等信息";
+            return cell;
+        }
         if(indexPath.row == 1){
             cell.textLabel.text = @"备注和标签";
             return cell;
@@ -204,12 +208,14 @@
         if(indexPath.row == 0){
             _single = [DJSingleton sharedManager];
             /**获取列表的所有消息*/
-            [[JMSGConversation singleConversationWithUsername:_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
-                NSLog(@"");
-                self->_single.messageArray = @[].mutableCopy;
-                self->_single.messageArray = (NSMutableArray *)resultObject;
-                self->_chatVC = [[DJChatViewController alloc] init];
-                [self.navigationController pushViewController:self->_chatVC animated:YES];
+            [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
+                [resultObject allMessages:^(id resultObject, NSError *error) {
+                    NSLog(@"");
+                    self->_single.messageArray = @[].mutableCopy;
+                    self->_single.messageArray = (NSMutableArray *)resultObject;
+                    self->_chatVC = [[DJChatViewController alloc] init];
+                    [self.navigationController pushViewController:self->_chatVC animated:YES];
+                }];
             }];
         }
     }
@@ -242,15 +248,11 @@
 
     if(indexPath.section == 1){
         if(indexPath.row == 1){
-            
             /**
              更多信息
              */
             _moreVC = [[MMMoremessageViewController alloc] init];
             [self.navigationController pushViewController:_moreVC animated:YES];
-            
-            
-            
         }
     }
     
