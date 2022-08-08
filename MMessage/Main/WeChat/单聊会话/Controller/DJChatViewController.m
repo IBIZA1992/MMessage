@@ -167,12 +167,26 @@
 }
 // 选择完成
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width,self.view.frame.size.height - 20)];
-    [self.view addSubview:imageView];
-    // 获取点击的图片
-    imageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSLog(@"");
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(image);
+ 
+    [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
+        JMSGImageContent *content = [[JMSGImageContent alloc] initWithImageData:imageData];
+        JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
+        [JMSGMessage sendMessage:message];
+        /**获取列表的所有消息*/
+        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
+            self->_single.messageArray = @[].mutableCopy;
+            self->_single.messageArray = (NSMutableArray *)resultObject;
+            [self->_tableview reloadData];
+            [self->_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self->_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }];
+        [self->_single.messagelistArray removeObject:self->_single.userdata.username];
+        [self->_single.messagelistArray insertObject:self->_single.userdata.username atIndex:0];
+        NSLog(@"");
+        [picker dismissViewControllerAnimated:YES completion:nil];
+
+    }];
 }
 
 
