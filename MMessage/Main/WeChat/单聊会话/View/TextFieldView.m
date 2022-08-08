@@ -19,7 +19,7 @@
     
     _btnsend = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnsend setFrame:CGRectMake(SCREEN_WIDTH-40, 10, 20, 20)];
-    [_btnsend setBackgroundImage:[UIImage imageNamed:@"send"] forState:UIControlStateNormal];
+    [_btnsend setBackgroundImage:[UIImage imageNamed:@"picture"] forState:UIControlStateNormal];
     [self addSubview:_btnsend];
     
     

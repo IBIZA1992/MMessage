@@ -40,22 +40,21 @@
 
     _tableview = [[UITableView alloc] init];
     [_tableview setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT - SAFEDISTANCE_TABBAR_HEIGHT)];
-    [self.view addSubview:_tableview];
-    
     _tableview.delegate = self;
     _tableview.dataSource = self;
+    [self.view addSubview:_tableview];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadchat)
                                                  name:@"chat"
                                                object:nil];
-   
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableview.separatorColor = [UIColor clearColor];
+    _single = [DJSingleton sharedManager];
+
+    NSLog(@"");
 }
 
 
@@ -102,14 +101,13 @@
         NSLog(@"");
         self->_single.messageArray = @[].mutableCopy;
         self->_single.messageArray = (NSMutableArray *)resultObject;
-        self->_chatVC = [[DJChatViewController alloc] init];
-        [self.navigationController pushViewController:self->_chatVC animated:YES];
+        NSArray *array=[[NSArray alloc] initWithObjects:self->_single.messagelistArray[indexPath.row],nil];
+        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+            self->_single.userdata = resultObject[0];
+            self->_chatVC = [[DJChatViewController alloc] init];
+            [self.navigationController pushViewController:self->_chatVC animated:YES];
+        }];
     }];
-    
-    
-    
-    
-    
 }
 
 
