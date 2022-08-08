@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)UIImageView *background;
 @property(nonatomic, strong)UIImageView *profile_image_url;//头像
 @property(nonatomic, strong)UILabel *text;
+@property(nonatomic, strong)UIImageView *picture;
 
 @property(nonatomic )CGFloat cellheight;
 

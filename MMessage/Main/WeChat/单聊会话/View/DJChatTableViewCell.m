@@ -30,6 +30,12 @@
             _text=[[UILabel alloc] init];
             _text;
         })];
+        //发图片
+        [self.contentView addSubview:({
+            _picture=[[UIImageView alloc] initWithFrame:CGRectZero];
+            _picture.contentMode=UIViewContentModeScaleAspectFit;
+            _picture;
+        })];
     }
     return self;
 }
@@ -99,8 +105,31 @@
         JMSGTextContent *textcontent = (JMSGTextContent *)content;
         _text.text = textcontent.text;
     }
-
     
+    /**图片*/
+    JMSGAbstractContent *contentimage = message.content;
+    if(message.contentType == kJMSGContentTypeImage){
+        JMSGImageContent *imagecontent = (JMSGImageContent *)contentimage;
+        NSLog(@"");
+//        if([UIImage imageWithContentsOfFile:imagecontent.originMediaLocalPath]){
+//            _picture.image = [UIImage imageWithContentsOfFile:imagecontent.originMediaLocalPath];
+//        }
+        _picture.image = [UIImage imageWithContentsOfFile:[message.timestamp stringValue]];
+        if(_picture.image == nil){
+            [imagecontent thumbImageData:^(NSData *data, NSString *objectId, NSError *error) {
+                self->_picture.image = [UIImage imageWithData:data];
+                NSString *path_document = NSHomeDirectory();
+                self->_single.imagePath2 = [path_document stringByAppendingString:[message.timestamp stringValue]];
+                [UIImagePNGRepresentation(self->_picture.image) writeToFile:self->_single.imagePath2 atomically:YES];
+                if(message.fromName == nil){/**如果为我自己所发送的消息*/
+                    self->_picture.frame = CGRectMake(110, 0, 200, 200);
+                }
+                else{
+                    self->_picture.frame = CGRectMake(80, 0, 200, 200);
+                }
+            }];
+        }
+    }
 }
 
 - (void)SetFrame:(JMSGMessage *)message{
@@ -118,9 +147,10 @@
         else{
             [_text setFrame:CGRectMake(80, 20, 280, size.height)];
         }
-        
-        _background.frame = CGRectMake(_text.frame.origin.x-10, _text.frame.origin.y-10, _text.frame.size.width+20, _text.frame.size.height+20);
-        _background.image = [UIImage imageNamed:@"leftchat"];
+        if(message.contentType== kJMSGContentTypeText){
+            _background.frame = CGRectMake(_text.frame.origin.x-10, _text.frame.origin.y-10, _text.frame.size.width+20, _text.frame.size.height+20);
+            _background.image = [UIImage imageNamed:@"leftchat"];
+        }
 
 
     }
@@ -139,22 +169,26 @@
         else{
             [_text setFrame:CGRectMake(30, 20, 280, size.height)];
         }
-        _background.frame = CGRectMake(_text.frame.origin.x-10, _text.frame.origin.y-10, _text.frame.size.width+20, _text.frame.size.height+20);
-        _background.image = [UIImage imageNamed:@"rightchat"];
-        NSLog(@"");
+        if(message.contentType== kJMSGContentTypeText){
+            _background.frame = CGRectMake(_text.frame.origin.x-10, _text.frame.origin.y-10, _text.frame.size.width+20, _text.frame.size.height+20);
+            _background.image = [UIImage imageNamed:@"rightchat"];
+        }
     }
-    
-    
-    
-    
-    
-    
-    if(_text.frame.size.height > 30){
-        _cellheight = _text.frame.size.height+40;
+
+
+   
+    if(message.contentType == kJMSGContentTypeImage){
+        _cellheight = 200;
     }
     else{
-        _cellheight = 70;
+        if(_text.frame.size.height > 30){
+            _cellheight = _text.frame.size.height+40;
+        }
+        else
+            _cellheight = 70;
     }
+    
+    
     
     
 }
