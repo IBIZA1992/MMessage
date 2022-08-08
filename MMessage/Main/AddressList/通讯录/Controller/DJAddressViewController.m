@@ -228,8 +228,15 @@
     if(indexPath.section == 2){
         _single = [DJSingleton sharedManager];
         _single.userdata = _FriendArray[indexPath.row];
-        _userdataVC = [[DJUserDataViewController alloc] init];
-        [self.navigationController pushViewController:_userdataVC animated:YES];
+        
+        NSArray *array=[[NSArray alloc] initWithObjects:_single.userdata.username,nil];
+        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+            self->_single.user = resultObject[0];
+            self->_userdataVC = [[DJUserDataViewController alloc] init];
+            [self.navigationController pushViewController:self->_userdataVC animated:YES];
+        }];
+        
+        
     }    
 }
 

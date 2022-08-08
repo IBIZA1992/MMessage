@@ -80,31 +80,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-////    NSString *identifier = ((WBWeiBoItem *)self.dataArray[indexPath.row]).idstr;
-//    WBWeiBoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
-//    if (!cell) {
-//        cell = [[WBWeiBoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
-//        __weak typeof(self) wself = self;
-//        [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row] clickWebBlock:^(NSURL * _Nonnull URL) {
-//            __strong typeof(wself) strongSelf = wself;
-//            WBWebViewController *webViewController = [[WBWebViewController alloc] initWithRequest:[NSURLRequest requestWithURL:URL]];
-//            if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(weiBoDetailView:pushViewController:)]) {
-//                [strongSelf.delegate weiBoDetailView:self pushViewController:webViewController];
-//            }
-//        }];
-//    } else {
-//        __weak typeof(self) wself = self;
-//        [cell ReLayoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row] clickWebBlock:^(NSURL * _Nonnull URL) {
-//                    __strong typeof(wself) strongSelf = wself;
-//                    WBWebViewController *webViewController = [[WBWebViewController alloc] initWithRequest:[NSURLRequest requestWithURL:URL]];
-//                    if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(weiBoDetailView:pushViewController:)]) {
-//                        [strongSelf.delegate weiBoDetailView:self pushViewController:webViewController];
-//                    }
-//        }];
-//    }
-//    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    // 使用名称作唯一标志，加载一次即可
-
     MMMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if (!cell) {
         cell = [[MMMineTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"id"];

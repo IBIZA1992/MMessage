@@ -16,6 +16,7 @@
     _isDisturb = user.isNoDisturb;
     _isInBlacklist = user.isInBlacklist;
    // _uid = (NSString *)user.uid;
+    _nickname = user.nickname;
     _username = user.username;
     _avater = user.avatar;
     _birthday = user.birthday;
@@ -25,7 +26,8 @@
     _noteName = user.noteName;
     _noteText = user.noteText;
     _appKey = user.appKey;
-    
+    _gender = user.gender;
+    _signature = user.signature;
     //_avatarData = user.thumbAvatarLocalPath;
     
     

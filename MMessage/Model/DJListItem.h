@@ -18,9 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign, readonly)BOOL isInBlacklist;  //是否加入黑名单
 @property(nonatomic, strong)NSString *uid; //用户id
 @property(nonatomic, strong)NSString *username; //用户名
-@property(nonatomic, strong)NSString *nickname; //用户昵称
+@property(nonatomic, copy)NSString *nickname; //用户昵称
 @property(nonatomic, strong)NSString *avater; //用户头像
 @property(nonatomic, strong)NSString *birthday; //用户生日
+@property(nonatomic, assign, readwrite) JMSGUserGender gender;  // 性别
+@property(nonatomic, strong, readwrite) NSString *signature; //签名
 @property(nonatomic, strong)NSString *region; //用户地区
 @property(nonatomic, strong)NSString *address; //用户住址
 @property(nonatomic, strong)NSString *password; //用户密码

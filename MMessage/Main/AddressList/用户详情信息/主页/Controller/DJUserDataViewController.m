@@ -15,9 +15,9 @@
 #import "MMScreen.h"
 #import "DJSetUserDataViewController.h"
 #import "DJChatViewController.h"
-#import "RemarkViewController.h"
+#import "MMRemarkViewController.h"
 #import "FriendLimitViewController.h"
-#import "MoremessageViewController.h"
+#import "MMMoremessageViewController.h"
 
 
 @interface DJUserDataViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -27,8 +27,8 @@
 @property(nonatomic, strong)DJSetUserDataViewController *setuserdataVC;
 @property(nonatomic, strong)DJChatViewController *chatVC;
 @property(nonatomic, strong)FriendLimitViewController *friendlimitVC;
-@property(nonatomic, strong)RemarkViewController *remarkVC;
-@property(nonatomic, strong)MoremessageViewController *moreVC;
+@property(nonatomic, strong)MMRemarkViewController *remarkVC;
+@property(nonatomic, strong)MMMoremessageViewController *moreVC;
 
 @end
 
@@ -218,7 +218,7 @@
     if(indexPath.section == 0){
         if(indexPath.row == 1){
             
-            _remarkVC = [[RemarkViewController alloc] init];
+            _remarkVC = [[MMRemarkViewController alloc] init];
             [self.navigationController pushViewController:_remarkVC animated:YES];
             
             /**
@@ -246,7 +246,7 @@
             /**
              更多信息
              */
-            _moreVC = [[MoremessageViewController alloc] init];
+            _moreVC = [[MMMoremessageViewController alloc] init];
             [self.navigationController pushViewController:_moreVC animated:YES];
             
             
