@@ -33,6 +33,10 @@
 @property (nonatomic, strong, readwrite) UIImageView *headImageView;
 @property (nonatomic, strong, readwrite) UIButton *pickPictureButton;
 
+// 跟修改密码相关
+@property (nonatomic, strong, readwrite) UITextField *oldPasswordTextField;
+@property (nonatomic, strong, readwrite) UITextField *newerPasswordTextField;
+
 @end
 
 @implementation MMChangeDetailViewController
@@ -42,7 +46,12 @@
     if (self) {
         self.infoItem = infoItem;
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
-        self.navigationItem.title = [NSString stringWithFormat:@"设置%@", self.infoItem.text];
+        if (self.infoItem.infoType != MMInfoTypeChangePassword) {
+            self.navigationItem.title = [NSString stringWithFormat:@"设置%@", self.infoItem.text];
+        } else {
+            self.navigationItem.title = self.infoItem.text;
+        }
+        
     }
     return self;
 }
@@ -92,6 +101,8 @@
         case MMInfoTypeSignature:
             [self _changeSignature];
             break;
+        case MMInfoTypeChangePassword:
+            [self _changePassword];
     }
     
 }
@@ -184,6 +195,25 @@
                 });
             }];
             break;
+        }
+
+        case MMInfoTypeChangePassword:
+        {
+            [JMSGUser updateMyPasswordWithNewPassword:self.newerPasswordTextField.text
+                                          oldPassword:self.oldPasswordTextField.text
+                                    completionHandler:^(id resultObject, NSError *error) {
+                if (error == nil) {
+                    // 修改成功
+                    [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                    [SVProgressHUD dismissWithDelay:0.7];  // 展示0.7秒
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else {
+                    // 修改失败
+                    [SVProgressHUD showErrorWithStatus:@"修改失败"];
+                    [SVProgressHUD dismissWithDelay:0.7];  // 展示0.7秒
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }];
         }
     }
     
@@ -433,7 +463,42 @@
     imagePickerVc.allowCrop = YES;
     imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:imagePickerVc animated:YES completion:nil];
+}
 
+#pragma mark - 修改密码
+- (void)_changePassword {
+    
+    [self.view addSubview:({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 88, SCREEN_WIDTH, 48)];
+        view.backgroundColor = [UIColor whiteColor];
+        view;
+    })];
+    
+    [self.view addSubview:({
+        self.oldPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 88, SCREEN_WIDTH - 24, 48)];
+        self.oldPasswordTextField.backgroundColor = [UIColor whiteColor];
+        self.oldPasswordTextField.placeholder = @"请输入旧密码";
+        self.oldPasswordTextField.secureTextEntry = YES;
+        self.oldPasswordTextField.textAlignment = NSTextAlignmentLeft;
+        self.oldPasswordTextField.tintColor = WECHAT_GREEN;
+        self.oldPasswordTextField;
+    })];
+    
+    [self.view addSubview:({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 146, SCREEN_WIDTH, 48)];
+        view.backgroundColor = [UIColor whiteColor];
+        view;
+    })];
+    
+    [self.view addSubview:({
+        self.newerPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 146, SCREEN_WIDTH - 24, 48)];
+        self.newerPasswordTextField.backgroundColor = [UIColor whiteColor];
+        self.newerPasswordTextField.placeholder = @"请输入新密码";
+        self.newerPasswordTextField.secureTextEntry = YES;
+        self.newerPasswordTextField.textAlignment = NSTextAlignmentLeft;
+        self.newerPasswordTextField.tintColor = WECHAT_GREEN;
+        self.newerPasswordTextField;
+    })];
 }
 
 #pragma mark - UITextViewDelegate

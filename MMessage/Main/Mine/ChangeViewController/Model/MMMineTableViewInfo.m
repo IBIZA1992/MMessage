@@ -49,6 +49,11 @@
         item5.text = @"签名";
         [mutableArray addObject:item5];
         
+        MMMineTableViewInfoItem *item6 = [[MMMineTableViewInfoItem alloc] init];
+        item6.infoType = MMInfoTypeChangePassword;
+        item6.text = @"修改密码";
+        [mutableArray addObject:item6];
+        
         // 布局高度
         mutableArray[0].height = UI(100);
         for (int i = 1; i < mutableArray.count; i++) {

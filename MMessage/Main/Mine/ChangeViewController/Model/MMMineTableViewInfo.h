@@ -12,11 +12,11 @@
 typedef NS_ENUM(NSUInteger, MMInfoType) {
     MMInfoTypeHeadPicture             = 0,  // 头像
     MMInfoTypeNickname                = 1,  // 昵称
-//    MMInfoTypeUsername                = 2,  // 用户名
     MMInfoTypeBirthday                = 2,  // 生日
     MMInfoTypeGender                  = 3,  // 性别
     MMInfoTypeAddress                 = 4,  // 地址
-    MMInfoTypeSignature               = 5   // 签名
+    MMInfoTypeSignature               = 5,  // 签名
+    MMInfoTypeChangePassword          = 6   // 修改密码
 };
 
 /// 用于储存单个用户个人信息

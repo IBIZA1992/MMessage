@@ -30,6 +30,7 @@
     [SVProgressHUD setFont:[UIFont systemFontOfSize:UI(17)]];
     [SVProgressHUD setRingRadius:UI(21)];
     [SVProgressHUD setRingThickness:UI(4)];
+    [SVProgressHUD setImageViewSize:CGSizeMake(UI(40), UI(40))];
     
     return YES;
 }

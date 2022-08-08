@@ -90,6 +90,8 @@
             self.detailTextLabel.text = self.user.signature;
             self.detailTextLabel.numberOfLines = 2;
             break;
+        case MMInfoTypeChangePassword:
+            break;
     }
 }
 
