@@ -58,6 +58,7 @@
     _single = [DJSingleton sharedManager];
     _single.addrequestArray = [[NSMutableArray alloc] initWithCapacity:10];
     _single.messagelistArray = @[].mutableCopy;
+    _single.imagePathArray = @[].mutableCopy;
 
     
 }

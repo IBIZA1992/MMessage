@@ -11,6 +11,7 @@
 #import "SDWebImage.h"
 #import "DJSingleton.h"
 #import "MMScreen.h"
+#import "AVFoundation/AVFoundation.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)UIImageView *profile_image_url;//头像
 @property(nonatomic, strong)UILabel *text;
 @property(nonatomic, strong)UIImageView *picture;
+@property(nonatomic, strong)UIButton *btnvoice;
+@property(nonatomic, strong)UIImageView *videoimage;
+@property(nonatomic, strong)UILabel *videolabel;
+@property(nonatomic, strong)JMSGVoiceContent *voicecontent;
 
 @property(nonatomic )CGFloat cellheight;
 
