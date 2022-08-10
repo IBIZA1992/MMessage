@@ -12,17 +12,50 @@
 #import "TextFieldView.h"
 
 
-@interface DJChatViewController ()<UITableViewDelegate, UITableViewDataSource, JMessageDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DJChatViewController ()<UITableViewDelegate, UITableViewDataSource, JMessageDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate>
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJChatTableViewCell *cell;
 @property(nonatomic, strong)NSMutableArray *messageArray;
 @property(nonatomic, strong)TextFieldView *textview;
 @property(nonatomic, strong)UITableView *tableview;
 @property(nonatomic, strong)UIImagePickerController *imageVC;
+@property(nonatomic, strong)AVAudioPlayer *player;
+@property(nonatomic, strong)AVAudioRecorder *recorder;
+@property(nonatomic )bool isrecord;
+@property(nonatomic, strong)NSURL *fileURL;
+@property(nonatomic, strong)NSNumber *audioTime;
+
 
 @end
 
 @implementation DJChatViewController
+
+- (instancetype)init{
+    self = [super init];
+    NSString *directory = NSTemporaryDirectory();
+    NSString *filePath = [directory stringByAppendingPathComponent:@"voice1.m4a"];
+    _fileURL = [NSURL fileURLWithPath:filePath];
+    NSDictionary * settings = @{AVFormatIDKey:@(kAudioFormatMPEG4AAC),
+                                AVSampleRateKey:@22050.f,
+                                AVNumberOfChannelsKey:@1,
+                                AVEncoderBitDepthHintKey:@16,
+                                AVEncoderAudioQualityKey:@(AVAudioQualityMedium)};
+    NSError *error;
+    
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:_fileURL settings:settings error:&error];
+    self.isrecord = NO;
+    if(self.recorder){
+        [self.recorder prepareToRecord];
+        self.recorder.delegate = self;
+    }
+    else{
+        NSLog(@"Recorder Create Error: %@", [error localizedDescription]);
+    }
+    return self;
+}
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,8 +77,16 @@
     
     
     
-    /**发送消息*/
+    /**发送图片*/
     [_textview.btnsend addTarget:self action:@selector(sendpicture)  forControlEvents:UIControlEventTouchUpInside];
+    /**发送语音*/
+    [_textview.btnaudio addTarget:self action:@selector(sendaudio) forControlEvents:UIControlEventTouchUpInside];
+    /**点击播放语音*/
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playvoice:) name:@"playvoice" object:nil];
+
+    
+    
+    
     /**键盘出现时*/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     /**键盘消失时*/
@@ -57,6 +98,7 @@
     _tableview.dataSource = self;
     _textview.textfield.delegate = self;
     [JMessage addDelegate:self withConversation:nil];
+    
     
 }
 
@@ -150,6 +192,78 @@
     return YES;
 }
 
+//发送语音
+- (void)sendaudio{
+    if(![_recorder isRecording]){
+        [_recorder record];
+    }
+    else{
+        NSTimeInterval timer = _recorder.currentTime;
+        _audioTime = [NSNumber numberWithDouble:timer];
+        [_recorder stop];
+    }
+}
+
+- (void)playvoice:(NSNotification *)info{
+    JMSGVoiceContent *voicecontent = [info.userInfo objectForKey:@"voice"];
+    [voicecontent voiceData:^(NSData *data, NSString *objectId, NSError *error) {
+        NSError *error1 = nil;
+        self->_player = [[AVAudioPlayer alloc] initWithData:data error:&error1];
+        [self->_player prepareToPlay];
+        self->_player.delegate = self;
+        
+        self->_player.pan = 0;
+        self->_player.volume = 0.5;
+        [self->_player play];
+        __unused NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self->_player.duration target:self selector:@selector(pauses) userInfo:nil repeats:YES];
+    }];
+}
+- (void)pauses{
+    [_player stop];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    
+}
+
+
+//结束录制的代理
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
+    NSData *data = [NSData dataWithContentsOfURL:_fileURL];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"voice1.m4a"];
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    BOOL fileExists = [fileManager fileExistsAtPath:filePath];
+    if(fileExists){
+        NSError *error;
+        [fileManager removeItemAtPath:filePath error:&error];
+    }
+
+    _single = [DJSingleton sharedManager];
+    [self Loadmessagelist];
+    
+    [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
+
+        JMSGVoiceContent *content = [[JMSGVoiceContent alloc] initWithVoiceData:data voiceDuration:self->_audioTime];
+        
+        JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
+        [JMSGMessage sendMessage:message];
+        
+        /**获取列表的所有消息*/
+        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
+            self->_single.messageArray = @[].mutableCopy;
+            self->_single.messageArray = (NSMutableArray *)resultObject;
+            [self->_tableview reloadData];
+            [self->_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self->_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }];
+        [self->_single.messagelistArray removeObject:self->_single.userdata.username];
+        [self->_single.messagelistArray insertObject:self->_single.userdata.username atIndex:0];
+
+    }];
+
+}
+
+
+
 //发送图片
 - (void)sendpicture{
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
@@ -159,6 +273,7 @@
         [self presentViewController:_imageVC animated:YES completion:nil];
     }
 }
+
 //图片代理方法
 // 取消选择
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

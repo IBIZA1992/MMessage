@@ -14,14 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DJSingleton : NSObject
 
 @property(nonatomic, strong)DJListItem *userdata;
-@property(nonatomic, strong)NSMutableArray *addrequestArray;
+@property(nonatomic, strong)NSMutableArray *addrequestArray;//好友请求列表
 @property(nonatomic, strong)JMSGUser *user;
 @property(nonatomic, strong)NSMutableArray *messageArray;//消息内容
 @property(nonatomic, strong)NSMutableArray *messagelistArray;//消息列表
 
-@property(nonatomic, strong)NSString *imagePath1;
-@property(nonatomic, strong)NSString *imagePath2;
-
+@property(nonatomic, strong)NSString *imagePath1;//我的头像地址
+@property(nonatomic, strong)NSString *imagePath2;//聊天对方头像地址
+@property(nonatomic, strong)NSMutableArray *imagePathArray;//聊天图片地址
 
 
 + (DJSingleton *)sharedManager;
