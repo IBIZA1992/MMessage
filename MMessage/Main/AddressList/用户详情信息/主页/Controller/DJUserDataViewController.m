@@ -179,6 +179,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _single = [DJSingleton sharedManager];
     
+    /**接受好友请求接口*/
     if(indexPath.section == 3){
         if(indexPath.row == 0){
             _list = [[DJListItem alloc] init];
@@ -188,7 +189,7 @@
             }];
         }
     }
-    
+    /**添加好友按钮接口*/
     if(indexPath.section == 2){
         if(indexPath.row == 2){
             _list = [[DJListItem alloc] init];
@@ -205,23 +206,26 @@
             }];
         }
         
+        /**进入聊天页面接口*/
         if(indexPath.row == 0){
             _single = [DJSingleton sharedManager];
             /**获取列表的所有消息*/
             [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
                 [resultObject allMessages:^(id resultObject, NSError *error) {
-                    NSLog(@"");
                     self->_single.messageArray = @[].mutableCopy;
                     self->_single.messageArray = (NSMutableArray *)resultObject;
                     self->_chatVC = [[DJChatViewController alloc] init];
+                    /**设置聊天类型为单聊*/
+                    self.single.messageType = 1;
                     [self.navigationController pushViewController:self->_chatVC animated:YES];
                 }];
             }];
+         
         }
     }
     
-    
     if(indexPath.section == 0){
+        /**备注与标签接口*/
         if(indexPath.row == 1){
             
             _remarkVC = [[RemarkViewController alloc] init];
@@ -234,6 +238,7 @@
              */
        
         }
+        /**朋友权限接口*/
         if(indexPath.row == 2){
             
             _friendlimitVC = [[FriendLimitViewController alloc] init];
@@ -247,6 +252,7 @@
     }
 
     if(indexPath.section == 1){
+        /**更多信息接口*/
         if(indexPath.row == 1){
             /**
              更多信息

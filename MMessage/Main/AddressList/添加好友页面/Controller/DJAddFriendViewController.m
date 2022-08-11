@@ -12,6 +12,7 @@
 #import "DJSingleton.h"
 #import "DJListItem.h"
 #import "DJSearchAddFriendViewController.h"
+#import "DJCreateGroupViewController.h"
 
 
 @interface DJAddFriendViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
@@ -20,6 +21,7 @@
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJListItem *item;
 @property(nonatomic, strong)DJSearchAddFriendViewController *searchAddView;
+@property(nonatomic, strong)DJCreateGroupViewController *creategroupVC;
 
 @end
 
@@ -40,8 +42,7 @@
     _addView.tableView.delegate = self;
     _addView.tableView.dataSource = self;
     _addView.tableView.tableHeaderView = _addView.btnsearch;
-   // _addView.tableView.tableHeaderView = _addView.searchtext;
-//    _addView.tableView.tableHeaderView = _addView.searchbar;
+ 
 
     
     /**搜索*/
@@ -72,21 +73,9 @@
 
 
 
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-  
-}
-
-
 //设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 4;
 }
 
 //设置宽度
@@ -112,12 +101,24 @@
         cell.detailTextLabel.text=@"扫描二维码名片";
         cell.imageView.image=[UIImage imageNamed:@"group"];
     }
+    if(indexPath.row==3){
+        cell.textLabel.text=@"创建群聊";
+        cell.detailTextLabel.text=@"新建一个群组";
+        cell.imageView.image=[UIImage imageNamed:@"group"];
+    }
 
     return cell;
 
 }
 
-
+//点击进入tableview
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    if(indexPath.row == 3){
+        _creategroupVC = [[DJCreateGroupViewController alloc] init];
+        [self.navigationController pushViewController:_creategroupVC animated:YES];
+    }
+}
 
 
 

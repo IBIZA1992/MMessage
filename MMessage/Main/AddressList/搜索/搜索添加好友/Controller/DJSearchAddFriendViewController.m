@@ -54,7 +54,6 @@
     _searchBar.placeholder = @"搜索";
     [titleView addSubview:_searchBar];
     self.navigationItem.titleView = titleView;
-  //  [_searchBar becomeFirstResponder];
 
 
 }

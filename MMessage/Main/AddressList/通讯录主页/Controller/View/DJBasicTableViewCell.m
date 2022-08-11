@@ -46,8 +46,16 @@
             }];
         }];
     }
-    else
-        _profile_image_url.image = [UIImage imageNamed:@"head"];
+    else{
+        if(item.imageStr){
+            //NSData *decodedImageData   = [[NSData alloc] initWithBase64Encoding:item.imageStr];
+            NSData *decodedImageData   = [[NSData alloc] initWithBase64EncodedString:item.imageStr options:0];
+
+            _profile_image_url.image = [UIImage imageWithData:decodedImageData];
+        }
+        else
+            _profile_image_url.image = [UIImage imageNamed:@"head"];
+    }
     
 //    JMSGUser *user = [JMSGUser myInfo];
 //    if(item.avater){

@@ -16,6 +16,7 @@
 #import "DJNewFriendViewController.h"
 #import "DJSingleton.h"
 #import "DJUserDataViewController.h"
+#import "DJGroupViewController.h"
 
 
 
@@ -30,6 +31,7 @@
 @property(nonatomic, strong)DJNewFriendViewController *newfriendVC;
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJUserDataViewController *userdataVC;
+@property(nonatomic, strong)DJGroupViewController *groupVC;
 
 
 @end
@@ -224,6 +226,11 @@
             _newfriendVC = [[DJNewFriendViewController alloc] init];
             [self.navigationController pushViewController:_newfriendVC animated:YES];
         }
+        if(indexPath.row == 1){
+            _groupVC = [[DJGroupViewController alloc] init];
+            [self.navigationController pushViewController:_groupVC animated:YES];
+        }
+        
     }
     if(indexPath.section == 2){
         _single = [DJSingleton sharedManager];
