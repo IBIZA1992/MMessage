@@ -51,7 +51,7 @@
 
 - (void)SetData:(JMSGGroup *)group{
     _profile_image_url.image = [UIImage imageNamed:@"head"];
-    _group_name.text = group.gid;
+    _group_name.text = [group.owner stringByAppendingString:@"的群组"];
 }
 
 

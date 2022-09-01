@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic )int messageType;
 ///群聊id
 @property(nonatomic, strong)NSString *groupID;
-
+///群聊名
+@property(nonatomic, strong)NSString *groupName;
 
 ///单例方法，只创建一个对象
 + (DJSingleton *)sharedManager;

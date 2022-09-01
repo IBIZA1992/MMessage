@@ -89,8 +89,9 @@
     _single.groupID = str; /**获取群聊id传入单例*/
     [JMSGConversation createGroupConversationWithGroupId:str completionHandler:^(id resultObject, NSError *error) {
         NSLog(@"");
+        JMSGConversation *Con = resultObject;
+        self.single.groupName = Con.title;
         [resultObject allMessages:^(id resultObject, NSError *error) {
-            NSLog(@"");
             self->_single.messageArray = @[].mutableCopy;
             self->_single.messageArray = (NSMutableArray *)resultObject;
             self->_chatVC = [[DJChatViewController alloc] init];

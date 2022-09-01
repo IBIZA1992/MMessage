@@ -27,18 +27,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WECHAT_TABBAR_BACKGROUND_GREY;
+    /**控制器View*/
     _tableview = [[UITableView alloc] init];
     [_tableview setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-55-STATUS_NAVIGATION_BAR_HEIGHT)];
     [self.view addSubview:_tableview];
     
+    /**底部栏View*/
     _barView = [[DJCreateGroupBarView alloc] init];
     [_barView setFrame:CGRectMake(0, SCREEN_HEIGHT-55, SCREEN_WIDTH, 55)];
     [_barView LoadGroupBarView];
     [self.view addSubview:_barView];
 
+    /**设置导航栏标题颜色*/
     self.navigationItem.title = @"创建群聊";
     self.navigationController.navigationBar.backgroundColor = WECHAT_TABBAR_BACKGROUND_GREY;
     
+    /**代理*/
     _tableview.delegate = self;
     _tableview.dataSource = self;
     
@@ -48,20 +52,17 @@
     
     [_barView.btncreate addTarget:self action:@selector(creatgroup) forControlEvents:UIControlEventTouchUpInside];
 
-    
 }
 
 - (void)creatgroup{
     JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
     JMSGUser *uesr = [JMSGUser myInfo];
-    groupinfo.name = uesr.username;
+    groupinfo.name = [uesr.username stringByAppendingString:@"的群组"];
     groupinfo.groupType = kJMSGGroupTypePublic;
    
     [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:_groupUserArray completionHandler:^(id resultObject, NSError *error) {
         NSLog(@"");
     }];
-    
-    
     
 }
 

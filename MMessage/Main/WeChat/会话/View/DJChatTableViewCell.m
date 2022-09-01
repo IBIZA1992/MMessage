@@ -10,56 +10,6 @@
 @implementation DJChatTableViewCell
 
 
-///重写初始化方法 创造控件
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self){
-        //用户头像
-        [self.contentView addSubview:({
-            _profile_image_url=[[UIImageView alloc] initWithFrame:CGRectZero];
-            _profile_image_url.contentMode=UIViewContentModeScaleAspectFit;
-            _profile_image_url;
-        })];
-        //聊天框
-        [self.contentView addSubview:({
-            _background = [[UIImageView alloc] init];
-            _background;
-        })];
-        //text
-        [self.contentView addSubview:({
-            _text = [[UILabel alloc] init];
-            _text;
-        })];
-        //发图片
-        [self.contentView addSubview:({
-            _picture = [[UIImageView alloc] initWithFrame:CGRectZero];
-            _picture.contentMode=UIViewContentModeScaleAspectFit;
-            _picture;
-        })];
-        //语音
-        [self.contentView addSubview:({
-            _btnvoice = [UIButton buttonWithType:UIButtonTypeCustom];
-            _btnvoice;
-        })];
-        //语音图标
-        [self.contentView addSubview:({
-            _videoimage = [[UIImageView alloc] init];
-            _videoimage;
-        })];
-        //语音时间
-        [self.contentView addSubview:({
-            _videolabel = [[UILabel alloc] init];
-            _videolabel;
-        })];
-        //群成员昵称
-        [self.contentView addSubview:({
-            _groupusername = [[UILabel alloc] init];
-            _groupusername;
-        })];
-    }
-    return self;
-}
-
 ///加载cell的数据和位置
 - (void)LoadChatTableViewCell:(JMSGMessage *)message{
     _single = [DJSingleton sharedManager];
@@ -111,7 +61,6 @@
     
     //设置群成员的昵称
     _groupusername.text = message.fromUser.username;
-
 
     //聊天文本数据
     JMSGAbstractContent *content = message.content;
@@ -387,13 +336,58 @@
         _cellheight = 70;
     }
     
-    
-    
-    
 }
 
 
-
+///重写初始化方法 创造控件
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self){
+        //用户头像
+        [self.contentView addSubview:({
+            _profile_image_url=[[UIImageView alloc] initWithFrame:CGRectZero];
+            _profile_image_url.contentMode=UIViewContentModeScaleAspectFit;
+            _profile_image_url;
+        })];
+        //聊天框
+        [self.contentView addSubview:({
+            _background = [[UIImageView alloc] init];
+            _background;
+        })];
+        //text
+        [self.contentView addSubview:({
+            _text = [[UILabel alloc] init];
+            _text;
+        })];
+        //发图片
+        [self.contentView addSubview:({
+            _picture = [[UIImageView alloc] initWithFrame:CGRectZero];
+            _picture.contentMode=UIViewContentModeScaleAspectFit;
+            _picture;
+        })];
+        //语音
+        [self.contentView addSubview:({
+            _btnvoice = [UIButton buttonWithType:UIButtonTypeCustom];
+            _btnvoice;
+        })];
+        //语音图标
+        [self.contentView addSubview:({
+            _videoimage = [[UIImageView alloc] init];
+            _videoimage;
+        })];
+        //语音时间
+        [self.contentView addSubview:({
+            _videolabel = [[UILabel alloc] init];
+            _videolabel;
+        })];
+        //群成员昵称
+        [self.contentView addSubview:({
+            _groupusername = [[UILabel alloc] init];
+            _groupusername;
+        })];
+    }
+    return self;
+}
 
 
 @end

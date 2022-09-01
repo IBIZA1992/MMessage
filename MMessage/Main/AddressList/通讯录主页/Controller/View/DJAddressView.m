@@ -28,13 +28,6 @@
     [_BasicTableView setFrame:CGRectMake(0, STATUS_NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
     [self addSubview:_BasicTableView];
     
-    
-    
-    
-    
-    
-    
-    
 }
 
 

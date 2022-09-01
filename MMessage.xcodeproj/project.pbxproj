@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF2289B9F7100AC0856 /* TextFieldView.m */; };
 		3536EDF7289BCC4500AC0856 /* DJWeChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */; };
+		3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562011B28C0B7030018989E /* GroupDataViewController.m */; };
 		3565047928A3895000381F7C /* DJGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565047828A3895000381F7C /* DJGroupViewController.m */; };
 		3565047F28A38B1F00381F7C /* DJGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565047E28A38B1F00381F7C /* DJGroupView.m */; };
 		3565048628A391A000381F7C /* DJCreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565048528A391A000381F7C /* DJCreateGroupViewController.m */; };
@@ -69,6 +70,8 @@
 		3536EDF2289B9F7100AC0856 /* TextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldView.m; sourceTree = "<group>"; };
 		3536EDF5289BCC4500AC0856 /* DJWeChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJWeChatTableViewCell.h; sourceTree = "<group>"; };
 		3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWeChatTableViewCell.m; sourceTree = "<group>"; };
+		3562011A28C0B7030018989E /* GroupDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataViewController.h; sourceTree = "<group>"; };
+		3562011B28C0B7030018989E /* GroupDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataViewController.m; sourceTree = "<group>"; };
 		3565047728A3895000381F7C /* DJGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJGroupViewController.h; sourceTree = "<group>"; };
 		3565047828A3895000381F7C /* DJGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJGroupViewController.m; sourceTree = "<group>"; };
 		3565047D28A38B1F00381F7C /* DJGroupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJGroupView.h; sourceTree = "<group>"; };
@@ -212,11 +215,37 @@
 			path = "消息列表";
 			sourceTree = "<group>";
 		};
+		3562011928C0B6CA0018989E /* 群聊信息设置 */ = {
+			isa = PBXGroup;
+			children = (
+				3562011D28C0B7D10018989E /* Controller */,
+				3562011E28C0B7D80018989E /* View */,
+			);
+			path = "群聊信息设置";
+			sourceTree = "<group>";
+		};
+		3562011D28C0B7D10018989E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3562011A28C0B7030018989E /* GroupDataViewController.h */,
+				3562011B28C0B7030018989E /* GroupDataViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3562011E28C0B7D80018989E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3565047628A3892500381F7C /* 群聊 */ = {
 			isa = PBXGroup;
 			children = (
 				3565048128A3917200381F7C /* 创建群聊 */,
 				3565048028A3916700381F7C /* 群聊列表 */,
+				3562011928C0B6CA0018989E /* 群聊信息设置 */,
 			);
 			path = "群聊";
 			sourceTree = "<group>";
@@ -890,6 +919,7 @@
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				3580F55D2899337D000B79A6 /* DJChatViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,
+				3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */,
 				3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */,
 				3565047F28A38B1F00381F7C /* DJGroupView.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
@@ -1074,7 +1104,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "访问相机以拍照";
@@ -1092,7 +1122,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.TopView.MMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = "---MMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1110,7 +1140,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "访问相机以拍照";
@@ -1128,7 +1158,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NanJiang.MMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = "---MMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

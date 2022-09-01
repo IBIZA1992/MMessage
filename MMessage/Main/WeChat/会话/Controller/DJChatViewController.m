@@ -10,6 +10,7 @@
 #import "DJChatTableViewCell.h"
 #import "JMessage/JMessage.h"
 #import "TextFieldView.h"
+#import "GroupDataViewController.h"
 
 
 @interface DJChatViewController ()<UITableViewDelegate, UITableViewDataSource, JMessageDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate>
@@ -106,6 +107,28 @@
 - (void)viewWillAppear:(BOOL)animated{
     _single = [DJSingleton sharedManager];
     self.navigationItem.title = _single.userdata.username;
+    if(_single.messageType == 2){
+        self.navigationItem.title = _single.groupName;
+//        UIBarButtonItem *BtnChange = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"setmore"] style:UIBarButtonItemStyleDone target:self action:@selector(ChangeGroupData)];
+//
+//
+//
+//        self.navigationItem.rightBarButtonItem = BtnChange;
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage*image = [UIImage imageNamed:@"setmore"];
+        [button setImage:image forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(ChangeGroupData) forControlEvents:UIControlEventTouchUpInside];
+        [button.widthAnchor constraintEqualToConstant:30].active =YES;
+        [button.heightAnchor constraintEqualToConstant:30].active =YES;
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.rightBarButtonItem = buttonItem;
+
+
+     
+     
+
+    }
     /**去掉分割线*/
     _tableview.separatorStyle = NO;
     [self->_tableview reloadData];
@@ -115,6 +138,13 @@
     }
 }
  
+///进入群聊信息
+- (void)ChangeGroupData{
+    GroupDataViewController *groupVC = [[GroupDataViewController alloc] init];
+    [self.navigationController pushViewController:groupVC animated:YES];
+}
+
+
 
 
 ///键盘弹出时 刷新子视图位置
@@ -157,11 +187,8 @@
 //    if(_single.messagelistArray.count == 0){
 //        [_single.messagelistArray addObject:_single.userdata.username];
 //    }
-//
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"chat"
-//                                                        object:nil];
-//
-}
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+   }
 
 ///键盘中发送按钮的代理
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -433,6 +460,9 @@
     }
     /**倒叙排列*/
     [_cell LoadChatTableViewCell:_single.messageArray[_single.messageArray.count-1-indexPath.row]];
+    
+    //使tableview无法点击
+    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return _cell;
 }

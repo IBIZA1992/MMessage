@@ -12,12 +12,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DJAddressView : UIView
-@property(nonatomic, strong)DJToolNavigationBar *navView;
-@property(nonatomic, strong)UIButton *btnsearch;
-@property(nonatomic, strong)UITableView *BasicTableView;
+@property(nonatomic, strong)DJToolNavigationBar *navView; //工具Bar
+@property(nonatomic, strong)UIButton *btnsearch; //搜索按钮
+@property(nonatomic, strong)UITableView *BasicTableView; //tableview
 
 
-
+///加载Address的View
 - (void)LoadAddressView;
 
 @end

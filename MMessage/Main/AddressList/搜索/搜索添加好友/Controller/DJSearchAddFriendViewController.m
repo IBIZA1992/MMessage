@@ -30,15 +30,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    //添加View
     _searchView = [[DJSearchAddFriendView alloc] init];
     [_searchView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [_searchView LoadSearchAddFriendView];
     [self.view addSubview:_searchView];
     
+    //tableveiw的代理
     _searchView.tableview.delegate = self;
     _searchView.tableview.dataSource = self;
     
+    //设置searchBar
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0,0,SCREEN_WIDTH - 65,35)];
     UIColor *color = self.navigationController.navigationBar.backgroundColor;
     [titleView setBackgroundColor:color];
@@ -50,7 +52,6 @@
     _searchBar.layer.masksToBounds =YES;
     _searchBar.showsCancelButton = YES;
     _searchBar.showsSearchResultsButton = YES;
-
     _searchBar.placeholder = @"搜索";
     [titleView addSubview:_searchBar];
     self.navigationItem.titleView = titleView;
@@ -65,7 +66,11 @@
 }
 
 
-//当输入内容改变
+
+
+#pragma mark - searchBar的代理
+
+///当输入内容改变
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if(text){
         searchBar.placeholder = nil;
@@ -73,20 +78,16 @@
     if([text  isEqual: @""]){
         searchBar.placeholder = @"搜索";
     }
-
     return YES;
 }
 
-
-
-//点击取消
+///点击取消
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//点击搜索
+///点击搜索
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
     _single = [DJSingleton sharedManager];
     NSArray *array=[[NSArray alloc] initWithObjects:searchBar.text,nil];
     [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
@@ -96,25 +97,22 @@
             [self->_item LoadUserDataModel:resultObject[0]];
             self->_single.userdata = self->_item;
             [self->_searchView.tableview reloadData];
-            NSLog(@"");
         }
         if(error){
             self->_type = 2;
             [self->_searchView.tableview reloadData];
         }
     }];
-    
-    
-    
-    
+
 }
 
 
 
 
-//设置行数
+#pragma mark - TableView的代理
+
+///设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if(_type == 0){
         return 0;
     }
@@ -123,13 +121,12 @@
     }
 }
 
-//设置宽度
+///设置宽度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
 
-
-//内容
+///内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(_type == 1){
         static NSString *CellIdentifier = @"Cell";
@@ -141,9 +138,7 @@
         [_cell LoadBasicTableViewCellWithItem:_single.userdata];
         return _cell;
     }
-    
     else{
-        
         UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
             cell.textLabel.text=@"没有搜索到相关结果";
         return cell;
@@ -151,7 +146,7 @@
 }
 
 
-//点击进入tableview
+///点击进入tableview
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(_type == 1){
         _userdataVC = [[DJUserDataViewController alloc] init];
