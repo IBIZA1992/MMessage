@@ -19,7 +19,6 @@
 @property(nonatomic, strong)DJNewFriendView *newfriendView;
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJBasicTableViewCell *cell;
-@property(nonatomic, strong)DJUserDataViewController *userdataVC;
 @property(nonatomic, strong)NSMutableArray *array;
 @property(nonatomic, strong)DJListItem *list;
 
@@ -39,59 +38,50 @@
     _newfriendView.tableview.delegate = self;
     _newfriendView.tableview.dataSource = self;
     
-    
-    
-    
-    
-    
 
 }
 
-//监听好友事件
-- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event{
+///监听好友事件
+- (void)onReceiveFriendNotificationEvent:(JMSGFriendNotificationEvent *)event {
     _single = [DJSingleton sharedManager];
     _list = [[DJListItem alloc] init];
     [_list LoadUserDataModel:[event getFromUser]];
     [_single.addrequestArray addObject:_list];
-    NSLog(@"");
 }
 
 
-//设置行数
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+#pragma mark - TableView代理实现
+
+///设置行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     _single = [DJSingleton sharedManager];
     return _single.addrequestArray.count;
 }
 
-//设置宽度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+///设置宽度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+///设置内容
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     _cell = [tableView cellForRowAtIndexPath:indexPath]; //根据indexPath准确地取出一行，而不是从cell重用队列中取出
     if (_cell == nil) {
         _cell = [[DJBasicTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
     DJListItem *item = [[DJListItem alloc] init];
     item = _single.addrequestArray[indexPath.row];
-    NSLog(@"");
     [_cell LoadBasicTableViewCellWithItem:item];
     return _cell;
-    
 }
 
-//点击进入tableview
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-
+///点击进入tableview
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _single = [DJSingleton sharedManager];
         _single.userdata = _single.addrequestArray[indexPath.row];
-        _userdataVC = [[DJUserDataViewController alloc] init];
-        [self.navigationController pushViewController:_userdataVC animated:YES];
-    
+        DJUserDataViewController *userdataVC = [[DJUserDataViewController alloc] init];
+        [self.navigationController pushViewController:userdataVC animated:YES];
 }
 
 

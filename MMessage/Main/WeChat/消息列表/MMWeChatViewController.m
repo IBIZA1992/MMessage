@@ -98,12 +98,13 @@
     _single = [DJSingleton sharedManager];
     /**获取列表的所有消息*/
     [[JMSGConversation singleConversationWithUsername:_single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
-        NSLog(@"");
         self->_single.messageArray = @[].mutableCopy;
         self->_single.messageArray = (NSMutableArray *)resultObject;
         NSArray *array=[[NSArray alloc] initWithObjects:self->_single.messagelistArray[indexPath.row],nil];
         [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
             self->_single.userdata = resultObject[0];
+            /**设置聊天类型为单聊*/
+            self.single.messageType = 1;
             self->_chatVC = [[DJChatViewController alloc] init];
             [self.navigationController pushViewController:self->_chatVC animated:YES];
         }];

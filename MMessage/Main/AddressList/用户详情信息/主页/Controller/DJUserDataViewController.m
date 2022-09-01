@@ -15,20 +15,16 @@
 #import "MMScreen.h"
 #import "DJSetUserDataViewController.h"
 #import "DJChatViewController.h"
-#import "MMRemarkViewController.h"
+#import "RemarkViewController.h"
 #import "FriendLimitViewController.h"
-#import "MMMoremessageViewController.h"
+#import "MoremessageViewController.h"
 
 
 @interface DJUserDataViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic, strong)DJSingleton *single;
 @property(nonatomic, strong)DJUserdataView *userdataView;
 @property(nonatomic, strong)DJListItem *list;
-@property(nonatomic, strong)DJSetUserDataViewController *setuserdataVC;
-@property(nonatomic, strong)DJChatViewController *chatVC;
-@property(nonatomic, strong)FriendLimitViewController *friendlimitVC;
-@property(nonatomic, strong)MMRemarkViewController *remarkVC;
-@property(nonatomic, strong)MMMoremessageViewController *moreVC;
+
 
 @end
 
@@ -37,16 +33,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WECHAT_GREEN;
+    //加载View
     _userdataView = [[DJUserdataView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [_userdataView LoadUserdataView];
     [self.view addSubview:_userdataView];
     
+    //tableveiw代理
     _userdataView.tableview.delegate = self;
     _userdataView.tableview.dataSource = self;
 
-    
-
-
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -64,11 +60,15 @@
     
 }
 
+///按钮设置用户更多信息
 - (void)setmore{
-    _setuserdataVC = [[DJSetUserDataViewController alloc] init];
-    [self.navigationController pushViewController:_setuserdataVC animated:YES];
+    DJSetUserDataViewController *setuserdataVC = [[DJSetUserDataViewController alloc] init];
+    [self.navigationController pushViewController:setuserdataVC animated:YES];
 }
 
+
+
+#pragma mark - TableView代理实现
 
 //设置组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -113,13 +113,13 @@
         return 0;
 }
 
-//设置宽度
+///设置宽度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
 
 
-
+///设置内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     
@@ -164,21 +164,17 @@
     if(indexPath.section == 3){
         cell.textLabel.text = @"同意申请";
     }
-    
-    
     else
         cell.textLabel.text = @"1";
     return cell;
-
-
-    
-    
 }
 
 
+///点击cell进入
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _single = [DJSingleton sharedManager];
     
+    /**接受好友请求接口*/
     if(indexPath.section == 3){
         if(indexPath.row == 0){
             _list = [[DJListItem alloc] init];
@@ -188,7 +184,7 @@
             }];
         }
     }
-    
+    /**添加好友按钮接口*/
     if(indexPath.section == 2){
         if(indexPath.row == 2){
             _list = [[DJListItem alloc] init];
@@ -205,27 +201,30 @@
             }];
         }
         
+        /**进入聊天页面接口*/
         if(indexPath.row == 0){
             _single = [DJSingleton sharedManager];
             /**获取列表的所有消息*/
             [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
                 [resultObject allMessages:^(id resultObject, NSError *error) {
-                    NSLog(@"");
                     self->_single.messageArray = @[].mutableCopy;
                     self->_single.messageArray = (NSMutableArray *)resultObject;
-                    self->_chatVC = [[DJChatViewController alloc] init];
-                    [self.navigationController pushViewController:self->_chatVC animated:YES];
+                    DJChatViewController *chatVC = [[DJChatViewController alloc] init];
+                    /**设置聊天类型为单聊*/
+                    self.single.messageType = 1;
+                    [self.navigationController pushViewController:chatVC animated:YES];
                 }];
             }];
+         
         }
     }
     
-    
     if(indexPath.section == 0){
+        /**备注与标签接口*/
         if(indexPath.row == 1){
             
-            _remarkVC = [[MMRemarkViewController alloc] init];
-            [self.navigationController pushViewController:_remarkVC animated:YES];
+            RemarkViewController *remarkVC = [[RemarkViewController alloc] init];
+            [self.navigationController pushViewController:remarkVC animated:YES];
             
             /**
              
@@ -234,25 +233,25 @@
              */
        
         }
+        /**朋友权限接口*/
         if(indexPath.row == 2){
             
-            _friendlimitVC = [[FriendLimitViewController alloc] init];
-            [self.navigationController pushViewController:_friendlimitVC animated:YES];
-            
+            FriendLimitViewController *friendlimitVC = [[FriendLimitViewController alloc] init];
+            [self.navigationController pushViewController:friendlimitVC animated:YES];
             /**
              朋友权限
              */
-            
         }
     }
 
     if(indexPath.section == 1){
+        /**更多信息接口*/
         if(indexPath.row == 1){
             /**
              更多信息
              */
-            _moreVC = [[MMMoremessageViewController alloc] init];
-            [self.navigationController pushViewController:_moreVC animated:YES];
+            MoremessageViewController *moreVC = [[MoremessageViewController alloc] init];
+            [self.navigationController pushViewController:moreVC animated:YES];
         }
     }
     

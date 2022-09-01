@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35033FDB28C0CD43002CA28F /* GroupDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35033FDA28C0CD43002CA28F /* GroupDataView.m */; };
 		3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF2289B9F7100AC0856 /* TextFieldView.m */; };
 		3536EDF7289BCC4500AC0856 /* DJWeChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */; };
+		3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562011B28C0B7030018989E /* GroupDataViewController.m */; };
+		3565047928A3895000381F7C /* DJGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565047828A3895000381F7C /* DJGroupViewController.m */; };
+		3565047F28A38B1F00381F7C /* DJGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565047E28A38B1F00381F7C /* DJGroupView.m */; };
+		3565048628A391A000381F7C /* DJCreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565048528A391A000381F7C /* DJCreateGroupViewController.m */; };
+		3565048C28A3930100381F7C /* DJCreateGroupBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565048B28A3930100381F7C /* DJCreateGroupBarView.m */; };
+		3565049028A39AFD00381F7C /* DJCreateGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565048F28A39AFD00381F7C /* DJCreateGroupTableViewCell.m */; };
+		3565049328A3B38000381F7C /* DJGrouplistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3565049228A3B38000381F7C /* DJGrouplistTableViewCell.m */; };
 		3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5302897D908000B79A6 /* DJNewFriendViewController.m */; };
 		3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5352897D9BE000B79A6 /* DJNewFriendView.m */; };
 		3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3580F5382897DC73000B79A6 /* DJSingleton.m */; };
@@ -33,14 +41,13 @@
 		358B17632893DD2900F52DE5 /* DJListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17622893DD2900F52DE5 /* DJListItem.m */; };
 		358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B176F2894110800F52DE5 /* DJToolNavigationBar.m */; };
 		358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17732894137700F52DE5 /* DJAddFriendView.m */; };
+		35B35DCF28C0BB6D00C5959D /* MoremessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B35DCE28C0BB6D00C5959D /* MoremessageViewController.m */; };
+		35B35DD228C0BBAC00C5959D /* RemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B35DD128C0BBAC00C5959D /* RemarkViewController.m */; };
 		35E15A04289D125E00E10C24 /* FriendLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E15A03289D125E00E10C24 /* FriendLimitViewController.m */; };
 		A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1DD289764A600D9F179 /* MMMineTableViewCell.m */; };
 		A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E32897719100D9F179 /* MMChangeDetailViewController.m */; };
 		A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A842B1E62897CF7000D9F179 /* MMMineTextView.m */; };
 		A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851934B289223AC00D3BE13 /* MMTabBarController.m */; };
-		A861BAD628A1236B005DFF8A /* MMMoremessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A861BAD528A1236B005DFF8A /* MMMoremessageViewController.m */; };
-		A861BAD928A126D8005DFF8A /* MMMoremessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A861BAD828A126D8005DFF8A /* MMMoremessageTableViewCell.m */; };
-		A861BADC28A1376D005DFF8A /* MMRemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A861BADB28A1376D005DFF8A /* MMRemarkViewController.m */; };
 		A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C5724C2892264500FAA17A /* MMWeChatViewController.m */; };
 		A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572522892266500FAA17A /* MMDiscoverViewController.m */; };
 		A8C572562892267500FAA17A /* MMMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C572552892267500FAA17A /* MMMineViewController.m */; };
@@ -60,10 +67,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35033FD928C0CD43002CA28F /* GroupDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataView.h; sourceTree = "<group>"; };
+		35033FDA28C0CD43002CA28F /* GroupDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataView.m; sourceTree = "<group>"; };
 		3536EDF1289B9F7100AC0856 /* TextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldView.h; sourceTree = "<group>"; };
 		3536EDF2289B9F7100AC0856 /* TextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldView.m; sourceTree = "<group>"; };
 		3536EDF5289BCC4500AC0856 /* DJWeChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJWeChatTableViewCell.h; sourceTree = "<group>"; };
 		3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWeChatTableViewCell.m; sourceTree = "<group>"; };
+		3562011A28C0B7030018989E /* GroupDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataViewController.h; sourceTree = "<group>"; };
+		3562011B28C0B7030018989E /* GroupDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataViewController.m; sourceTree = "<group>"; };
+		3565047728A3895000381F7C /* DJGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJGroupViewController.h; sourceTree = "<group>"; };
+		3565047828A3895000381F7C /* DJGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJGroupViewController.m; sourceTree = "<group>"; };
+		3565047D28A38B1F00381F7C /* DJGroupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJGroupView.h; sourceTree = "<group>"; };
+		3565047E28A38B1F00381F7C /* DJGroupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJGroupView.m; sourceTree = "<group>"; };
+		3565048428A391A000381F7C /* DJCreateGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJCreateGroupViewController.h; sourceTree = "<group>"; };
+		3565048528A391A000381F7C /* DJCreateGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJCreateGroupViewController.m; sourceTree = "<group>"; };
+		3565048A28A3930100381F7C /* DJCreateGroupBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJCreateGroupBarView.h; sourceTree = "<group>"; };
+		3565048B28A3930100381F7C /* DJCreateGroupBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJCreateGroupBarView.m; sourceTree = "<group>"; };
+		3565048E28A39AFD00381F7C /* DJCreateGroupTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJCreateGroupTableViewCell.h; sourceTree = "<group>"; };
+		3565048F28A39AFD00381F7C /* DJCreateGroupTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJCreateGroupTableViewCell.m; sourceTree = "<group>"; };
+		3565049128A3B38000381F7C /* DJGrouplistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJGrouplistTableViewCell.h; sourceTree = "<group>"; };
+		3565049228A3B38000381F7C /* DJGrouplistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJGrouplistTableViewCell.m; sourceTree = "<group>"; };
 		3580F52F2897D908000B79A6 /* DJNewFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendViewController.h; sourceTree = "<group>"; };
 		3580F5302897D908000B79A6 /* DJNewFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJNewFriendViewController.m; sourceTree = "<group>"; };
 		3580F5342897D9BE000B79A6 /* DJNewFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJNewFriendView.h; sourceTree = "<group>"; };
@@ -112,6 +135,10 @@
 		358B176F2894110800F52DE5 /* DJToolNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJToolNavigationBar.m; sourceTree = "<group>"; };
 		358B17722894137700F52DE5 /* DJAddFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddFriendView.h; sourceTree = "<group>"; };
 		358B17732894137700F52DE5 /* DJAddFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddFriendView.m; sourceTree = "<group>"; };
+		35B35DCD28C0BB6D00C5959D /* MoremessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoremessageViewController.h; sourceTree = "<group>"; };
+		35B35DCE28C0BB6D00C5959D /* MoremessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoremessageViewController.m; sourceTree = "<group>"; };
+		35B35DD028C0BBAC00C5959D /* RemarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemarkViewController.h; sourceTree = "<group>"; };
+		35B35DD128C0BBAC00C5959D /* RemarkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemarkViewController.m; sourceTree = "<group>"; };
 		35E15A02289D125E00E10C24 /* FriendLimitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendLimitViewController.h; sourceTree = "<group>"; };
 		35E15A03289D125E00E10C24 /* FriendLimitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendLimitViewController.m; sourceTree = "<group>"; };
 		4DF9C4D3B0F03AEC74D3CE4E /* libPods-MMessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,12 +151,6 @@
 		A842B1E62897CF7000D9F179 /* MMMineTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMineTextView.m; sourceTree = "<group>"; };
 		A851934A289223AC00D3BE13 /* MMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		A851934B289223AC00D3BE13 /* MMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
-		A861BAD428A1236B005DFF8A /* MMMoremessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMoremessageViewController.h; sourceTree = "<group>"; };
-		A861BAD528A1236B005DFF8A /* MMMoremessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMoremessageViewController.m; sourceTree = "<group>"; };
-		A861BAD728A126D8005DFF8A /* MMMoremessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMMoremessageTableViewCell.h; sourceTree = "<group>"; };
-		A861BAD828A126D8005DFF8A /* MMMoremessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMMoremessageTableViewCell.m; sourceTree = "<group>"; };
-		A861BADA28A1376D005DFF8A /* MMRemarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMRemarkViewController.h; sourceTree = "<group>"; };
-		A861BADB28A1376D005DFF8A /* MMRemarkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMRemarkViewController.m; sourceTree = "<group>"; };
 		A8AA33C0288FF6B200F739C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A8AA33C2288FF6BA00F739C8 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		A8AA33C4288FF6C100F739C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -195,6 +216,101 @@
 				3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */,
 			);
 			path = "消息列表";
+			sourceTree = "<group>";
+		};
+		3562011928C0B6CA0018989E /* 群聊信息设置 */ = {
+			isa = PBXGroup;
+			children = (
+				3562011D28C0B7D10018989E /* Controller */,
+				3562011E28C0B7D80018989E /* View */,
+			);
+			path = "群聊信息设置";
+			sourceTree = "<group>";
+		};
+		3562011D28C0B7D10018989E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3562011A28C0B7030018989E /* GroupDataViewController.h */,
+				3562011B28C0B7030018989E /* GroupDataViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3562011E28C0B7D80018989E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35033FD928C0CD43002CA28F /* GroupDataView.h */,
+				35033FDA28C0CD43002CA28F /* GroupDataView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3565047628A3892500381F7C /* 群聊 */ = {
+			isa = PBXGroup;
+			children = (
+				3565048128A3917200381F7C /* 创建群聊 */,
+				3565048028A3916700381F7C /* 群聊列表 */,
+				3562011928C0B6CA0018989E /* 群聊信息设置 */,
+			);
+			path = "群聊";
+			sourceTree = "<group>";
+		};
+		3565047A28A38AAF00381F7C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3565047728A3895000381F7C /* DJGroupViewController.h */,
+				3565047828A3895000381F7C /* DJGroupViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3565047C28A38AFB00381F7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3565047D28A38B1F00381F7C /* DJGroupView.h */,
+				3565047E28A38B1F00381F7C /* DJGroupView.m */,
+				3565049128A3B38000381F7C /* DJGrouplistTableViewCell.h */,
+				3565049228A3B38000381F7C /* DJGrouplistTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3565048028A3916700381F7C /* 群聊列表 */ = {
+			isa = PBXGroup;
+			children = (
+				3565047A28A38AAF00381F7C /* Controller */,
+				3565047C28A38AFB00381F7C /* View */,
+			);
+			path = "群聊列表";
+			sourceTree = "<group>";
+		};
+		3565048128A3917200381F7C /* 创建群聊 */ = {
+			isa = PBXGroup;
+			children = (
+				3565048228A3917C00381F7C /* Controller */,
+				3565048328A3918600381F7C /* View */,
+			);
+			path = "创建群聊";
+			sourceTree = "<group>";
+		};
+		3565048228A3917C00381F7C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3565048428A391A000381F7C /* DJCreateGroupViewController.h */,
+				3565048528A391A000381F7C /* DJCreateGroupViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3565048328A3918600381F7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3565048A28A3930100381F7C /* DJCreateGroupBarView.h */,
+				3565048B28A3930100381F7C /* DJCreateGroupBarView.m */,
+				3565048E28A39AFD00381F7C /* DJCreateGroupTableViewCell.h */,
+				3565048F28A39AFD00381F7C /* DJCreateGroupTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3580F52E2897D8DF000B79A6 /* 新的朋友 */ = {
@@ -342,13 +458,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3580F55A2899333B000B79A6 /* 单聊会话 */ = {
+		3580F55A2899333B000B79A6 /* 会话 */ = {
 			isa = PBXGroup;
 			children = (
 				3580F55E28993532000B79A6 /* Controller */,
 				3580F55F2899353F000B79A6 /* View */,
 			);
-			path = "单聊会话";
+			path = "会话";
 			sourceTree = "<group>";
 		};
 		3580F55E28993532000B79A6 /* Controller */ = {
@@ -444,13 +560,13 @@
 			path = Controller/View;
 			sourceTree = "<group>";
 		};
-		358B176428940CB200F52DE5 /* 通讯录 */ = {
+		358B176428940CB200F52DE5 /* 通讯录主页 */ = {
 			isa = PBXGroup;
 			children = (
 				358B176628940CCF00F52DE5 /* Controller */,
 				358B17472892969F00F52DE5 /* View */,
 			);
-			path = "通讯录";
+			path = "通讯录主页";
 			sourceTree = "<group>";
 		};
 		358B176528940CC000F52DE5 /* 添加好友页面 */ = {
@@ -492,8 +608,8 @@
 		35E15A00289D120E00E10C24 /* 备注与标签 */ = {
 			isa = PBXGroup;
 			children = (
-				A861BADA28A1376D005DFF8A /* MMRemarkViewController.h */,
-				A861BADB28A1376D005DFF8A /* MMRemarkViewController.m */,
+				35B35DD028C0BBAC00C5959D /* RemarkViewController.h */,
+				35B35DD128C0BBAC00C5959D /* RemarkViewController.m */,
 			);
 			path = "备注与标签";
 			sourceTree = "<group>";
@@ -510,10 +626,8 @@
 		35E15A08289D137200E10C24 /* 更多信息 */ = {
 			isa = PBXGroup;
 			children = (
-				A861BAD428A1236B005DFF8A /* MMMoremessageViewController.h */,
-				A861BAD528A1236B005DFF8A /* MMMoremessageViewController.m */,
-				A861BAD728A126D8005DFF8A /* MMMoremessageTableViewCell.h */,
-				A861BAD828A126D8005DFF8A /* MMMoremessageTableViewCell.m */,
+				35B35DCD28C0BB6D00C5959D /* MoremessageViewController.h */,
+				35B35DCE28C0BB6D00C5959D /* MoremessageViewController.m */,
 			);
 			path = "更多信息";
 			sourceTree = "<group>";
@@ -622,8 +736,9 @@
 		A8C57249289225E700FAA17A /* AddressList */ = {
 			isa = PBXGroup;
 			children = (
+				358B176428940CB200F52DE5 /* 通讯录主页 */,
+				3565047628A3892500381F7C /* 群聊 */,
 				3580F5432899047A000B79A6 /* 搜索 */,
-				358B176428940CB200F52DE5 /* 通讯录 */,
 				3580F53A2897DDD8000B79A6 /* 用户详情信息 */,
 				3580F52E2897D8DF000B79A6 /* 新的朋友 */,
 				358B176528940CC000F52DE5 /* 添加好友页面 */,
@@ -635,7 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				3536EDF4289BBEE800AC0856 /* 消息列表 */,
-				3580F55A2899333B000B79A6 /* 单聊会话 */,
+				3580F55A2899333B000B79A6 /* 会话 */,
 			);
 			path = WeChat;
 			sourceTree = "<group>";
@@ -803,16 +918,21 @@
 				3536EDF7289BCC4500AC0856 /* DJWeChatTableViewCell.m in Sources */,
 				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
 				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
+				3565049328A3B38000381F7C /* DJGrouplistTableViewCell.m in Sources */,
 				A842B1E42897719100D9F179 /* MMChangeDetailViewController.m in Sources */,
 				A8E598C8288F8D6E00018BDF /* ViewController.m in Sources */,
 				A8C5724D2892264500FAA17A /* MMWeChatViewController.m in Sources */,
 				3580F55D2899337D000B79A6 /* DJChatViewController.m in Sources */,
+				35B35DCF28C0BB6D00C5959D /* MoremessageViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,
+				3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */,
 				3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */,
+				3565047F28A38B1F00381F7C /* DJGroupView.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
 				3580F54F28990521000B79A6 /* DJSearchAddFriendView.m in Sources */,
 				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
 				3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */,
+				3565048C28A3930100381F7C /* DJCreateGroupBarView.m in Sources */,
 				358B17562892BFAF00F52DE5 /* DJBasicTableViewCell.m in Sources */,
 				3580F554289924E7000B79A6 /* DJSetMoreUserView.m in Sources */,
 				358B174D2892970100F52DE5 /* DJAddressViewController.m in Sources */,
@@ -821,25 +941,27 @@
 				3580F5392897DC73000B79A6 /* DJSingleton.m in Sources */,
 				A8E598C2288F8D6E00018BDF /* AppDelegate.m in Sources */,
 				3580F5652899380A000B79A6 /* DJChatTableViewCell.m in Sources */,
+				3565049028A39AFD00381F7C /* DJCreateGroupTableViewCell.m in Sources */,
 				A8E598D3288F8D6F00018BDF /* main.m in Sources */,
 				358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */,
 				A842B1E72897CF7000D9F179 /* MMMineTextView.m in Sources */,
 				3580F557289924FA000B79A6 /* DJSetUserDataViewController.m in Sources */,
+				35033FDB28C0CD43002CA28F /* GroupDataView.m in Sources */,
 				A8C572562892267500FAA17A /* MMMineViewController.m in Sources */,
 				358B175F2893B86900F52DE5 /* DJUserData.m in Sources */,
-				A861BAD628A1236B005DFF8A /* MMMoremessageViewController.m in Sources */,
 				A8E598DB288F8EB500018BDF /* MMScreen.m in Sources */,
-				A861BADC28A1376D005DFF8A /* MMRemarkViewController.m in Sources */,
+				3565047928A3895000381F7C /* DJGroupViewController.m in Sources */,
 				A8F617072894C9150089A484 /* MMMineTableViewInfo.m in Sources */,
 				3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */,
+				3565048628A391A000381F7C /* DJCreateGroupViewController.m in Sources */,
 				35E15A04289D125E00E10C24 /* FriendLimitViewController.m in Sources */,
 				358B172128919E9F00F52DE5 /* DJLoginViewController.m in Sources */,
 				A8E598C5288F8D6E00018BDF /* SceneDelegate.m in Sources */,
-				A861BAD928A126D8005DFF8A /* MMMoremessageTableViewCell.m in Sources */,
 				358B17592892CE0200F52DE5 /* DJAddFriendViewController.m in Sources */,
 				A8C572592892298D00FAA17A /* MMColor.m in Sources */,
 				358B172B28919EFB00F52DE5 /* DJRegisterView.m in Sources */,
 				3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */,
+				35B35DD228C0BBAC00C5959D /* RemarkViewController.m in Sources */,
 				A8E889F72899470700AD3988 /* MMTimeFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -988,7 +1110,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "访问相机以拍照";
@@ -1006,7 +1128,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.TopView.MMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = "---MMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1024,7 +1146,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FUYWJ9UF9U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMessage/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "访问相机以拍照";
@@ -1042,7 +1164,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NanJiang.MMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = "---MMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
