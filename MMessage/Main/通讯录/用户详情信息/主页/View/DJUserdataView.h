@@ -1,0 +1,20 @@
+//
+//  DJUserdataView.h
+//  MMessage
+//
+//  Created by 邓杰 on 2022/8/1.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface DJUserdataView : UIView
+@property(nonatomic,strong) UITableView *tableview;
+
+
+- (void)LoadUserdataView;
+
+@end
+
+NS_ASSUME_NONNULL_END

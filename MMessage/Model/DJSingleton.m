@@ -9,6 +9,8 @@
 
 @implementation DJSingleton
 
+
+
 + (DJSingleton *)sharedManager {
   static dispatch_once_t onceToken;
   static DJSingleton *sharedManager;

@@ -41,6 +41,10 @@
 		358B17632893DD2900F52DE5 /* DJListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17622893DD2900F52DE5 /* DJListItem.m */; };
 		358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B176F2894110800F52DE5 /* DJToolNavigationBar.m */; };
 		358B17742894137700F52DE5 /* DJAddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B17732894137700F52DE5 /* DJAddFriendView.m */; };
+		35997B1428C8C15300EB36EC /* FriendCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35997B1328C8C15300EB36EC /* FriendCircleViewController.m */; };
+		35997B1828C8D9C600EB36EC /* SendFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35997B1728C8D9C500EB36EC /* SendFriendViewController.m */; };
+		35997B1B28C8DBC100EB36EC /* SendFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35997B1A28C8DBC100EB36EC /* SendFriendView.m */; };
+		35A3A53F28C0E384007C13C7 /* GroupMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3A53E28C0E384007C13C7 /* GroupMemberTableViewCell.m */; };
 		35B35DCF28C0BB6D00C5959D /* MoremessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B35DCE28C0BB6D00C5959D /* MoremessageViewController.m */; };
 		35B35DD228C0BBAC00C5959D /* RemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B35DD128C0BBAC00C5959D /* RemarkViewController.m */; };
 		35E15A04289D125E00E10C24 /* FriendLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E15A03289D125E00E10C24 /* FriendLimitViewController.m */; };
@@ -135,6 +139,14 @@
 		358B176F2894110800F52DE5 /* DJToolNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJToolNavigationBar.m; sourceTree = "<group>"; };
 		358B17722894137700F52DE5 /* DJAddFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAddFriendView.h; sourceTree = "<group>"; };
 		358B17732894137700F52DE5 /* DJAddFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAddFriendView.m; sourceTree = "<group>"; };
+		35997B1228C8C15300EB36EC /* FriendCircleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCircleViewController.h; sourceTree = "<group>"; };
+		35997B1328C8C15300EB36EC /* FriendCircleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleViewController.m; sourceTree = "<group>"; };
+		35997B1628C8D9C500EB36EC /* SendFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendFriendViewController.h; sourceTree = "<group>"; };
+		35997B1728C8D9C500EB36EC /* SendFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendFriendViewController.m; sourceTree = "<group>"; };
+		35997B1928C8DBC100EB36EC /* SendFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendFriendView.h; sourceTree = "<group>"; };
+		35997B1A28C8DBC100EB36EC /* SendFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendFriendView.m; sourceTree = "<group>"; };
+		35A3A53D28C0E384007C13C7 /* GroupMemberTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupMemberTableViewCell.h; sourceTree = "<group>"; };
+		35A3A53E28C0E384007C13C7 /* GroupMemberTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupMemberTableViewCell.m; sourceTree = "<group>"; };
 		35B35DCD28C0BB6D00C5959D /* MoremessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoremessageViewController.h; sourceTree = "<group>"; };
 		35B35DCE28C0BB6D00C5959D /* MoremessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoremessageViewController.m; sourceTree = "<group>"; };
 		35B35DD028C0BBAC00C5959D /* RemarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemarkViewController.h; sourceTree = "<group>"; };
@@ -241,6 +253,8 @@
 			children = (
 				35033FD928C0CD43002CA28F /* GroupDataView.h */,
 				35033FDA28C0CD43002CA28F /* GroupDataView.m */,
+				35A3A53D28C0E384007C13C7 /* GroupMemberTableViewCell.h */,
+				35A3A53E28C0E384007C13C7 /* GroupMemberTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,6 +610,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		35997B1028C8C0FC00EB36EC /* 主页 */ = {
+			isa = PBXGroup;
+			children = (
+				A8C572512892266500FAA17A /* MMDiscoverViewController.h */,
+				A8C572522892266500FAA17A /* MMDiscoverViewController.m */,
+			);
+			path = "主页";
+			sourceTree = "<group>";
+		};
+		35997B1128C8C10500EB36EC /* 朋友圈 */ = {
+			isa = PBXGroup;
+			children = (
+				35997B1228C8C15300EB36EC /* FriendCircleViewController.h */,
+				35997B1328C8C15300EB36EC /* FriendCircleViewController.m */,
+				35997B1628C8D9C500EB36EC /* SendFriendViewController.h */,
+				35997B1728C8D9C500EB36EC /* SendFriendViewController.m */,
+				35997B1928C8DBC100EB36EC /* SendFriendView.h */,
+				35997B1A28C8DBC100EB36EC /* SendFriendView.m */,
+			);
+			path = "朋友圈";
+			sourceTree = "<group>";
+		};
 		35E159FF289D120600E10C24 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,10 +733,10 @@
 		A85193452892234900D3BE13 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A8C5724A2892260F00FAA17A /* WeChat */,
-				A8C57249289225E700FAA17A /* AddressList */,
-				A8C57248289225D000FAA17A /* Discover */,
-				A8C57247289225B500FAA17A /* Mine */,
+				A8C5724A2892260F00FAA17A /* 信息 */,
+				A8C57249289225E700FAA17A /* 通讯录 */,
+				A8C57248289225D000FAA17A /* 发现 */,
+				A8C57247289225B500FAA17A /* 我 */,
 				A85193462892235D00D3BE13 /* tabBar */,
 			);
 			path = Main;
@@ -715,25 +751,25 @@
 			path = tabBar;
 			sourceTree = "<group>";
 		};
-		A8C57247289225B500FAA17A /* Mine */ = {
+		A8C57247289225B500FAA17A /* 我 */ = {
 			isa = PBXGroup;
 			children = (
 				A842B1E02897658200D9F179 /* ChangeViewController */,
 				A842B1DF2897654200D9F179 /* FirstViewController */,
 			);
-			path = Mine;
+			path = "我";
 			sourceTree = "<group>";
 		};
-		A8C57248289225D000FAA17A /* Discover */ = {
+		A8C57248289225D000FAA17A /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
-				A8C572512892266500FAA17A /* MMDiscoverViewController.h */,
-				A8C572522892266500FAA17A /* MMDiscoverViewController.m */,
+				35997B1028C8C0FC00EB36EC /* 主页 */,
+				35997B1128C8C10500EB36EC /* 朋友圈 */,
 			);
-			path = Discover;
+			path = "发现";
 			sourceTree = "<group>";
 		};
-		A8C57249289225E700FAA17A /* AddressList */ = {
+		A8C57249289225E700FAA17A /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
 				358B176428940CB200F52DE5 /* 通讯录主页 */,
@@ -743,16 +779,16 @@
 				3580F52E2897D8DF000B79A6 /* 新的朋友 */,
 				358B176528940CC000F52DE5 /* 添加好友页面 */,
 			);
-			path = AddressList;
+			path = "通讯录";
 			sourceTree = "<group>";
 		};
-		A8C5724A2892260F00FAA17A /* WeChat */ = {
+		A8C5724A2892260F00FAA17A /* 信息 */ = {
 			isa = PBXGroup;
 			children = (
 				3536EDF4289BBEE800AC0856 /* 消息列表 */,
 				3580F55A2899333B000B79A6 /* 会话 */,
 			);
-			path = WeChat;
+			path = "信息";
 			sourceTree = "<group>";
 		};
 		A8E598B4288F8D6E00018BDF = {
@@ -916,6 +952,7 @@
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,
 				A851934C289223AC00D3BE13 /* MMTabBarController.m in Sources */,
 				3536EDF7289BCC4500AC0856 /* DJWeChatTableViewCell.m in Sources */,
+				35997B1828C8D9C600EB36EC /* SendFriendViewController.m in Sources */,
 				A8F616FE28937F260089A484 /* MMMineChangeViewController.m in Sources */,
 				A8C572532892266500FAA17A /* MMDiscoverViewController.m in Sources */,
 				3565049328A3B38000381F7C /* DJGrouplistTableViewCell.m in Sources */,
@@ -926,9 +963,11 @@
 				35B35DCF28C0BB6D00C5959D /* MoremessageViewController.m in Sources */,
 				358B17702894110800F52DE5 /* DJToolNavigationBar.m in Sources */,
 				3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */,
+				35997B1428C8C15300EB36EC /* FriendCircleViewController.m in Sources */,
 				3580F5312897D908000B79A6 /* DJNewFriendViewController.m in Sources */,
 				3565047F28A38B1F00381F7C /* DJGroupView.m in Sources */,
 				358B172728919ECF00F52DE5 /* LoginView.m in Sources */,
+				35997B1B28C8DBC100EB36EC /* SendFriendView.m in Sources */,
 				3580F54F28990521000B79A6 /* DJSearchAddFriendView.m in Sources */,
 				358B17502892973000F52DE5 /* DJAddressView.m in Sources */,
 				3580F5422897DF28000B79A6 /* DJUserdataView.m in Sources */,
@@ -963,6 +1002,7 @@
 				3580F53D2897DE02000B79A6 /* DJUserDataViewController.m in Sources */,
 				35B35DD228C0BBAC00C5959D /* RemarkViewController.m in Sources */,
 				A8E889F72899470700AD3988 /* MMTimeFormatter.m in Sources */,
+				35A3A53F28C0E384007C13C7 /* GroupMemberTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

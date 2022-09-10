@@ -40,12 +40,12 @@
     
     BOOL LoginYesOrNo = YES;
 
-    if(!LoginYesOrNo){
+    if(!LoginYesOrNo) {
         self.window.rootViewController =_LoginNavVC;
         [self.window makeKeyAndVisible];
     };
 
-    if(LoginYesOrNo){
+    if(LoginYesOrNo) {
         self.window.rootViewController =_HomeNavVC;
         [self.window makeKeyAndVisible];
     }
@@ -63,13 +63,13 @@
     
 }
 
-- (void)login{
+- (void)login {
     [self.window.rootViewController removeFromParentViewController];
     self.window.rootViewController =_HomeNavVC;
     [self.window makeKeyAndVisible];
 }
 
-- (void)outlogin{
+- (void)outlogin {
     [self.window.rootViewController removeFromParentViewController];
     self.window.rootViewController =_LoginNavVC;
     [self.window makeKeyAndVisible];
