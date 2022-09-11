@@ -9,8 +9,12 @@
 #import "MMScreen.h"
 #import "SendFriendViewController.h"
 #import "JMessage/JMessage.h"
+#import "FriendTableViewCell.h"
 
 @interface FriendCircleViewController () <JMessageDelegate, UITableViewDelegate, UITableViewDataSource>
+@property(nonatomic, strong) NSMutableArray *friendMessageArr;
+@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) FriendTableViewCell *cell;
 
 @end
 
@@ -23,7 +27,7 @@
     
     UIImageView *backImage = [[UIImageView alloc] init];
     backImage.frame = CGRectMake(0, 0, SCREEN_WIDTH, 200);
-    backImage.image = [UIImage imageNamed:@"newfriend"];
+    backImage.image = [UIImage imageNamed:@"background"];
     [self.view addSubview:backImage];
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,10 +41,20 @@
     
     [JMessage addDelegate:self withConversation:nil];
     
+    _tableView = [[UITableView alloc] init];
+    [_tableView setFrame:CGRectMake(0, 200, SCREEN_WIDTH, SCREEN_HEIGHT-200)];
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+   
+    NSString *st = [[JMSGUser myInfo].extras objectForKey:@"朋友圈"];
+    NSLog(@"");
+    
     //接收消息
     //分析数据分组朋友圈信息类型
     [JMSGConversation createGroupConversationWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"]completionHandler:^(id resultObject, NSError *error) {
-        NSMutableArray *friendMessageArr = @[].mutableCopy;
+        self.friendMessageArr = @[].mutableCopy;
         [resultObject allMessages:^(id resultObject, NSError *error) {
             NSMutableArray *arr = @[].mutableCopy;
             for(JMSGMessage *info in resultObject){
@@ -54,42 +68,40 @@
                     JMSGMessage *mess1 = arr[i-1];
                     JMSGMessage *mess2 = arr[i];
                     if([mess1.fromUser.username isEqual:mess2.fromUser.username]) {
-                        if(([mess1.timestamp intValue] - [mess2.timestamp intValue])/1000 < 10) {
+                        if(([mess1.timestamp intValue] - [mess2.timestamp intValue])/1000 < 10 &&(mess2.contentType != kJMSGContentTypeText)) {
                             //字典里面存两个元素
                             NSMutableArray *arrM = @[].mutableCopy;
-                            arrM = [friendMessageArr lastObject];
+                            arrM = [self.friendMessageArr lastObject];
                             [arrM addObject:mess2];
-                            [friendMessageArr removeLastObject];
-                            [friendMessageArr addObject:arrM];
+                            [self.friendMessageArr removeLastObject];
+                            [self.friendMessageArr addObject:arrM];
                         }
                         else {
                             NSMutableArray *arrM = @[].mutableCopy;
                             [arrM addObject:arr[i]];
-                            [friendMessageArr addObject:arrM];
+                            [self.friendMessageArr addObject:arrM];
                         }
                     }
                     else {
                         NSMutableArray *arrM = @[].mutableCopy;
                         [arrM addObject:arr[i]];
-                        [friendMessageArr addObject:arrM];
+                        [self.friendMessageArr addObject:arrM];
                     }
                 }
                 else {
                     NSMutableArray *arrM = @[].mutableCopy;
                     [arrM addObject:arr[i]];
-                    [friendMessageArr addObject:arrM];
+                    [self.friendMessageArr addObject:arrM];
                 }
             }
             
-            NSLog(@"");
-            
+            [self.tableView reloadData];
         }];
     }];
  
 
 }
 
-//+ (void)allConversations:(JMSGCompletionHandler)handler;
 
 - (void)sendFriendCircle {
     SendFriendViewController *sendVC = [[SendFriendViewController alloc] init];
@@ -101,18 +113,29 @@
     NSLog(@"");
 }
 
+//设置行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _friendMessageArr.count;
+}
 
 
 
-/*!
- * @abstract 发送群聊文本消息
- *
- * @param text 文本内容
- * @param groupId 群聊目标群组ID
- *
- * @discussion 快捷方法，不需要先创建消息而直接发送。
- */
-//+ (void)sendGroupTextMessage:(NSString *)text toGroup:(NSString *)groupId;
-//获取全部群组，如果是朋友圈群组就发送消息
+///设置宽度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    _cell = [[FriendTableViewCell alloc] init];
+    [_cell loadFriendCell:_friendMessageArr[indexPath.row]];
+    return _cell.cell_Height;
+}
+
+
+///设置内容
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    _cell = [[FriendTableViewCell alloc] init];
+    [_cell loadFriendCell:_friendMessageArr[indexPath.row]];
+    return _cell;
+}
+
+
+
 
 @end

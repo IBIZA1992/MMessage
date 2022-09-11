@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35033FDB28C0CD43002CA28F /* GroupDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35033FDA28C0CD43002CA28F /* GroupDataView.m */; };
+		351DAF7128CDD06400A66F4E /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 351DAF7028CDD06400A66F4E /* FriendTableViewCell.m */; };
 		3536EDF3289B9F7100AC0856 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF2289B9F7100AC0856 /* TextFieldView.m */; };
 		3536EDF7289BCC4500AC0856 /* DJWeChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536EDF6289BCC4500AC0856 /* DJWeChatTableViewCell.m */; };
 		3562011C28C0B7030018989E /* GroupDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562011B28C0B7030018989E /* GroupDataViewController.m */; };
@@ -73,6 +74,8 @@
 /* Begin PBXFileReference section */
 		35033FD928C0CD43002CA28F /* GroupDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataView.h; sourceTree = "<group>"; };
 		35033FDA28C0CD43002CA28F /* GroupDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataView.m; sourceTree = "<group>"; };
+		351DAF6F28CDD06400A66F4E /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		351DAF7028CDD06400A66F4E /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		3536EDF1289B9F7100AC0856 /* TextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldView.h; sourceTree = "<group>"; };
 		3536EDF2289B9F7100AC0856 /* TextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldView.m; sourceTree = "<group>"; };
 		3536EDF5289BCC4500AC0856 /* DJWeChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJWeChatTableViewCell.h; sourceTree = "<group>"; };
@@ -624,6 +627,8 @@
 			children = (
 				35997B1228C8C15300EB36EC /* FriendCircleViewController.h */,
 				35997B1328C8C15300EB36EC /* FriendCircleViewController.m */,
+				351DAF6F28CDD06400A66F4E /* FriendTableViewCell.h */,
+				351DAF7028CDD06400A66F4E /* FriendTableViewCell.m */,
 				35997B1628C8D9C500EB36EC /* SendFriendViewController.h */,
 				35997B1728C8D9C500EB36EC /* SendFriendViewController.m */,
 				35997B1928C8DBC100EB36EC /* SendFriendView.h */,
@@ -947,6 +952,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A842B1DE289764A600D9F179 /* MMMineTableViewCell.m in Sources */,
+				351DAF7128CDD06400A66F4E /* FriendTableViewCell.m in Sources */,
 				3580F5362897D9BE000B79A6 /* DJNewFriendView.m in Sources */,
 				3580F54C2899050C000B79A6 /* DJSearchAddFriendViewController.m in Sources */,
 				358B172428919EAE00F52DE5 /* DJRegisterViewController.m in Sources */,

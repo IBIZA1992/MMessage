@@ -13,7 +13,7 @@
 @property(nonatomic, strong) SendFriendView *sendView;
 @property(nonatomic,strong) NSString *text;
 @property(nonatomic, strong) UIImagePickerController *imageVC;
-@property(nonatomic, strong) JMSGMessage *ImageMessage;
+@property(nonatomic, strong) JMSGImageContent *ImageContent;
 
 @end
 
@@ -61,7 +61,7 @@
     
     [JMSGConversation createGroupConversationWithGroupId:GroupID completionHandler:^(id resultObject, NSError *error) {
         JMSGTextContent  *content = [[JMSGTextContent alloc] initWithText:self.text];
-        JMSGMessage *textMessage = [JMSGMessage createGroupMessageWithContent:content groupId:GroupID];
+//        JMSGMessage *textMessage = [JMSGMessage createGroupMessageWithContent:content groupId:GroupID];
 //        if(self.text){
 //            [JMSGMessage sendMessage:textMessage];
 //        }
@@ -72,14 +72,16 @@
             NSMutableArray *groupArr = @[].mutableCopy;
             groupArr = resultObject;
             for(NSNumber *info in groupArr){
+                JMSGMessage *textMessage = [JMSGMessage createGroupMessageWithContent:content groupId:info.description];
+                JMSGMessage *ImageMessage = [JMSGMessage createGroupMessageWithContent:self.ImageContent groupId:info.description];
                 [JMSGGroup groupInfoWithGroupId:info.description completionHandler:^(id resultObject, NSError *error) {
                     JMSGGroup *group = resultObject;
                     if([group.name containsString:@"朋友圈"]){
                         if(self.text){
                             [JMSGMessage sendMessage:textMessage];
                         }
-                        if(self.ImageMessage){
-                            [JMSGMessage sendMessage:self.ImageMessage];
+                        if(self.ImageContent){
+                            [JMSGMessage sendMessage:ImageMessage];
                         }
                     }
                 }];
@@ -134,8 +136,8 @@
 
     [JMSGConversation createGroupConversationWithGroupId:GroupID completionHandler:^(id resultObject, NSError *error) {
         JMSGImageContent *content = [[JMSGImageContent alloc] initWithImageData:imageData];
-        JMSGMessage *message = [JMSGMessage createGroupMessageWithContent:content groupId:GroupID];
-        self.ImageMessage = message;
+//        JMSGMessage *message = [JMSGMessage createGroupMessageWithContent:content groupId:GroupID];
+        self.ImageContent = content;
         
         [picker dismissViewControllerAnimated:YES completion:nil];
 
