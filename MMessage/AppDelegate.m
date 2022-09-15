@@ -36,7 +36,10 @@
 }
 
 
-
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Required - 注册token
+    [JMessage registerDeviceToken:deviceToken];
+}
 
 #pragma mark - UISceneSession lifecycle
 

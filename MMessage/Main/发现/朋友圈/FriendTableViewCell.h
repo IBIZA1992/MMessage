@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///cell的高度
 @property(nonatomic) CGFloat cell_Height;
+///text的高度
+@property(nonatomic) CGFloat text_Height;
 
 
 ///自定义cell

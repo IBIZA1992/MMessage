@@ -14,9 +14,10 @@
 /**
  登陆控制器
  */
-@interface DJLoginViewController ()
+@interface DJLoginViewController () <UITextFieldDelegate>
 @property(nonatomic, strong)LoginView *loginview;
 @property(nonatomic, strong)DJRegisterViewController *registerVC;
+
 @end
 
 @implementation DJLoginViewController
@@ -29,6 +30,12 @@
     [self.view addSubview:_loginview];
     [_loginview.btnlogin addTarget:self action:@selector(login)forControlEvents:UIControlEventTouchUpInside];
     [_loginview.btnregister addTarget:self action:@selector(registers)forControlEvents:UIControlEventTouchUpInside];
+    _loginview.textpassword.returnKeyType = UIReturnKeyGo;
+    _loginview.textpassword.delegate = self;
+
+   
+    
+    [self.view endEditing:YES];
 }
 
 ///进入注册控制器
@@ -63,14 +70,24 @@
              ********************
              ********************
              ********************/
-            [JMSGUser myInfo];
-            NSLog(@"");
+            JMSGUser *uesr = [JMSGUser myInfo];
             NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
             [center postNotificationName:@"login" object:nil];
+          
 
         }
     }];
 }
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self login];
+    return YES;
+}
+
+
+
 
 
 - (void)viewWillAppear:(BOOL)animated{

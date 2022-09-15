@@ -40,6 +40,7 @@
             }];
             [alert1 addAction:tishi];
             [self presentViewController:alert1 animated:YES completion:nil];
+            
         }
         /**注册失败*/
         /**

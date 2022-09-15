@@ -48,8 +48,12 @@
     _tableView.dataSource = self;
     
    
-    NSString *st = [[JMSGUser myInfo].extras objectForKey:@"朋友圈"];
-    NSLog(@"");
+  
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(reLoad)
+                                              name:@"reloadData"
+                                            object:nil];
+   
     
     //接收消息
     //分析数据分组朋友圈信息类型
@@ -60,6 +64,7 @@
             for(JMSGMessage *info in resultObject){
                 [arr addObject:info];
             }
+            [arr removeLastObject];
 
             NSInteger count = arr.count;
             for(int i=0; i<count; i++) {
@@ -101,6 +106,11 @@
  
 
 }
+
+- (void)reLoad{
+    //[_tableView reloadData];
+}
+
 
 
 - (void)sendFriendCircle {

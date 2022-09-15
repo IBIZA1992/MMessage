@@ -12,7 +12,7 @@
 #import "JMessage/JMessage.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 
-@interface MMMineViewController ()
+@interface MMMineViewController () <JMessageDelegate>
 @property (nonatomic, strong ,readwrite) UIView *imageBackgroundView;
 @property (nonatomic, strong, readwrite) UIImageView *headImageView;
 @property (nonatomic, strong, readwrite) UILabel *nickNameLabel;
@@ -37,6 +37,10 @@
     return self;
 }
 
+- (void)onReceiveMessage:(JMSGMessage *)message error:(NSError *)error {
+    NSLog(@"");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -44,6 +48,8 @@
     
     JMSGUser *user = [JMSGUser myInfo];
     
+    [JMessage addDelegate:self withConversation:nil];
+
     // 设置图片的栏目
     [self.view addSubview:({
         self.imageBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, STATUSBARHEIGHT + SCREEN_HEIGHT / 4)];

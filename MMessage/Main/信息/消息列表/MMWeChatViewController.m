@@ -46,62 +46,76 @@
     [self.view addSubview:_tableview];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadchat) name:@"chat"  object:nil];
+    //[JMessage addDelegate:self withConversation:nil];
+
+    
+}
+- (void)onSyncOfflineMessageConversation:(JMSGConversation *)conversation offlineMessages:(NSArray JMSG_GENERIC(__kindof JMSGMessage *)*)offlineMessages {
+    NSLog(@"");
+}
+
+- (void)onReceiveMessage:(JMSGMessage *)message error:(NSError *)error {
+    JMSGUser *uesr = [JMSGUser myInfo];
+    NSLog(@"");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    JMSGUser *myUser = [JMSGUser myInfo];
-    NSDictionary *dic = myUser.extras;
+    
+    [JMessage addDelegate:self withConversation:nil];
 
-    if(![dic objectForKey:@"朋友圈"]) {
-        JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
-        groupinfo.name = [myUser.username stringByAppendingString:@"的朋友圈"];
-        groupinfo.groupType = kJMSGGroupTypePublic;
-
-        
-        [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:nil completionHandler:^(id resultObject, NSError *error) {
-            JMSGGroup *group = resultObject;
-            NSString *groupID = group.gid;
-            NSDictionary *dic = [NSDictionary dictionaryWithObject:groupID forKey:@"朋友圈"];
-            JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
-            info.extras = dic;
-            [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
-                NSLog(@"");
-            }];
-            
-            [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
-                JMSGGroup *group = resultObject;
-                
-                [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-                    NSMutableArray *listItemArray = @[].mutableCopy;
-                    NSArray *dataArray = resultObject;
-                    for(JMSGUser *info in dataArray){
-                        [listItemArray addObject:info.username];
-                    }
-                    [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
-                        NSLog(@"");
-                    }];
-                }];
-            }];
-            
-        }];
-    }
-
-    [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
-        JMSGGroup *group = resultObject;
-
-        
-        [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-            NSMutableArray *listItemArray = @[].mutableCopy;
-            NSArray *dataArray = resultObject;
-            for(JMSGUser *info in dataArray){
-                [listItemArray addObject:info.username];
-            }
-            [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
-                NSLog(@"");
-            }];
-        }];
-    }];
+//    JMSGUser *myUser = [JMSGUser myInfo];
+//    NSDictionary *dic = myUser.extras;
+//
+//    if(![dic objectForKey:@"朋友圈"]) {
+//        JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
+//        groupinfo.name = [myUser.username stringByAppendingString:@"的朋友圈"];
+//        groupinfo.groupType = kJMSGGroupTypePublic;
+//
+//
+//        [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:nil completionHandler:^(id resultObject, NSError *error) {
+//            JMSGGroup *group = resultObject;
+//            NSString *groupID = group.gid;
+//            NSDictionary *dic = [NSDictionary dictionaryWithObject:groupID forKey:@"朋友圈"];
+//            JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
+//            info.extras = dic;
+//            [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
+//                NSLog(@"");
+//            }];
+//
+//            [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
+//                JMSGGroup *group = resultObject;
+//
+//                [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
+//                    NSMutableArray *listItemArray = @[].mutableCopy;
+//                    NSArray *dataArray = resultObject;
+//                    for(JMSGUser *info in dataArray){
+//                        [listItemArray addObject:info.username];
+//                    }
+//                    [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
+//                        NSLog(@"");
+//                    }];
+//                }];
+//            }];
+//
+//        }];
+//    }
+//
+//    [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
+//        JMSGGroup *group = resultObject;
+//
+//        
+//        [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
+//            NSMutableArray *listItemArray = @[].mutableCopy;
+//            NSArray *dataArray = resultObject;
+//            for(JMSGUser *info in dataArray){
+//                [listItemArray addObject:info.username];
+//            }
+//            [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
+//                NSLog(@"");
+//            }];
+//        }];
+//    }];
 
     
 }

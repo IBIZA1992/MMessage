@@ -12,8 +12,8 @@
 
 
 - (void)loadFriendCell:(NSMutableArray *)item{
-    [self setCellData:item];
     [self setCellFrame:item];
+    [self setCellData:item];
 }
 
 ///加载数据
@@ -139,9 +139,27 @@
         [self.created_at setFont:[UIFont systemFontOfSize:11.0]];
         [self.created_at setTextAlignment:NSTextAlignmentLeft];
 
+        /**文字内容*/
+        JMSGMessage *message = item[0];
+        if(message.contentType == kJMSGContentTypeText) {
+            JMSGTextContent *textcontent = (JMSGTextContent *)message.content;
+            _text.text = textcontent.text;
+            self.text.numberOfLines = 0;
+            CGSize size = [_text sizeThatFits:CGSizeMake(370, MAXFLOAT)];/**假设有多行，自适应高度*/
+            CGFloat text_X = 10;
+            CGFloat text_Y = 70;
+            CGFloat text_Width = 370;
+            _text_Height = size.height;
+            [self.text setFrame:CGRectMake(text_X, text_Y, text_Width, _text_Height)];
+            [self.text setTextAlignment:NSTextAlignmentLeft];
+            if(item.count == 1){
+                _cell_Height = 80 + _text_Height;
+            }
+        }
         
         
-        self.cell_Height = 100;
+        
+        
         
         
     }
@@ -158,24 +176,56 @@
 ///加载一张图片
 - (void)loadOneImage:(NSMutableArray *)item number:(NSUInteger)count {
     self.thumbnail_pic1.image = [self storageImage:item number:count].image;
+    
+    CGFloat Image_Y = _text_Height + 80;
+    [self.thumbnail_pic1 setFrame:CGRectMake(20, Image_Y, 360, 240)];
+    
+    _cell_Height = Image_Y + 260;
+    
+    
 }
 
 ///加载两张图片
 - (void)loadTwoImage:(NSMutableArray *)item number:(NSUInteger)count {
     [self loadOneImage:item number:count-1];
     self.thumbnail_pic2.image = [self storageImage:item number:count].image;
+    
+    CGFloat Image_Y = _text_Height + 80;
+    [self.thumbnail_pic1 setFrame:CGRectMake(10, Image_Y, 180, 180)];
+    [self.thumbnail_pic2 setFrame:CGRectMake(200, Image_Y, 180, 180)];
+    
+    _cell_Height = Image_Y + 200;
+ 
 }
 
 ///加载三张图片
 - (void)loadThreeImage:(NSMutableArray *)item number:(NSUInteger)count {
     [self loadTwoImage:item number:count-1];
     self.thumbnail_pic3.image = [self storageImage:item number:count].image;
+    
+    CGFloat Image_Y = _text_Height + 80;
+    CGFloat Image_Width = 350/3;
+    [self.thumbnail_pic1 setFrame:CGRectMake(10, Image_Y, Image_Width, Image_Width)];
+    [self.thumbnail_pic2 setFrame:CGRectMake(20+Image_Width, Image_Y, Image_Width, Image_Width)];
+    [self.thumbnail_pic3 setFrame:CGRectMake(30+Image_Width*2, Image_Y, Image_Width, Image_Width)];
+
+    _cell_Height = Image_Y + Image_Width + 20;
+    
 }
 
 ///加载四张图片
 - (void)loadFourImage:(NSMutableArray *)item number:(NSUInteger)count {
     [self loadThreeImage:item number:count-1];
     self.thumbnail_pic4.image = [self storageImage:item number:count].image;
+    
+    CGFloat Image_Y = _text_Height + 80;
+    CGFloat Image_Width = 180;
+    [self.thumbnail_pic1 setFrame:CGRectMake(10, Image_Y, Image_Width, Image_Width)];
+    [self.thumbnail_pic2 setFrame:CGRectMake(20+Image_Width, Image_Y, Image_Width, Image_Width)];
+    [self.thumbnail_pic3 setFrame:CGRectMake(10+Image_Width, Image_Y+Image_Width+10, Image_Width, Image_Width)];
+    [self.thumbnail_pic4 setFrame:CGRectMake(20+Image_Width, Image_Y+Image_Width+10, Image_Width, Image_Width)];
+
+    _cell_Height = Image_Y + Image_Width*2 + 30;
 }
 
 ///加载五张图片
@@ -231,6 +281,9 @@
              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                  [[NSUserDefaults standardUserDefaults] setObject:data forKey:[message.timestamp stringValue]];
                  [[NSUserDefaults standardUserDefaults] synchronize];
+                 
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData"
+                                                                 object:nil];
              });
          }];
      }

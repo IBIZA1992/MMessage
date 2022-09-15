@@ -220,6 +220,8 @@
             }];
             [self->_single.messagelistArray removeObject:self->_single.userdata.username];
             [self->_single.messagelistArray insertObject:self->_single.userdata.username atIndex:0];
+            self->_textview.textfield.text = nil;
+
         }];
     }
     //群聊会话
@@ -238,9 +240,11 @@
             }];
             [self->_single.messagelistArray removeObject:self.single.groupID];
             [self->_single.messagelistArray insertObject:self.single.groupID atIndex:0];
+            self->_textview.textfield.text = nil;
         }];
    
     }
+    
     return YES;
 }
 
@@ -358,9 +362,10 @@
     //如果为单聊
     if(_single.messageType == 1){
         [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
-            JMSGImageContent *content = [[JMSGImageContent alloc] initWithImageData:imageData];
-            JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
-            [JMSGMessage sendMessage:message];
+//            JMSGImageContent *content = [[JMSGImageContent alloc] initWithImageData:imageData];
+//            JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
+//            [JMSGMessage sendMessage:message];
+            [JMSGMessage sendSingleImageMessage:imageData toUser:self.single.userdata.username];
             /**获取列表的所有消息*/
             [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
                 self->_single.messageArray = @[].mutableCopy;
@@ -397,6 +402,9 @@
     
 }
 
+- (void)onSendMessageResponse:(JMSGMessage *)message error:(NSError *)error {
+    NSLog(@"");
+}
 
 ///监听接收消息
 - (void)onReceiveMessage:(JMSGMessage *)message error:(NSError *)error {
@@ -427,10 +435,6 @@
         
     }
   
-}
-
-- (void)onSyncOfflineMessageConversation:(JMSGConversation *)conversation offlineMessages:(NSArray JMSG_GENERIC(__kindof JMSGMessage *)*)offlineMessages {
-    NSLog(@"");
 }
 
 

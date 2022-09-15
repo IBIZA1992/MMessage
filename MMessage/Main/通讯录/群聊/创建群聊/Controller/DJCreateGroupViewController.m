@@ -63,6 +63,7 @@
     [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:_groupUserArray completionHandler:^(id resultObject, NSError *error) {
         NSLog(@"");
     }];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

@@ -9,6 +9,7 @@
 #import "MMDiscoverViewController.h"
 #import "FriendCircleViewController.h"
 #import "MMScreen.h"
+#import "JMessage/JMessage.h"
 
 @interface MMDiscoverViewController () <UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic, strong) UITableView *tableView;
@@ -25,6 +26,7 @@
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"discover.fill"];
         
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
+    
     }
     return self;
 }
@@ -38,7 +40,89 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated{
     
+//    [JMSGGroup myGroupArray:^(id resultObject, NSError *error) {
+//        NSMutableArray * groupArr = @[].mutableCopy;
+//        groupArr = resultObject;
+//        for(NSNumber *info in groupArr) {
+//            [JMSGGroup dissolveGroupWithGid:info.description handler:^(id resultObject, NSError *error) {
+//                NSLog(@"");
+//            }];
+//
+//        }
+//        JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
+//        NSDictionary *dic = [[NSDictionary alloc] init];
+//        info.extras = dic;
+//        JMSGUser *a = [JMSGUser myInfo];
+//        NSLog(@"");
+//        [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
+//            JMSGUser *a = [JMSGUser myInfo];
+//            NSLog(@"");
+//        }];
+//    }];
+    
+    
+    
+    
+    
+
+    JMSGUser *myUser = [JMSGUser myInfo];
+    NSDictionary *dic = myUser.extras;
+
+    if(![dic objectForKey:@"朋友圈"]) {
+        JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
+        groupinfo.name = [myUser.username stringByAppendingString:@"的朋友圈"];
+        groupinfo.groupType = kJMSGGroupTypePublic;
+
+
+        [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:nil completionHandler:^(id resultObject, NSError *error) {
+            JMSGGroup *group = resultObject;
+            NSString *groupID = group.gid;
+            NSDictionary *dic = [NSDictionary dictionaryWithObject:groupID forKey:@"朋友圈"];
+            JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
+            info.extras = dic;
+            [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
+                NSLog(@"");
+            }];
+
+            [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
+                JMSGGroup *group = resultObject;
+
+                [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
+                    NSMutableArray *listItemArray = @[].mutableCopy;
+                    NSArray *dataArray = resultObject;
+                    for(JMSGUser *info in dataArray){
+                        [listItemArray addObject:info.username];
+                    }
+                    [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
+                        NSLog(@"");
+                    }];
+                }];
+            }];
+
+        }];
+    }
+
+    [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
+        JMSGGroup *group = resultObject;
+
+
+        [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
+            NSMutableArray *listItemArray = @[].mutableCopy;
+            NSArray *dataArray = resultObject;
+            for(JMSGUser *info in dataArray){
+                [listItemArray addObject:info.username];
+            }
+            [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
+                NSLog(@"");
+            }];
+        }];
+    }];
 }
 
 
