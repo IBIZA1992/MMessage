@@ -45,40 +45,19 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    
-//    [JMSGGroup myGroupArray:^(id resultObject, NSError *error) {
-//        NSMutableArray * groupArr = @[].mutableCopy;
-//        groupArr = resultObject;
-//        for(NSNumber *info in groupArr) {
-//            [JMSGGroup dissolveGroupWithGid:info.description handler:^(id resultObject, NSError *error) {
-//                NSLog(@"");
-//            }];
-//
-//        }
-//        JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
-//        NSDictionary *dic = [[NSDictionary alloc] init];
-//        info.extras = dic;
-//        JMSGUser *a = [JMSGUser myInfo];
-//        NSLog(@"");
-//        [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
-//            JMSGUser *a = [JMSGUser myInfo];
-//            NSLog(@"");
-//        }];
-//    }];
-    
-    
-    
-    
-    
+    [self createFriend];
+}
 
+///创建朋友圈
+- (void)createFriend {
     JMSGUser *myUser = [JMSGUser myInfo];
     NSDictionary *dic = myUser.extras;
 
+    //判断是否已经创建朋友圈
     if(![dic objectForKey:@"朋友圈"]) {
         JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
         groupinfo.name = [myUser.username stringByAppendingString:@"的朋友圈"];
         groupinfo.groupType = kJMSGGroupTypePublic;
-
 
         [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:nil completionHandler:^(id resultObject, NSError *error) {
             JMSGGroup *group = resultObject;
@@ -86,19 +65,21 @@
             NSDictionary *dic = [NSDictionary dictionaryWithObject:groupID forKey:@"朋友圈"];
             JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
             info.extras = dic;
+            //更新user的附加信息
             [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
                 NSLog(@"");
             }];
-
+            
             [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
                 JMSGGroup *group = resultObject;
-
+                //获取朋友列表
                 [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
                     NSMutableArray *listItemArray = @[].mutableCopy;
                     NSArray *dataArray = resultObject;
                     for(JMSGUser *info in dataArray){
                         [listItemArray addObject:info.username];
                     }
+                    //将所有好友拉进朋友圈
                     [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
                         NSLog(@"");
                     }];
@@ -108,10 +89,9 @@
         }];
     }
 
+    //拉所有好友进朋友圈
     [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
         JMSGGroup *group = resultObject;
-
-
         [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
             NSMutableArray *listItemArray = @[].mutableCopy;
             NSArray *dataArray = resultObject;
@@ -125,6 +105,10 @@
     }];
 }
 
+
+
+
+#pragma mark - UITableView代理
 
 ///设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

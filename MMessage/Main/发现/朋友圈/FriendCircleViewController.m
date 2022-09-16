@@ -41,6 +41,7 @@
     
     [JMessage addDelegate:self withConversation:nil];
     
+    //TableView的设置
     _tableView = [[UITableView alloc] init];
     [_tableView setFrame:CGRectMake(0, 200, SCREEN_WIDTH, SCREEN_HEIGHT-200)];
     [self.view addSubview:_tableView];
@@ -75,11 +76,13 @@
             for(JMSGMessage *info in resultObject){
                 [arr addObject:info];
             }
+            //去掉事件消息
             [arr removeLastObject];
 
             NSInteger count = arr.count;
             for(int i=0; i<count; i++) {
              
+                //将同一类消息存在一起
                 if(i != 0) {
                     JMSGMessage *mess1 = arr[i-1];
                     JMSGMessage *mess2 = arr[i];

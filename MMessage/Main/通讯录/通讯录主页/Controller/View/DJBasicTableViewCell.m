@@ -19,8 +19,8 @@
 - (void)SetData:(DJListItem *)item {
     _single = [DJSingleton sharedManager];
     //头像
-    if([[NSUserDefaults standardUserDefaults] objectForKey:item.username]) {/**如果本地有图片*/
-        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:item.username];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:item.avater]) {/**如果本地有图片*/
+        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:item.avater];
         _profile_image_url.image = [UIImage imageWithData:imageData];
     }
     else {
@@ -31,7 +31,7 @@
                 [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) { /**从网络请求头像数据*/
                     self.profile_image_url.image = [UIImage imageWithData:data]; /**更新UI数据*/
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{/**在子线程中将头像数据存入本地磁盘*/
-                        [[NSUserDefaults standardUserDefaults] setObject:data forKey:item.username];
+                        [[NSUserDefaults standardUserDefaults] setObject:data forKey:item.avater];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                     });
                 }];

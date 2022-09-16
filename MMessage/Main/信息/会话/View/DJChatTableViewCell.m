@@ -37,8 +37,8 @@
 - (void)SetData:(JMSGMessage *)message {
     _single = [DJSingleton sharedManager];
     //设置头像
-    if([[NSUserDefaults standardUserDefaults] objectForKey:message.fromUser.username]){/**如果本地有图片*/
-        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:message.fromUser.username];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:message.fromUser.avatar]){/**如果本地有图片*/
+        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:message.fromUser.avatar];
         _profile_image_url.image = [UIImage imageWithData:imageData];
     }
     else{/**如果本地没有图片，网络获取并存入本地*/
@@ -49,7 +49,7 @@
                 [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) { /**从网络请求头像数据*/
                     self.profile_image_url.image = [UIImage imageWithData:data]; /**更新UI数据*/
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{/**在子线程中将头像数据存入本地磁盘*/
-                        [[NSUserDefaults standardUserDefaults] setObject:data forKey:message.fromUser.username];
+                        [[NSUserDefaults standardUserDefaults] setObject:data forKey:message.fromUser.avatar];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                     });
                 }];

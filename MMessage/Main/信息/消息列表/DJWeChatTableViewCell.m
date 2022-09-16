@@ -41,72 +41,79 @@
 
 
 - (void)SetData:(id)type {
-    
-//    _single = [DJSingleton sharedManager];
-//    NSArray *array = [[NSArray alloc] initWithObjects:username,nil];
-//    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-//        //头像
-//        JMSGUser *user = resultObject[0];
-//        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-//        self->_profile_image_url.image = [UIImage imageWithData:data];
-//        }];
-//
-//
-//        //昵称
-//        self->_name.text = user.username;
-//        //内容
-//        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
-//            self->_single.messageArray = @[].mutableCopy;
-//            self->_single.messageArray = (NSMutableArray *)resultObject;
-//            JMSGMessage *message =  self->_single.messageArray[0];
-//            JMSGAbstractContent *content = message.content;
-//            if(message.contentType == kJMSGContentTypeText){
-//                JMSGTextContent *textcontent = (JMSGTextContent *)content;
-//                self->_text.text = textcontent.text;
-//            }
-//        }];
-//    }];
-    
-    
-//    JMSGUser *A = [[JMSGUser alloc] init];
-//    A = (JMSGUser *)type;
-//    NSLog(@"");
-//    if(A.username) {
-//        JMSGUser *user = type;
-//        //头像
-//        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-//        self->_profile_image_url.image = [UIImage imageWithData:data];
-//        }];
-//        //昵称
-//        self->_name.text = user.username;
-//        //内容
-//        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
-//            self->_single.messageArray = @[].mutableCopy;
-//            self->_single.messageArray = (NSMutableArray *)resultObject;
-//            JMSGMessage *message =  self->_single.messageArray[0];
-//            JMSGAbstractContent *content = message.content;
-//            if(message.contentType == kJMSGContentTypeText){
-//                JMSGTextContent *textcontent = (JMSGTextContent *)content;
-//                self->_text.text = textcontent.text;
-//            }
-//        }];
-//    }
-//    JMSGGroup *B;
-//    if([type isMemberOfClass:[B class]]) {
-//        JMSGGroup *group = type;
-//        //头像
-//        [group thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-//            self->_profile_image_url.image = [UIImage imageWithData:data];
-//        }];
-//        //昵称
-//        self.name.text = group.name;
-//        //内容
-//
-//    }
-//
-    
-    
-    
+
+    NSArray *array = [[NSArray alloc] initWithObjects:type,nil];
+    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+        //为单聊消息
+        if(!error){
+            JMSGUser *user = resultObject[0];
+            //头像
+            if([[NSUserDefaults standardUserDefaults] objectForKey:user.avatar]) {/**如果本地有图片*/
+                NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:user.avatar];
+                self.profile_image_url.image = [UIImage imageWithData:imageData];
+            }
+            else {
+                if(user.avatar){/**判断是否有头像*/
+                    NSArray *array = [[NSArray alloc] initWithObjects:user.username,nil]; /**获得对方账号的userdata存入array中*/
+                    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) { /**通过对方的userdata获取对方的信息*/
+                        JMSGUser *user = resultObject[0]; /**返回对象即为对方的user*/
+                        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) { /**从网络请求头像数据*/
+                            self.profile_image_url.image = [UIImage imageWithData:data]; /**更新UI数据*/
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{/**在子线程中将头像数据存入本地磁盘*/
+                                [[NSUserDefaults standardUserDefaults] setObject:data forKey:user.avatar];
+                                [[NSUserDefaults standardUserDefaults] synchronize];
+                            });
+                        }];
+                    }];
+                }
+                else{
+                    self.profile_image_url.image = [UIImage imageNamed:@"head"];
+                }
+            }
+
+            //昵称
+            self->_name.text = user.username;
+            //内容
+            JMSGConversation *conversation = [JMSGConversation singleConversationWithUsername:user.username];
+            JMSGMessage *message = [conversation latestMessage];
+            if(message.contentType == kJMSGContentTypeText){
+                JMSGAbstractContent *content = message.content;
+                JMSGTextContent *textcontent = (JMSGTextContent *)content;
+                self.text.text = textcontent.text;
+            }
+            if(message.contentType == kJMSGContentTypeImage){
+                self.text.text = @"图片";
+            }
+
+            
+        }
+        //群聊消息
+        else {
+            [JMSGGroup groupInfoWithGroupId:type completionHandler:^(id resultObject, NSError *error) {
+                JMSGGroup *group = resultObject;
+                //头像
+                [group thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+                    self->_profile_image_url.image = [UIImage imageWithData:data];
+                }];
+                //昵称
+                self->_name.text = group.name;
+                //内容
+                JMSGConversation *conversation = [JMSGConversation groupConversationWithGroupId:group.gid];
+                JMSGMessage *message = [conversation latestMessage];
+                if(message.contentType == kJMSGContentTypeText){
+                    JMSGAbstractContent *content = message.content;
+                    JMSGTextContent *textcontent = (JMSGTextContent *)content;
+                    self.text.text = textcontent.text;
+                }
+                if(message.contentType == kJMSGContentTypeImage){
+                    self.text.text = @"图片";
+                }
+                
+            }];
+        }
+        
+        
+    }];
 }
 
 

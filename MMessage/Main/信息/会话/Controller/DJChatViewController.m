@@ -106,10 +106,7 @@
     
 }
 
-- (void)removeSelfView:(UIPanGestureRecognizer *)gesture {
-    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [_tableview removeGestureRecognizer:_removeSelfView];
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     _single = [DJSingleton sharedManager];
@@ -143,6 +140,41 @@
 
 
 
+///加入到消息列表中
+- (void)Loadmessagelist {
+    _single = [DJSingleton sharedManager];
+    if(_single.messageType == 1) {
+        [JMSGUser userInfoArrayWithUsernameArray:[[NSArray alloc] initWithObjects:_single.userdata.username,nil] completionHandler:^(id resultObject, NSError *error) {
+            JMSGUser *user = resultObject[0];
+            if([self.single.messagelistArray containsObject:user.username]) {
+                [self.single.messagelistArray removeObject:user.username];
+                [self.single.messagelistArray addObject:user.username];
+            }
+            else {
+                [self.single.messagelistArray addObject:user.username];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+        }];
+        
+    }
+    if(_single.messageType ==2) {
+        [JMSGGroup groupInfoWithGroupId:_single.groupID completionHandler:^(id resultObject, NSError *error) {
+            JMSGGroup *group = resultObject;
+            if([self.single.messagelistArray containsObject:group.gid]){
+                [self.single.messagelistArray removeObject:group.gid];
+                [self.single.messagelistArray addObject:group.gid];
+            }
+            else {
+                [self.single.messagelistArray addObject:group.gid];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+        }];
+    }
+ 
+}
+
+
+#pragma mark - 键盘代理
 
 ///键盘弹出时 刷新子视图位置
 - (void)keyboardWillShow:(NSNotification *)Notification {
@@ -173,66 +205,6 @@
     if(_single.messageArray.count){
         [self->_tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self->_single.messageArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
-}
-
-
-///加入到消息列表中
-- (void)Loadmessagelist {
-    _single = [DJSingleton sharedManager];
-//    if(_single.messagelistArray.count != 0) {
-//        if(_single.messageType == 1) {
-//            if(![_single.messagelistArray containsObject:_single.userdata.username]) {
-//                [_single.messagelistArray addObject:_single.userdata.username];
-//            }
-//        }
-//        if(_single.messageType == 2) {
-//            if(![_single.messagelistArray containsObject:_single.groupID]) {
-//                [_single.messagelistArray addObject:_single.groupID];
-//            }
-//        }
-//    }
-//    if(_single.messagelistArray.count == 0) {
-//        if(_single.messageType == 1) {
-//            [_single.messagelistArray addObject:_single.userdata.username];
-//        }
-//        if(_single.messageType == 2) {
-//            [_single.messagelistArray addObject:_single.groupID];
-//        }
-//    }
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
-    
-    
-    if(_single.messageType == 1) {
-        [JMSGUser userInfoArrayWithUsernameArray:[[NSArray alloc] initWithObjects:_single.userdata.username,nil] completionHandler:^(id resultObject, NSError *error) {
-            JMSGUser *user = resultObject[0];
-            if([self.single.messagelistArray containsObject:user]) {
-                [self.single.messagelistArray removeObject:user];
-                [self.single.messagelistArray addObject:user];
-            }
-            else {
-                [self.single.messagelistArray addObject:user];
-            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
-        }];
-        
-    }
-    if(_single.messageType ==2) {
-        [JMSGGroup groupInfoWithGroupId:_single.groupID completionHandler:^(id resultObject, NSError *error) {
-            JMSGGroup *group = resultObject;
-            if([self.single.messagelistArray containsObject:group]){
-                [self.single.messagelistArray removeObject:group];
-                [self.single.messagelistArray addObject:group];
-            }
-            else {
-                [self.single.messagelistArray addObject:group];
-            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
-        }];
-    }
-    
-    
-    
-    
 }
 
 ///键盘中发送按钮的代理
@@ -283,6 +255,13 @@
     return YES;
 }
 
+///移除键盘
+- (void)removeSelfView:(UIPanGestureRecognizer *)gesture {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [_tableview removeGestureRecognizer:_removeSelfView];
+}
+
+#pragma mark - 发送语音
 ///发送语音
 - (void)sendaudio{
     if(![_recorder isRecording]) {
@@ -318,7 +297,6 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     
 }
-
 
 ///结束录制的代理
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
@@ -368,10 +346,9 @@
         }];
         
     }
-    
-
-
 }
+
+#pragma mark - 发送图片
 
 ///发送图片
 - (void)sendpicture {
@@ -397,9 +374,7 @@
     //如果为单聊
     if(_single.messageType == 1){
         [JMSGConversation createSingleConversationWithUsername:_single.userdata.username completionHandler:^(id resultObject, NSError *error) {
-//            JMSGImageContent *content = [[JMSGImageContent alloc] initWithImageData:imageData];
-//            JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:content username:self->_single.userdata.username];
-//            [JMSGMessage sendMessage:message];
+
             [JMSGMessage sendSingleImageMessage:imageData toUser:self.single.userdata.username];
             /**获取列表的所有消息*/
             [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
@@ -431,11 +406,11 @@
             [picker dismissViewControllerAnimated:YES completion:nil];
             
         }];
-        
-        
     }
     
 }
+
+#pragma mark - 监听消息
 
 - (void)onSendMessageResponse:(JMSGMessage *)message error:(NSError *)error {
     NSLog(@"");
@@ -472,6 +447,8 @@
   
 }
 
+
+#pragma mark - TableView代理实现
 
 ///设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

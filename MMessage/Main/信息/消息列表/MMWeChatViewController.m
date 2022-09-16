@@ -24,6 +24,7 @@
 
 @implementation MMWeChatViewController
 
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -31,7 +32,6 @@
         self.tabBarItem.image = [UIImage imageNamed:@"message"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"message.fill"];
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
-        [JMessage addDelegate:self withConversation:nil];
 
     }
     return self;
@@ -47,33 +47,52 @@
     [self.view addSubview:_tableview];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadchat) name:@"chat"  object:nil];
-
-    
-}
-- (void)onSyncOfflineMessageConversation:(JMSGConversation *)conversation offlineMessages:(NSArray JMSG_GENERIC(__kindof JMSGMessage *)*)offlineMessages {
-    NSLog(@"");
 }
 
-- (void)onReceiveMessage:(JMSGMessage *)message error:(NSError *)error {
-    JMSGUser *uesr = [JMSGUser myInfo];
-    NSLog(@"");
-}
-
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   // [JMessage addDelegate:self withConversation:nil];
+    [JMessage addDelegate:self withConversation:nil];
 
+}
 
-
-
+- (void)onSyncOfflineMessageConversation:(JMSGConversation *)conversation offlineMessages:(NSArray JMSG_GENERIC(__kindof JMSGMessage *)*)offlineMessages {
+    _single = [DJSingleton sharedManager];
+    if(conversation.conversationType == kJMSGConversationTypeSingle) {
+        JMSGUser *user = conversation.target;
+        if([self.single.messagelistArray containsObject:user.username]) {
+            [self.single.messagelistArray removeObject:user.username];
+            [self.single.messagelistArray addObject:user.username];
+        }
+        else {
+            [self.single.messagelistArray addObject:user.username];
+        }
+    }
+    if(conversation.conversationType == kJMSGConversationTypeGroup) {
+        JMSGGroup *group = conversation.target;
+        if([self.single.messagelistArray containsObject:group.gid]) {
+            [self.single.messagelistArray removeObject:group.gid];
+            [self.single.messagelistArray addObject:group.gid];
+        }
+        else {
+            [self.single.messagelistArray addObject:group.gid];
+        }
+    }
+  
+    [self.tableview reloadData];
+    
     
 }
+
+
 
 
 - (void)reloadchat {
     [_tableview reloadData];
 }
 
+
+
+#pragma mark - TableView代理
 
 //设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -106,48 +125,35 @@
 //进入会话
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     _single = [DJSingleton sharedManager];
-//    /**获取列表的所有消息*/
-//    [[JMSGConversation singleConversationWithUsername:_single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
-//        self.single.messageArray = @[].mutableCopy;
-//        self.single.messageArray = (NSMutableArray *)resultObject;
-////        NSArray *array = [[NSArray alloc] initWithObjects:self.single.messagelistArray[indexPath.row],nil];
-////        [JMSGUser userInfoArrayWithUsernameArray:@"2134214" completionHandler:^(id resultObject, NSError *error) {
-////            self.single.userdata = resultObject[0];
-////            /**设置聊天类型为单聊*/
-////            self.single.messageType = 1;
-////            self.chatVC = [[DJChatViewController alloc] init];
-////            [self.navigationController pushViewController:self.chatVC animated:YES];
-////        }];
-////        JMSGUser *user = self.single.
-//    }];
-    
-    JMSGUser *user = self.single.messagelistArray[indexPath.row];
-    //单聊消息
-    if(user.username) {
-        [[JMSGConversation singleConversationWithUsername:user.username] allMessages:^(id resultObject, NSError *error) {
-            self.single.messageArray = @[].mutableCopy;
-            self.single.messageArray = (NSMutableArray *)resultObject;
-            self.single.userdata = (DJListItem *)user;
-            self.single.messageType = 1;
-            self.chatVC = [[DJChatViewController alloc] init];
-            [self.navigationController pushViewController:self.chatVC animated:YES];
-        }];
-    }
-    //群聊消息
-    else {
-        JMSGGroup *group = self.single.messagelistArray[indexPath.row];
-        [[JMSGConversation groupConversationWithGroupId:group.gid] allMessages:^(id resultObject, NSError *error) {
-            self.single.messageArray = @[].mutableCopy;
-            self.single.messageArray = (NSMutableArray *)resultObject;
-            self.single.groupID = group.gid;
-            self.single.messageType = 2;
-            self.chatVC = [[DJChatViewController alloc] init];
-            [self.navigationController pushViewController:self.chatVC animated:YES];
-        }];
-    }
-    
+    NSArray *array = [[NSArray alloc] initWithObjects:self.single.messagelistArray[indexPath.row],nil];
+    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+        //为单聊消息
+        if(!error){
+            JMSGUser *uesr = resultObject[0];
+            [[JMSGConversation singleConversationWithUsername:self.single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
+                self.single.messageArray = @[].mutableCopy;
+                self.single.messageArray = (NSMutableArray *)resultObject;
+                self.single.userdata = (DJListItem *)uesr;
+                self.single.messageType = 1;
+                self.chatVC = [[DJChatViewController alloc] init];
+                [self.navigationController pushViewController:self.chatVC animated:YES];
+            }];
+        }
+        //群聊消息
+        else {
+            [[JMSGConversation groupConversationWithGroupId:self.single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
+                self.single.messageArray = @[].mutableCopy;
+                self.single.messageArray = (NSMutableArray *)resultObject;
+                self.single.groupID = self.single.messagelistArray[indexPath.row];
+                self.single.messageType = 2;
+                self.chatVC = [[DJChatViewController alloc] init];
+                [self.navigationController pushViewController:self.chatVC animated:YES];
+            }];
+        }
+        
+        
+    }];
 }
 
 

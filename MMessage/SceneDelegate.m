@@ -59,6 +59,21 @@
     _single.addrequestArray = [[NSMutableArray alloc] initWithCapacity:10];
     _single.messagelistArray = @[].mutableCopy;
     _single.imagePathArray = @[].mutableCopy;
+    
+    
+    
+    //清除一天以前的图片缓存
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary* defaults = [defs dictionaryRepresentation];
+    NSLog(@"");
+    for(id key in defaults) {
+        if([self isPureInt:key]){
+            NSInteger time = [self handleDate:key];
+            if(time > 60*60*24){
+                [defs removeObjectForKey:key];
+            }
+        }
+    }
 
     
 }
@@ -75,6 +90,28 @@
     [self.window makeKeyAndVisible];
 }
 
+
+///判断字符串是否为整形
+- (BOOL)isPureInt:(NSString*)string {
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
+}
+
+///时间戳格式化
+- (NSInteger )handleDate:(NSString *)time_Stamp{
+
+    NSMutableString *str;
+    NSDate *date = [NSDate date];
+    NSTimeInterval cur_time = date.timeIntervalSince1970;
+
+    NSTimeInterval result = cur_time - [time_Stamp doubleValue]/1000.0;
+    
+    NSInteger time = round(result);
+
+
+    return time;
+}
 
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
