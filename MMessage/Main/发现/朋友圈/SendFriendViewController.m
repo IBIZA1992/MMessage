@@ -81,7 +81,6 @@
         groupArr = resultObject;
         for(NSNumber *info in groupArr) {
             JMSGMessage *textMessage = [JMSGMessage createGroupMessageWithContent:self.TextContent groupId:info.description];
-            JMSGMessage *imageMessaage = [JMSGMessage createGroupMessageWithContent:self.ImageContent1 groupId:info.description];
             [JMSGGroup groupInfoWithGroupId:info.description completionHandler:^(id resultObject, NSError *error) {
                 JMSGGroup *group = resultObject;
 
@@ -111,7 +110,8 @@
                 }
             }];
         }
- 
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:nil];
+
 
         [self.navigationController popViewControllerAnimated:YES];
     }];

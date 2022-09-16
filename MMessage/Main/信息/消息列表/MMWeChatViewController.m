@@ -31,7 +31,8 @@
         self.tabBarItem.image = [UIImage imageNamed:@"message"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"message.fill"];
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
-        
+        [JMessage addDelegate:self withConversation:nil];
+
     }
     return self;
 }
@@ -46,7 +47,6 @@
     [self.view addSubview:_tableview];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadchat) name:@"chat"  object:nil];
-    //[JMessage addDelegate:self withConversation:nil];
 
     
 }
@@ -61,61 +61,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [JMessage addDelegate:self withConversation:nil];
+   // [JMessage addDelegate:self withConversation:nil];
 
-//    JMSGUser *myUser = [JMSGUser myInfo];
-//    NSDictionary *dic = myUser.extras;
-//
-//    if(![dic objectForKey:@"朋友圈"]) {
-//        JMSGGroupInfo *groupinfo = [[JMSGGroupInfo alloc] init];
-//        groupinfo.name = [myUser.username stringByAppendingString:@"的朋友圈"];
-//        groupinfo.groupType = kJMSGGroupTypePublic;
-//
-//
-//        [JMSGGroup createGroupWithGroupInfo:groupinfo memberArray:nil completionHandler:^(id resultObject, NSError *error) {
-//            JMSGGroup *group = resultObject;
-//            NSString *groupID = group.gid;
-//            NSDictionary *dic = [NSDictionary dictionaryWithObject:groupID forKey:@"朋友圈"];
-//            JMSGUserInfo *info = [[JMSGUserInfo alloc] init];
-//            info.extras = dic;
-//            [JMSGUser updateMyInfoWithUserInfo:info completionHandler:^(id resultObject, NSError *error) {
-//                NSLog(@"");
-//            }];
-//
-//            [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
-//                JMSGGroup *group = resultObject;
-//
-//                [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-//                    NSMutableArray *listItemArray = @[].mutableCopy;
-//                    NSArray *dataArray = resultObject;
-//                    for(JMSGUser *info in dataArray){
-//                        [listItemArray addObject:info.username];
-//                    }
-//                    [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
-//                        NSLog(@"");
-//                    }];
-//                }];
-//            }];
-//
-//        }];
-//    }
-//
-//    [JMSGGroup groupInfoWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"] completionHandler:^(id resultObject, NSError *error) {
-//        JMSGGroup *group = resultObject;
-//
-//        
-//        [JMSGFriendManager getFriendList:^(id resultObject, NSError *error) {
-//            NSMutableArray *listItemArray = @[].mutableCopy;
-//            NSArray *dataArray = resultObject;
-//            for(JMSGUser *info in dataArray){
-//                [listItemArray addObject:info.username];
-//            }
-//            [group addMembersWithUsernameArray:listItemArray completionHandler:^(id resultObject, NSError *error) {
-//                NSLog(@"");
-//            }];
-//        }];
-//    }];
+
+
 
     
 }
@@ -159,19 +108,46 @@
     
     
     _single = [DJSingleton sharedManager];
-    /**获取列表的所有消息*/
-    [[JMSGConversation singleConversationWithUsername:_single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
-        self.single.messageArray = @[].mutableCopy;
-        self.single.messageArray = (NSMutableArray *)resultObject;
-        NSArray *array = [[NSArray alloc] initWithObjects:self.single.messagelistArray[indexPath.row],nil];
-        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-            self.single.userdata = resultObject[0];
-            /**设置聊天类型为单聊*/
+//    /**获取列表的所有消息*/
+//    [[JMSGConversation singleConversationWithUsername:_single.messagelistArray[indexPath.row]] allMessages:^(id resultObject, NSError *error) {
+//        self.single.messageArray = @[].mutableCopy;
+//        self.single.messageArray = (NSMutableArray *)resultObject;
+////        NSArray *array = [[NSArray alloc] initWithObjects:self.single.messagelistArray[indexPath.row],nil];
+////        [JMSGUser userInfoArrayWithUsernameArray:@"2134214" completionHandler:^(id resultObject, NSError *error) {
+////            self.single.userdata = resultObject[0];
+////            /**设置聊天类型为单聊*/
+////            self.single.messageType = 1;
+////            self.chatVC = [[DJChatViewController alloc] init];
+////            [self.navigationController pushViewController:self.chatVC animated:YES];
+////        }];
+////        JMSGUser *user = self.single.
+//    }];
+    
+    JMSGUser *user = self.single.messagelistArray[indexPath.row];
+    //单聊消息
+    if(user.username) {
+        [[JMSGConversation singleConversationWithUsername:user.username] allMessages:^(id resultObject, NSError *error) {
+            self.single.messageArray = @[].mutableCopy;
+            self.single.messageArray = (NSMutableArray *)resultObject;
+            self.single.userdata = (DJListItem *)user;
             self.single.messageType = 1;
             self.chatVC = [[DJChatViewController alloc] init];
             [self.navigationController pushViewController:self.chatVC animated:YES];
         }];
-    }];
+    }
+    //群聊消息
+    else {
+        JMSGGroup *group = self.single.messagelistArray[indexPath.row];
+        [[JMSGConversation groupConversationWithGroupId:group.gid] allMessages:^(id resultObject, NSError *error) {
+            self.single.messageArray = @[].mutableCopy;
+            self.single.messageArray = (NSMutableArray *)resultObject;
+            self.single.groupID = group.gid;
+            self.single.messageType = 2;
+            self.chatVC = [[DJChatViewController alloc] init];
+            [self.navigationController pushViewController:self.chatVC animated:YES];
+        }];
+    }
+    
 }
 
 

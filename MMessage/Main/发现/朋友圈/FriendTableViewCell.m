@@ -152,20 +152,12 @@
             _text_Height = size.height;
             [self.text setFrame:CGRectMake(text_X, text_Y, text_Width, _text_Height)];
             [self.text setTextAlignment:NSTextAlignmentLeft];
-            if(item.count == 1){
+            if(item.count == 1) {
                 _cell_Height = 80 + _text_Height;
             }
         }
-        
-        
-        
-        
-        
-        
+      
     }
-    
-    
-    
     
 }
 
@@ -222,7 +214,7 @@
     CGFloat Image_Width = 180;
     [self.thumbnail_pic1 setFrame:CGRectMake(10, Image_Y, Image_Width, Image_Width)];
     [self.thumbnail_pic2 setFrame:CGRectMake(20+Image_Width, Image_Y, Image_Width, Image_Width)];
-    [self.thumbnail_pic3 setFrame:CGRectMake(10+Image_Width, Image_Y+Image_Width+10, Image_Width, Image_Width)];
+    [self.thumbnail_pic3 setFrame:CGRectMake(10, Image_Y+Image_Width+10, Image_Width, Image_Width)];
     [self.thumbnail_pic4 setFrame:CGRectMake(20+Image_Width, Image_Y+Image_Width+10, Image_Width, Image_Width)];
 
     _cell_Height = Image_Y + Image_Width*2 + 30;
@@ -281,9 +273,6 @@
              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                  [[NSUserDefaults standardUserDefaults] setObject:data forKey:[message.timestamp stringValue]];
                  [[NSUserDefaults standardUserDefaults] synchronize];
-                 
-                 [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData"
-                                                                 object:nil];
              });
          }];
      }
@@ -313,13 +302,13 @@
     NSString *str2 = [NSMutableString stringWithFormat:@"%@",[dataFormatter2 stringFromDate:date]];
 
     if([[str1 substringWithRange:NSMakeRange(0,4)] isEqualToString:[str2 substringWithRange:NSMakeRange(0,4)]]){
-        if(result < 60) {
+        if(result < 60 && result > 0) {
             str = [NSMutableString stringWithFormat:@"刚刚"];
         }
         if(result >= 60 && result < 3600 ) {
             str = [NSMutableString stringWithFormat:@"%d分钟前",(int)result/60];
         }
-        else{
+        if(result >= 3600) {
             str = [NSMutableString stringWithFormat:@"%@",[dataFormatter1 stringFromDate:newDate]];
         }
     }
@@ -364,6 +353,32 @@
             self.thumbnail_pic1.contentMode=UIViewContentModeScaleAspectFit;
             self.thumbnail_pic1;
         })];
+        [self.contentView addSubview:({
+            self.thumbnail_pic2 = [[UIImageView alloc] initWithFrame:CGRectZero];
+            self.thumbnail_pic2.contentMode=UIViewContentModeScaleAspectFit;
+            self.thumbnail_pic2;
+        })];
+        [self.contentView addSubview:({
+            self.thumbnail_pic3 = [[UIImageView alloc] initWithFrame:CGRectZero];
+            self.thumbnail_pic3.contentMode=UIViewContentModeScaleAspectFit;
+            self.thumbnail_pic3;
+        })];
+        [self.contentView addSubview:({
+            self.thumbnail_pic4 = [[UIImageView alloc] initWithFrame:CGRectZero];
+            self.thumbnail_pic4.contentMode=UIViewContentModeScaleAspectFit;
+            self.thumbnail_pic4;
+        })];
+        [self.contentView addSubview:({
+            self.thumbnail_pic5 = [[UIImageView alloc] initWithFrame:CGRectZero];
+            self.thumbnail_pic5.contentMode=UIViewContentModeScaleAspectFit;
+            self.thumbnail_pic5;
+        })];
+        [self.contentView addSubview:({
+            self.thumbnail_pic6 = [[UIImageView alloc] initWithFrame:CGRectZero];
+            self.thumbnail_pic6.contentMode=UIViewContentModeScaleAspectFit;
+            self.thumbnail_pic6;
+        })];
+        
         //转发按钮
         [self.contentView addSubview:({
             self.btnreposts=[UIButton buttonWithType:UIButtonTypeCustom];

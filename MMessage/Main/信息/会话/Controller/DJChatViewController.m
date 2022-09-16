@@ -178,26 +178,61 @@
 
 ///加入到消息列表中
 - (void)Loadmessagelist {
-//    _single = [DJSingleton sharedManager];
-//    if(_single.messagelistArray.count != 0){
-//        BOOL isbool = [_single.messagelistArray containsObject: _single.userdata.username] || [_single.messagelistArray containsObject: _single.groupID];
-//        if(isbool == NO){
-//            if(_single.messageType == 1){
+    _single = [DJSingleton sharedManager];
+//    if(_single.messagelistArray.count != 0) {
+//        if(_single.messageType == 1) {
+//            if(![_single.messagelistArray containsObject:_single.userdata.username]) {
 //                [_single.messagelistArray addObject:_single.userdata.username];
 //            }
-//            if(_single.messageType == 2){
+//        }
+//        if(_single.messageType == 2) {
+//            if(![_single.messagelistArray containsObject:_single.groupID]) {
 //                [_single.messagelistArray addObject:_single.groupID];
 //            }
 //        }
 //    }
-//    if(_single.messagelistArray.count == 0){
-//        if(_single.messageType == 1){
+//    if(_single.messagelistArray.count == 0) {
+//        if(_single.messageType == 1) {
 //            [_single.messagelistArray addObject:_single.userdata.username];
 //        }
-//        if(_single.messageType == 2){
+//        if(_single.messageType == 2) {
 //            [_single.messagelistArray addObject:_single.groupID];
-//        }    }
+//        }
+//    }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+    
+    
+    if(_single.messageType == 1) {
+        [JMSGUser userInfoArrayWithUsernameArray:[[NSArray alloc] initWithObjects:_single.userdata.username,nil] completionHandler:^(id resultObject, NSError *error) {
+            JMSGUser *user = resultObject[0];
+            if([self.single.messagelistArray containsObject:user]) {
+                [self.single.messagelistArray removeObject:user];
+                [self.single.messagelistArray addObject:user];
+            }
+            else {
+                [self.single.messagelistArray addObject:user];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+        }];
+        
+    }
+    if(_single.messageType ==2) {
+        [JMSGGroup groupInfoWithGroupId:_single.groupID completionHandler:^(id resultObject, NSError *error) {
+            JMSGGroup *group = resultObject;
+            if([self.single.messagelistArray containsObject:group]){
+                [self.single.messagelistArray removeObject:group];
+                [self.single.messagelistArray addObject:group];
+            }
+            else {
+                [self.single.messagelistArray addObject:group];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"chat" object:nil];
+        }];
+    }
+    
+    
+    
+    
 }
 
 ///键盘中发送按钮的代理
@@ -244,7 +279,7 @@
         }];
    
     }
-    
+
     return YES;
 }
 

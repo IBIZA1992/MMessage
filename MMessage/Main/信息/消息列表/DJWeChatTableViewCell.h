@@ -14,6 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface DJWeChatTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) DJSingleton *single;
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-- (void)Loadwechattableviewcell:(NSString *)username;
+- (void)Loadwechattableviewcell:(id)type;
 
 @end
 

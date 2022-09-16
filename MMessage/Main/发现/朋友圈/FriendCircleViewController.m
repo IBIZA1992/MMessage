@@ -49,13 +49,24 @@
     
    
   
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                          selector:@selector(reLoad)
-                                              name:@"reloadData"
-                                            object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:@"reloadData" object:nil];
    
     
-    //接收消息
+ 
+ 
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getData];
+    
+}
+
+
+///接收消息
+- (void)getData{
+    [self.tableView setNeedsLayout];
     //分析数据分组朋友圈信息类型
     [JMSGConversation createGroupConversationWithGroupId:[[JMSGUser myInfo].extras objectForKey:@"朋友圈"]completionHandler:^(id resultObject, NSError *error) {
         self.friendMessageArr = @[].mutableCopy;
@@ -73,7 +84,7 @@
                     JMSGMessage *mess1 = arr[i-1];
                     JMSGMessage *mess2 = arr[i];
                     if([mess1.fromUser.username isEqual:mess2.fromUser.username]) {
-                        if(([mess1.timestamp intValue] - [mess2.timestamp intValue])/1000 < 10 &&(mess2.contentType != kJMSGContentTypeText)) {
+                        if(([mess1.timestamp intValue] - [mess2.timestamp intValue])/1000 < 30 &&(mess2.contentType != kJMSGContentTypeText)) {
                             //字典里面存两个元素
                             NSMutableArray *arrM = @[].mutableCopy;
                             arrM = [self.friendMessageArr lastObject];
@@ -103,13 +114,8 @@
             [self.tableView reloadData];
         }];
     }];
- 
-
 }
 
-- (void)reLoad{
-    //[_tableView reloadData];
-}
 
 
 

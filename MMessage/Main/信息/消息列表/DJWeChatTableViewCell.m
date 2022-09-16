@@ -9,6 +9,7 @@
 
 @implementation DJWeChatTableViewCell
 
+
 //重写初始化方法 创造控件
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -33,45 +34,83 @@
     return self;
 }
 
-- (void)Loadwechattableviewcell:(NSString *)username {
-    [self SetData:username];
-    [self SetFrame:username];
+- (void)Loadwechattableviewcell:(id)type {
+    [self SetData:type];
+    [self SetFrame:type];
 }
 
 
-- (void)SetData:(NSString *)username {
+- (void)SetData:(id)type {
     
-    _single = [DJSingleton sharedManager];
-    NSArray *array = [[NSArray alloc] initWithObjects:username,nil];
-    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-        //头像
-        JMSGUser *user = resultObject[0];
-        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-        self->_profile_image_url.image = [UIImage imageWithData:data];
-        }];
+//    _single = [DJSingleton sharedManager];
+//    NSArray *array = [[NSArray alloc] initWithObjects:username,nil];
+//    [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
+//        //头像
+//        JMSGUser *user = resultObject[0];
+//        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+//        self->_profile_image_url.image = [UIImage imageWithData:data];
+//        }];
+//
+//
+//        //昵称
+//        self->_name.text = user.username;
+//        //内容
+//        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
+//            self->_single.messageArray = @[].mutableCopy;
+//            self->_single.messageArray = (NSMutableArray *)resultObject;
+//            JMSGMessage *message =  self->_single.messageArray[0];
+//            JMSGAbstractContent *content = message.content;
+//            if(message.contentType == kJMSGContentTypeText){
+//                JMSGTextContent *textcontent = (JMSGTextContent *)content;
+//                self->_text.text = textcontent.text;
+//            }
+//        }];
+//    }];
     
-        
-        //昵称
-        self->_name.text = user.username;
-        //内容
-        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
-            self->_single.messageArray = @[].mutableCopy;
-            self->_single.messageArray = (NSMutableArray *)resultObject;
-            JMSGMessage *message =  self->_single.messageArray[0];
-            JMSGAbstractContent *content = message.content;
-            if(message.contentType == kJMSGContentTypeText){
-                JMSGTextContent *textcontent = (JMSGTextContent *)content;
-                self->_text.text = textcontent.text;
-            }
-        }];
-    }];
+    
+//    JMSGUser *A = [[JMSGUser alloc] init];
+//    A = (JMSGUser *)type;
+//    NSLog(@"");
+//    if(A.username) {
+//        JMSGUser *user = type;
+//        //头像
+//        [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+//        self->_profile_image_url.image = [UIImage imageWithData:data];
+//        }];
+//        //昵称
+//        self->_name.text = user.username;
+//        //内容
+//        [[JMSGConversation singleConversationWithUsername:self->_single.userdata.username] allMessages:^(id resultObject, NSError *error) {
+//            self->_single.messageArray = @[].mutableCopy;
+//            self->_single.messageArray = (NSMutableArray *)resultObject;
+//            JMSGMessage *message =  self->_single.messageArray[0];
+//            JMSGAbstractContent *content = message.content;
+//            if(message.contentType == kJMSGContentTypeText){
+//                JMSGTextContent *textcontent = (JMSGTextContent *)content;
+//                self->_text.text = textcontent.text;
+//            }
+//        }];
+//    }
+//    JMSGGroup *B;
+//    if([type isMemberOfClass:[B class]]) {
+//        JMSGGroup *group = type;
+//        //头像
+//        [group thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
+//            self->_profile_image_url.image = [UIImage imageWithData:data];
+//        }];
+//        //昵称
+//        self.name.text = group.name;
+//        //内容
+//
+//    }
+//
     
     
     
 }
 
 
-- (void)SetFrame:(NSString *)username {
+- (void)SetFrame:(id)type {
     [_profile_image_url setFrame:CGRectMake(10, 10, 50, 50)];
     _text.textAlignment = NSTextAlignmentLeft;
     _text.numberOfLines = 0;

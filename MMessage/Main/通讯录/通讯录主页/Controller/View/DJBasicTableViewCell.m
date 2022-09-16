@@ -19,23 +19,34 @@
 - (void)SetData:(DJListItem *)item {
     _single = [DJSingleton sharedManager];
     //头像
-    if(item.avater){/**判断是否有头像*/
-        NSArray *array = [[NSArray alloc] initWithObjects:item.username,nil];
-        [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) {
-            JMSGUser *user = resultObject[0];
-            [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) {
-                self->_profile_image_url.image = [UIImage imageWithData:data];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:item.username]) {/**如果本地有图片*/
+        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:item.username];
+        _profile_image_url.image = [UIImage imageWithData:imageData];
+    }
+    else {
+        if(item.avater){/**判断是否有头像*/
+            NSArray *array = [[NSArray alloc] initWithObjects:item.username,nil]; /**获得对方账号的userdata存入array中*/
+            [JMSGUser userInfoArrayWithUsernameArray:array completionHandler:^(id resultObject, NSError *error) { /**通过对方的userdata获取对方的信息*/
+                JMSGUser *user = resultObject[0]; /**返回对象即为对方的user*/
+                [user thumbAvatarData:^(NSData *data, NSString *objectId, NSError *error) { /**从网络请求头像数据*/
+                    self.profile_image_url.image = [UIImage imageWithData:data]; /**更新UI数据*/
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{/**在子线程中将头像数据存入本地磁盘*/
+                        [[NSUserDefaults standardUserDefaults] setObject:data forKey:item.username];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                    });
+                }];
             }];
-        }];
-    }
-    else{
-        if(item.imageStr) {
-            NSData *decodedImageData = [[NSData alloc] initWithBase64EncodedString:item.imageStr options:0];
-            _profile_image_url.image = [UIImage imageWithData:decodedImageData];
         }
-        else
-            _profile_image_url.image = [UIImage imageNamed:@"head"];
+        else{
+            if(item.imageStr) {
+                NSData *decodedImageData = [[NSData alloc] initWithBase64EncodedString:item.imageStr options:0];
+                _profile_image_url.image = [UIImage imageWithData:decodedImageData];
+            }
+            else
+                _profile_image_url.image = [UIImage imageNamed:@"head"];
+        }
     }
+ 
    
     /**昵称*/
     if(item.username) {
